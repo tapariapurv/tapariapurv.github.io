@@ -206,8 +206,10 @@ Stats display in a 2×2 mosaic grid with 2px gap (no visible gap — borders tou
 ## 9. Skill Chips
 
 ```
-[emoji] Label text
+[icon] Label text
 ```
+
+- Icon: inline 12×12 SVG (`.ci`), colored `--accent`. Simple Icons for brand logos, Lucide for generic concepts. No emoji.
 
 - Background: `--bg3`
 - Border: `1px solid --border`, border-radius `6px`
