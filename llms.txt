@@ -42,10 +42,11 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Technical Skills
 
-- Programming: HTML, CSS, Python, C++, JavaScript, Block Coding
-- Hardware: Arduino, NeoPixels, breadboards & LEDs, sensors, radar systems
-- AI Tools: Claude/Anthropic, Veo 3.1, Nano Banana Pro, Prompt Engineering
-- Microsoft Office: Excel (formulas, macros), PowerPoint
+- Programming: HTML, CSS, JavaScript, TypeScript, Python, C++, Block Coding
+- Web & App Development: React, Next.js, Tailwind CSS, GSAP, Firebase, SQLite, Streamlit, Chrome Extensions, Git & GitHub, Vercel & GitHub Pages
+- Hardware & Robotics: Arduino, ESP8266 / NodeMCU, NeoPixels, sensors & radar, breadboards & LEDs, 3D-printed enclosures
+- AI: Claude/Anthropic, Claude Code (hooks, skills, commands), Google Antigravity, local LLMs (Ollama), Prompt Engineering, Veo 3.1, Nano Banana Pro
+- Data & Finance: web scraping, PDF data extraction, REST APIs, stock market analysis, Excel (formulas, macros), PowerPoint
 - Creative Writing: descriptive stories, essays & paragraphs
 - Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code in Action
 
