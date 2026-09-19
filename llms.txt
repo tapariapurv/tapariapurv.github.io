@@ -1,6 +1,6 @@
 # Purv Taparia — Personal Portfolio
 
-> Purv Taparia is a student in Grade 5 at Chatrabhuj Narsee School, Mumbai, India. He is a 5× published author, International Rank 1 English Olympiad winner, coder, newsletter blogger, and Arduino-certified maker.
+> Purv Taparia is a student in Grade 5 at Chatrabhuj Narsee School, Mumbai, India. He is a 5× published author, two-time International Rank 1 English Olympiad winner, coder, newsletter blogger, Arduino-certified maker, and national-level roller skating competitor.
 
 ## About
 
@@ -13,22 +13,28 @@ Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievemen
 ## Key Achievements
 
 - International Rank 1 — IEO English Olympiad, Grade 1
-- International Rank 1 — IEO English Olympiad, Grade 3 (40/40, won ₹50,000)
+- School Rank 1 — IEO English Olympiad, Grade 2 (39/40)
+- International Rank 1 — IEO English Olympiad, Grade 3 Level 1 (40/40)
+- International Rank 1 — IEO English Olympiad, Grade 3 Level 2 (40/40, won ₹50,000)
 - International Rank 2 — ICSO Cyber Olympiad, Grade 3 (39/40, won ₹8,333)
-- 94th All-India Rank — IPM Mathematics Scholarship (Grade 2)
+- 94th All-India Rank — IPM All-India Open Mathematics Scholarship Examination Mega-Final (Grade 2)
 - 3rd Place — 3rd Mumbai Suburban Roller Athletics District Competition
-- 5th Place — Maharashtra State Roller Athletics Competition
-- 5th Place — National Roller Athletics Competition
-- Arduino Junior Certification — 96%
-- Anthropic Claude 101 Certification
+- 5th Place — 3rd Maharashtra Roller Athletics State Competition
+- 5th Place — 3rd Roller Athletics National Competition
+
+## Certifications
+
+- **Arduino Junior Certification** — Arduino Official, passed with 96%
+- **Claude 101 Certification** — Anthropic Academy
+- **Claude Code in Action Certification** — Anthropic Academy, perfect 8/8 quiz score — https://verify.skilljar.com/c/ghgqrf8euxh7
 
 ## Published Books (5 total)
 
-1. **10-Year-Old's Decode the Stock Market** — Amazon (B0H1YGCL2D)
-2. **Dubai and a Futuristic City** — Bribooks
-3. **The Tour to DigiDream** — Bribooks
-4. **Five Stories by Purv Taparia** — Bribooks
-5. **Graduation Day** — Bribooks (first book)
+1. **10-Year-Old's Decode the Stock Market** — Finance / non-fiction, Amazon — https://www.amazon.in/dp/B0H1YGCL2D
+2. **Dubai and a Futuristic City** — Adventure / sci-fi, Bribooks — https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city
+3. **The Tour to DigiDream** — Educational fiction, Bribooks — https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia
+4. **Five Stories by Purv Taparia** — Short story collection, Bribooks — https://www.bribooks.com/bookstore/five-stories-by-purv-taparia
+5. **Graduation Day** — School-life fiction, Bribooks (first book) — https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/
 
 ## Newsletter / Blog
 
@@ -36,27 +42,30 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Technical Skills
 
-- Programming: HTML, CSS, Python, C++, JavaScript
-- Hardware: Arduino, NeoPixels, breadboards, sensors, radar systems
+- Programming: HTML, CSS, Python, C++, JavaScript, Block Coding
+- Hardware: Arduino, NeoPixels, breadboards & LEDs, sensors, radar systems
 - AI Tools: Claude/Anthropic, Veo 3.1, Nano Banana Pro, Prompt Engineering
 - Microsoft Office: Excel (formulas, macros), PowerPoint
-- Certifications: Arduino Junior (96%), Anthropic Claude 101
+- Creative Writing: descriptive stories, essays & paragraphs
+- Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code in Action
 
 ## Projects
 
-- **Neo-Pixel Game** — 8×8 NeoPixel grid game (Arduino, C++) [Jan 2026]
-- **Air Quality Monitor** — Arduino-based AQM during Delhi smog crisis [Nov 2025]
-- **Radar System** — Arduino UNO radar with real-time detection [May 2026]
-- **Rapid Games** — Free online gaming platform (HTML/CSS/JS) [Oct 2025] — https://tapariapurv.github.io/rapidgames
-- **LiteWarden** — Chrome extension for local password management [Jan 2026]
-- **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript) [Jun 2026]
+- **Neo-Pixel Game** — 8×8 NeoPixel grid game (Arduino, C++) [Jan 2026] — https://github.com/tapariapurv/neopixel-game
+- **Air Quality Monitor** — Arduino-based AQM built during the Delhi smog crisis (Arduino, C++, sensors) [Nov 2025] — https://youtube.com/shorts/qGbcmELwwhQ
+- **Radar System** — Arduino UNO radar with signal processing and real-time detection [May 2026] — https://youtube.com/shorts/xNrgtW_awv8
+- **Rapid Games** — Free online gaming platform built with Ridit and Devansh (HTML/CSS/JS, GitHub Pages) [Oct 2025] — https://tapariapurv.github.io/rapidgames
+- **LiteWarden** — Chrome extension for local password management (JavaScript, Chrome APIs) [Jan 2026, in progress] — https://github.com/tapariapurv/chrome-extension
+- **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript, SQLite) [Jun 2026] — https://github.com/tapariapurv/antigravity-usage-monitor
 - **Logek** — Adaptive vocabulary learning app with spaced repetition and gamification (React, TypeScript, Firebase) [Aug 2026] — https://tapariapurv.github.io/Logek
+- **Market Alert Matrix** — ESP8266 + 16-LED NeoPixel ring device in a 3D-printed case that shows the market's live move from the previous close (one LED per 0.2%) and sounds a piezo alarm past 1% (ESP8266, C++, NeoPixels, APIs) [Aug 2026]
 - **Velvet Pour** — GSAP-animated cocktail brand landing page (React, GSAP, Tailwind CSS) [Aug 2026] — https://cocktail-site-lac.vercel.app/
 - **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub
 
 ## Links
 
 - Portfolio: https://tapariapurv.github.io
+- Resume (PDF): https://tapariapurv.github.io/assets/Purv%20Taparia%20-%20Resume.pdf
 - GitHub: https://github.com/tapariapurv
 - LinkedIn: https://www.linkedin.com/in/purv-taparia/
 - YouTube: https://youtube.com/@decodewithpurv

@@ -30,6 +30,18 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 - `llms.txt`: intro line and About section.
 - `privacy.html`: the "Children's privacy" section currently says the school name *is* published — keep this wording consistent with whatever is actually shown elsewhere on the site.
 
+## llms.txt must mirror every site content change
+
+`llms.txt` is a full plain-text mirror of the site's content, not just a bio. Whenever anything visible on the site changes — a project, achievement, certification, book, skill, or link is added, edited, or removed — make the matching change in `llms.txt` in the same commit. Its sections map to `index.html` like this:
+- **Key Achievements** ↔ `#achievements`
+- **Certifications** ↔ `#certifications`
+- **Published Books** ↔ `#books`
+- **Technical Skills** ↔ the skill groups in `#about`
+- **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one)
+- **Links** ↔ hero/contact links
+
+Before committing, diff the site against `llms.txt` for the section you touched — it has drifted before (missing projects and certifications).
+
 ## Freshness dates must be updated on every content change
 
 Whenever `index.html`, `privacy.html`, or `terms.html` content changes, update **every** date field before committing — these are deliberate SEO/GEO freshness signals, not incidental:
