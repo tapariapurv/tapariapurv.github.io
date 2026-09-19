@@ -22,7 +22,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="article:modified_time" content="2026-08-25" />
+    <meta property="article:modified_time" content="2026-09-19" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Purv Taparia | Student, Author & Developer" />
     <meta name="twitter:description" content="5x published author, International Rank 1 Olympiad winner, coder, and newsletter writer from Mumbai, India." />
@@ -90,7 +90,7 @@
       "inLanguage": "en-IN",
       "publisher": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-08-25"
+      "dateModified": "2026-09-19"
     }
     </script>
 
@@ -104,7 +104,7 @@
       "isPartOf": { "@id": "https://tapariapurv.github.io/#website" },
       "about": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-08-25",
+      "dateModified": "2026-09-19",
       "breadcrumb": { "@id": "https://tapariapurv.github.io/#breadcrumb" }
     }
     </script>
@@ -236,7 +236,7 @@
           "name": "Is this portfolio actively maintained?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 August 2026."
+            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 19 September 2026."
           }
         }
       ]
@@ -2739,7 +2739,7 @@
                         <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Anthropic's Claude 101 Certification</strong></a>.</p>
                         <p>I program in <strong>HTML, CSS, Python and C++</strong> and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                         <p>This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-08-25">25 August 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
+                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-09-19">19 September 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
                     </div>
                     <div class="stats rev d3">
                         <a href="#achievements" class="stat">
@@ -3179,12 +3179,35 @@
                     </a>
                 </div>
 
+                <div class="proj-card tc rev">
+                    <div class="tc-shine"></div>
+                    <div class="proj-meta">
+                        <span class="proj-num">10</span>
+                        <span class="proj-tag t-live">● Live</span>
+                    </div>
+                    <h3 class="proj-title">Indian Stock Data Hub</h3>
+                    <p class="proj-desc">An open-source research desk for Indian listed companies — pulls key ratios,
+                        quarterly trends, filings and news for any ticker, adds a plain-English verdict from a local
+                        AI model via Ollama, and exports formatted Excel and Word reports. — September 2026</p>
+                    <div class="proj-tech">
+                        <span class="tech">Python</span><span class="tech">Streamlit</span><span
+                            class="tech">Ollama</span><span class="tech">pdfplumber</span>
+                    </div>
+                    <a href="https://github.com/tapariapurv/indian-stock-data-hub" class="proj-link" target="_blank">
+                        View on GitHub →
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                            <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
                 </div>
 
             </div>
             <div class="proj-more-cta">
                 <button id="proj-more-btn" class="btn-g" onclick="toggleProjMore()">
-                    <span id="proj-more-label">View All Projects (+6)</span>
+                    <span id="proj-more-label">View All Projects (+7)</span>
                     <svg id="proj-more-icon" width="11" height="11" viewBox="0 0 11 11" fill="none"
                         style="transition: transform .3s var(--spring)">
                         <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
@@ -3390,7 +3413,7 @@
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
-                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 August 2026.</p>
+                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 19 September 2026.</p>
                 </details>
             </div>
         </div>
@@ -3533,7 +3556,7 @@
             if (expanded) {
                 more.classList.remove('expanded');
                 more.classList.add('leaving');
-                label.textContent = 'View All Projects (+6)';
+                label.textContent = 'View All Projects (+7)';
                 icon.style.transform = 'rotate(0deg)';
                 more.addEventListener('animationend', function onEnd() {
                     more.classList.remove('leaving');

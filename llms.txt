@@ -52,6 +52,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript) [Jun 2026]
 - **Logek** — Adaptive vocabulary learning app with spaced repetition and gamification (React, TypeScript, Firebase) [Aug 2026] — https://tapariapurv.github.io/Logek
 - **Velvet Pour** — GSAP-animated cocktail brand landing page (React, GSAP, Tailwind CSS) [Aug 2026] — https://cocktail-site-lac.vercel.app/
+- **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub
 
 ## Links
 
