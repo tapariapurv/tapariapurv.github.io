@@ -6,10 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is Purv Taparia's personal portfolio: a static site with no build system, package manager, or test suite — plain HTML/CSS/JS deployed directly via GitHub Pages.
 
-- `index.html` — the entire single-page site (hero, about, achievements, projects, books, blog, contact). Large file (~3.5k lines); most content sections live here, along with three `<script type="application/ld+json">` blocks (Person, WebSite, WebPage schema.org markup).
+- `index.html` — the entire single-page site (hero, about, achievements, certifications, projects, books, FAQ, contact), with all CSS and JS inline. Large file (~3.9k lines); also holds six `<script type="application/ld+json">` blocks (Person, WebSite, WebPage, BreadcrumbList, software-projects ItemList, FAQPage).
 - `privacy.html`, `terms.html` — standalone legal pages, same visual system as the main site.
-- `assets/resume.html` — a standalone, print-optimized resume page (has its own `@page` CSS for PDF export), not linked from `index.html` nav.
-- `css/style.css`, `js/main.js`, `js/animations.js` — shared styling/behavior for the main site.
+- `assets/Purv Taparia - Resume.pdf` — the resume, linked from the hero "Download Resume" button. It's a PDF edited outside this repo; flag bio changes to Purv rather than trying to edit it. (`Resume Old.pdf` is the previous version.)
+- `assets/og-image.png` — social preview image referenced by `og:image`, `twitter:image`, and the Person JSON-LD. Don't delete it.
+- `sitemap.xml` — referenced from `robots.txt`; add any new top-level page to it.
+- `css/style.css`, `js/main.js`, `js/animations.js` — legacy files, **not loaded by any page**. Edit the inline `<style>`/`<script>` in `index.html` instead.
 - `llms.txt` — a plain-text bio summary for AI crawlers; kept separate from the HTML but must stay factually in sync with it.
 - `.design-sync/design-principles.md` — the authoritative design system reference (color tokens, type scale, card/button specs, motion curves). Read this before making any visual change rather than reverse-engineering CSS.
 - `archive/old-site` branch — holds a previous version of the site (`old-site/`) that was removed from `gh-pages` to cut dead weight; not present in the working tree on `gh-pages`.
@@ -25,8 +27,8 @@ No install/build step. Open `index.html` directly in a browser, or serve the dir
 ## Bio facts must stay in sync
 
 Purv's grade, school, and other biographical facts are duplicated in multiple places and must be updated together whenever they change:
-- `index.html`: hero `.hero-desc`, `#about` intro paragraph, the FAQ JSON-LD `text` fields (two occurrences), and the Person JSON-LD (`alumniOf`, `award` grade references).
-- `assets/resume.html`: Education section.
+- `index.html`: hero `.hero-desc`, `#about` intro paragraph, the hero cards and marquee, the FAQ JSON-LD `text` fields (two occurrences), and the Person JSON-LD (`alumniOf`, `award` grade references).
+- `assets/Purv Taparia - Resume.pdf`: Education section (PDF, edited outside the repo — remind Purv to regenerate it).
 - `llms.txt`: intro line and About section.
 - `privacy.html`: the "Children's privacy" section currently says the school name *is* published — keep this wording consistent with whatever is actually shown elsewhere on the site.
 
@@ -37,7 +39,7 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 - **Certifications** ↔ `#certifications`
 - **Published Books** ↔ `#books`
 - **Technical Skills** ↔ the skill groups in `#about`
-- **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one)
+- **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one). Software projects also get an entry in the "Software Projects" ItemList JSON-LD in `index.html`. The FAQ "What projects…" answer just links to `#projects`, so it doesn't need updating.
 - **Links** ↔ hero/contact links
 
 Before committing, diff the site against `llms.txt` for the section you touched — it has drifted before (missing projects and certifications).
