@@ -11,7 +11,6 @@ This is Purv Taparia's personal portfolio: a static site with no build system, p
 - `assets/Purv Taparia - Resume.pdf` — the resume, linked from the hero "Download Resume" button. It's a PDF edited outside this repo; flag bio changes to Purv rather than trying to edit it. (`Resume Old.pdf` is the previous version.)
 - `assets/og-image.png` — social preview image referenced by `og:image`, `twitter:image`, and the Person JSON-LD. Don't delete it.
 - `sitemap.xml` — referenced from `robots.txt`; add any new top-level page to it.
-- `css/style.css`, `js/main.js`, `js/animations.js` — legacy files, **not loaded by any page**. Edit the inline `<style>`/`<script>` in `index.html` instead.
 - `llms.txt` — a plain-text bio summary for AI crawlers; kept separate from the HTML but must stay factually in sync with it.
 - `.design-sync/design-principles.md` — the authoritative design system reference (color tokens, type scale, card/button specs, motion curves). Read this before making any visual change rather than reverse-engineering CSS.
 - `archive/old-site` branch — holds a previous version of the site (`old-site/`) that was removed from `gh-pages` to cut dead weight; not present in the working tree on `gh-pages`.
@@ -40,6 +39,8 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 - **Published Books** ↔ `#books`
 - **Technical Skills** ↔ the skill groups in `#about`
 - **Changelog** ↔ `#latest` (month-by-month history, newest first — projects, certifications and milestones; the newest 3 months show, older ones sit behind "View Full History" as `.log-extra` rows. When something new ships, add it under its month, move the 4th-newest month to `.log-extra`, and keep the whole history)
+- **AI emphasis is deliberate.** Purv's positioning leads with AI building: the hero line, typewriter words (`AI Builder`), title/meta, Person `jobTitle`. Any project built with Claude Code gets a `<span class="proj-tag t-ai">✳ Claude Code</span>` badge on both its project card and its changelog row, and "built with Claude Code" in `llms.txt` (source of truth: the resume's project badges).
+- Changelog rows without an exact month (Olympiads, which are only known by grade) use `<span class="log-date">2024–25<small>Grade 3</small></span>` instead of `<time>`. Grade 5 = school year 2026–27, and the school year runs June to March. Don't invent months.
 - **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one). Software projects also get an entry in the "Software Projects" ItemList JSON-LD in `index.html`. The FAQ "What projects…" answer just links to `#projects`, so it doesn't need updating.
 - **Links** ↔ hero/contact links
 
