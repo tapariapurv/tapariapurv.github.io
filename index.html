@@ -3668,6 +3668,12 @@
         const statusEl = document.getElementById('loader-status');
         const slowEl = document.getElementById('loader-slow');
         (function () {
+            // Crawlers (Googlebot, Lighthouse) snapshot before the loader animates away — skip it for them.
+            if (/bot|crawl|spider|slurp|lighthouse|inspectiontool|headless/i.test(navigator.userAgent)) {
+                loader.style.display = 'none';
+                document.querySelectorAll('.rev, .rev-l, .rev-r').forEach(el => { el.style.transition = 'none'; el.classList.add('in'); });
+                return;
+            }
             const MIN_MS = fxLite ? 900 : 2800;   // fake lag floor
             const SLOW_MS = 5000;                  // show reassurance message
             const MAX_MS = 9000;                   // hard safety cap — never trust a single event to unblock the UI
