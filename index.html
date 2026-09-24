@@ -117,10 +117,11 @@
         { "@type": "ListItem", "position": 2, "name": "About", "item": "https://tapariapurv.github.io/#about" },
         { "@type": "ListItem", "position": 3, "name": "Achievements", "item": "https://tapariapurv.github.io/#achievements" },
         { "@type": "ListItem", "position": 4, "name": "Certifications", "item": "https://tapariapurv.github.io/#certifications" },
-        { "@type": "ListItem", "position": 5, "name": "Projects", "item": "https://tapariapurv.github.io/#projects" },
-        { "@type": "ListItem", "position": 6, "name": "Books", "item": "https://tapariapurv.github.io/#books" },
-        { "@type": "ListItem", "position": 7, "name": "FAQ", "item": "https://tapariapurv.github.io/#faq" },
-        { "@type": "ListItem", "position": 8, "name": "Contact", "item": "https://tapariapurv.github.io/#contact" }
+        { "@type": "ListItem", "position": 5, "name": "Latest", "item": "https://tapariapurv.github.io/#latest" },
+        { "@type": "ListItem", "position": 6, "name": "Projects", "item": "https://tapariapurv.github.io/#projects" },
+        { "@type": "ListItem", "position": 7, "name": "Books", "item": "https://tapariapurv.github.io/#books" },
+        { "@type": "ListItem", "position": 8, "name": "FAQ", "item": "https://tapariapurv.github.io/#faq" },
+        { "@type": "ListItem", "position": 9, "name": "Contact", "item": "https://tapariapurv.github.io/#contact" }
       ]
     }
     </script>
@@ -212,54 +213,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Purv Taparia is a student from Grade 5 at Chatrabhuj Narsee School, Mumbai, India, who is a 5x published author, an International Rank 1 English Olympiad winner, a self-taught coder working with HTML, CSS, Python, C++ and Arduino, and the writer of a newsletter on Beehiiv."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What programming languages and tools does Purv Taparia know?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Purv codes in HTML, CSS, JavaScript, TypeScript, Python, and C++, builds web apps with React, Next.js, Tailwind CSS, Firebase, and Streamlit, and builds hardware projects with Arduino, ESP8266, NeoPixels, and sensors. He works with AI tools including Claude Code, Google Antigravity, local LLMs via Ollama, Veo 3.1, and Nano Banana Pro, and holds Anthropic's Claude 101 and Claude Code in Action certifications and a 96% score on the Arduino Junior Certification."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How many books has Purv Taparia published?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Purv has published 5 books across Amazon and Bribooks: '10-Year-Old's Decode the Stock Market', 'Dubai and a Futuristic City', 'The Tour to DigiDream', 'Five Stories by Purv Taparia', and 'Graduation Day' (his first book)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What awards has Purv Taparia won?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Purv won International Rank 1 in the IEO English Olympiad in both Grade 1 and Grade 3 (earning Rs. 50,000 in prize money), International Rank 2 in the ICSO Cyber Olympiad in Grade 3, and a 94th All-India Rank in the IPM Mathematics Scholarship Examination in Grade 2. He has also placed at district, state, and national roller skating competitions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What projects has Purv Taparia built?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Purv builds both hardware and software — Arduino and ESP8266 devices, web apps, browser extensions, and AI-powered tools. The full, up-to-date list is in the Projects section at https://tapariapurv.github.io/#projects."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where can I read Purv Taparia's newsletter?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Purv writes a newsletter on Beehiiv at tapariapurv.beehiiv.com, sharing updates on his projects, writing, and learning."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Purv Taparia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can reach Purv by email at tapariapurv+portfolio@gmail.com, or connect via GitHub, LinkedIn, or YouTube — all linked in the contact section of this site."
           }
         },
         {
@@ -1283,6 +1236,242 @@
 
         .tc:hover .ach-card-top::before {
             transform: scaleX(1);
+        }
+
+        /* ── LATEST (dated changelog — keep newest first, max ~5 rows) ── */
+        #latest {
+            padding: 110px 0;
+            background: var(--bg2);
+            transition: background-color .35s;
+        }
+
+        .sec-title em {
+            font-family: var(--fs);
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .log-note {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--text2);
+            max-width: 260px;
+            text-align: right;
+        }
+
+        .log {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .log::before {
+            content: '';
+            position: absolute;
+            left: 150px;
+            top: 26px;
+            bottom: 26px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--glow), var(--border) 60%, transparent);
+        }
+
+        .log.expanded::before {
+            background: linear-gradient(to bottom, var(--glow), var(--border) 25%, var(--border) 92%, transparent);
+        }
+
+        .log-month {
+            display: grid;
+            grid-template-columns: 112px 1fr;
+            column-gap: 64px;
+            position: relative;
+        }
+
+        .log-month + .log-month {
+            margin-top: 14px;
+        }
+
+        .log-entries {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .log-extra {
+            display: none;
+        }
+
+        .log.expanded .log-extra {
+            display: grid;
+            animation: projMoreIn .5s var(--ease) both;
+        }
+
+        .log.leaving .log-extra {
+            display: grid;
+            animation: projMoreOut .3s var(--ease) both;
+        }
+
+        .t-cert {
+            background: var(--gdim);
+            color: var(--gold);
+            border: 1px solid var(--g-border);
+        }
+
+        .t-mile {
+            background: var(--bg3);
+            color: var(--text2);
+            border: 1px solid var(--border);
+        }
+
+        .log-month::before {
+            content: '';
+            position: absolute;
+            left: 146px;
+            top: 23px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--bg2);
+            border: 1.5px solid var(--accent);
+            box-shadow: 0 0 0 4px var(--bg2);
+            transition: background .3s var(--ease), box-shadow .3s var(--ease), transform .4s var(--spring);
+            z-index: 1;
+        }
+
+        .log-month:first-child::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--bg2), 0 0 14px var(--glow);
+        }
+
+        .log-month:hover::before {
+            transform: scale(1.25);
+        }
+
+        .log-date {
+            font-family: var(--fm);
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text3);
+            text-align: right;
+            padding-top: 20px;
+            transition: color .3s var(--ease);
+        }
+
+        .log-month:hover .log-date {
+            color: var(--accent);
+        }
+
+        .log-body {
+            display: block;
+            position: relative;
+            padding: 16px 22px 18px;
+            border: 1px solid transparent;
+            border-radius: var(--r);
+            color: inherit;
+            text-decoration: none;
+            transition: background .3s var(--ease), border-color .3s var(--ease), transform .4s var(--spring), box-shadow .3s var(--ease);
+        }
+
+        a.log-body:hover {
+            background: var(--surface);
+            border-color: var(--glow);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 44px rgba(0, 230, 190, .08);
+        }
+
+        a.log-body:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .log-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .log-title {
+            font-family: var(--ff);
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            color: var(--text);
+        }
+
+        a.log-body .log-top {
+            padding-right: 28px;
+        }
+
+        .log-arrow {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            color: var(--text3);
+            transition: color .3s var(--ease), transform .4s var(--spring);
+        }
+
+        a.log-body:hover .log-arrow {
+            color: var(--accent);
+            transform: translate(2px, -2px);
+        }
+
+        .log-desc {
+            display: block;
+            margin-top: 6px;
+            max-width: 640px;
+            font-size: 13.5px;
+            line-height: 1.68;
+            color: var(--text2);
+        }
+
+        @media (max-width: 860px) {
+            .log-note {
+                text-align: left;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #latest {
+                padding: 72px 0;
+            }
+
+            .log::before {
+                left: 4px;
+                top: 10px;
+                bottom: 10px;
+            }
+
+            .log-month {
+                grid-template-columns: 1fr;
+                padding-left: 18px;
+            }
+
+            .log-month + .log-month {
+                margin-top: 20px;
+            }
+
+            .log-month::before {
+                left: 0;
+                top: 5px;
+            }
+
+            .log-date {
+                text-align: left;
+                padding: 0 0 0 16px;
+            }
+
+            .log-body {
+                padding: 6px 16px 12px;
+            }
+
+            .log-arrow {
+                top: 12px;
+                right: 16px;
+            }
         }
 
         /* ── PROJECTS ───────────────────────────────────────────── */
@@ -2547,10 +2736,9 @@
         <a href="#about" onclick="closeMnav()">About</a>
         <a href="#achievements" onclick="closeMnav()">Achievements</a>
         <a href="#certifications" onclick="closeMnav()">Certifications</a>
+        <a href="#latest" onclick="closeMnav()">Latest</a>
         <a href="#projects" onclick="closeMnav()">Projects</a>
         <a href="#books" onclick="closeMnav()">Books</a>
-        <a href="#faq" onclick="closeMnav()">FAQ</a>
-        <a href="https://tapariapurv.beehiiv.com" target="_blank" onclick="closeMnav()">Blog</a>
         <a href="#contact" onclick="closeMnav()">Contact</a>
         <button id="theme-toggle-mobile" aria-label="Toggle Theme" style="display:flex; align-items:center; gap:12px; margin-top:10px; color:var(--text2); transition:color .2s; font-family:var(--ff); font-size:24px; font-weight:700; background:none; border:none; cursor:none;">
             <span class="theme-label">Light Mode</span>
@@ -2566,10 +2754,9 @@
             <a href="#about">About</a>
             <a href="#achievements">Achievements</a>
             <a href="#certifications">Certifications</a>
+            <a href="#latest">Latest</a>
             <a href="#projects">Projects</a>
             <a href="#books">Books</a>
-            <a href="#faq">FAQ</a>
-            <a href="https://tapariapurv.beehiiv.com" target="_blank">Blog</a>
             <div style="display: flex; align-items: center; gap: 16px;">
                 <a href="#contact" class="nav-cta">Get In Touch</a>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -2594,14 +2781,10 @@
             <p class="hero-sub"><span id="tw-word">Student</span><span class="fx-cursor"></span></p>
 
             <p class="hero-desc">
-                Hi! I am <strong>Purv Taparia</strong>, a student from Grade 5 at
-                <strong>Chatrabhuj Narsee School, Mumbai</strong>. I am a
-                <a href="#books" class="hl"><strong>5× published author</strong></a>
-                on Amazon and Bribooks, and write a
-                <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a>.
-                I've won <a href="#achievements" class="hl"><strong>International Rank 1</strong></a>
-                in the English Olympiad twice and placed at
-                <a href="#achievements" class="hl"><strong>national-level roller skating</strong></a> competitions.
+                Hi! I'm <strong>Purv</strong>, a student from Mumbai. I
+                <a href="#projects" class="hl"><strong>build hardware</strong></a>,
+                <a href="#projects" class="hl"><strong>code apps</strong></a>, and
+                <a href="#books" class="hl"><strong>write books</strong></a>.
             </p>
 
             <div class="hero-ctas">
@@ -3030,6 +3213,144 @@
         </div>
     </section>
 
+    <!-- LATEST -->
+    <section id="latest">
+        <div class="wrap">
+            <div class="sec-hdr">
+                <div>
+                    <div class="slabel rev">Changelog</div>
+                    <h2 class="sec-title rev d1">Month by <em>month</em></h2>
+                </div>
+                <p class="log-note rev d2">Everything I've shipped, earned and launched, newest first.</p>
+            </div>
+            <ol class="log" id="log">
+                <li class="log-month rev">
+                    <time class="log-date" datetime="2026-09">Sep 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://github.com/tapariapurv/indian-stock-data-hub" target="_blank">
+                            <span class="log-top"><span class="log-title">Indian Stock Data Hub</span><span class="proj-tag t-live">● Live</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Open-sourced a research desk for Indian listed companies, with a plain-English verdict from a local AI model and one-click Excel and Word reports.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month rev">
+                    <time class="log-date" datetime="2026-08">Aug 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://verify.skilljar.com/c/ghgqrf8euxh7" target="_blank">
+                            <span class="log-top"><span class="log-title">Claude Code in Action Certification</span><span class="proj-tag t-cert">✦ Certified</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Completed Anthropic Academy's Claude Code in Action course with a perfect 8/8 quiz score.</span>
+                        </a>
+                        <div class="log-body">
+                            <span class="log-top"><span class="log-title">Market Alert Matrix</span><span class="proj-tag t-hw">⬡ Hardware</span></span>
+                            <span class="log-desc">Built an ESP8266 and NeoPixel ring in a 3D-printed case that lights up with the market's live move and sounds an alarm past 1%.</span>
+                        </div>
+                        <a class="log-body" href="https://tapariapurv.github.io/Logek" target="_blank">
+                            <span class="log-top"><span class="log-title">Logek</span><span class="proj-tag t-live">● Live</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Launched an adaptive vocabulary app with spaced repetition and gamification, built in React, TypeScript and Firebase.</span>
+                        </a>
+                        <a class="log-body" href="https://cocktail-site-lac.vercel.app/" target="_blank">
+                            <span class="log-top"><span class="log-title">Velvet Pour</span><span class="proj-tag t-live">● Live</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Designed a GSAP-animated cocktail brand landing page with scroll-triggered timelines and text reveals.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month rev">
+                    <time class="log-date" datetime="2026-06">Jun 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://github.com/tapariapurv/antigravity-usage-monitor" target="_blank">
+                            <span class="log-top"><span class="log-title">Antigravity Usage Monitor</span><span class="proj-tag t-live">● Live</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Built an analytics dashboard for Google Antigravity usage with Next.js, TypeScript and SQLite.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2026-05">May 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://youtube.com/shorts/xNrgtW_awv8?feature=share" target="_blank">
+                            <span class="log-top"><span class="log-title">Radar System</span><span class="proj-tag t-hw">⬡ Hardware</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Built an Arduino UNO radar with signal processing and real-time object detection.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2026-03">Mar 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="assets/Claude 101 Certificate.pdf" target="_blank">
+                            <span class="log-top"><span class="log-title">Claude 101 Certification</span><span class="proj-tag t-cert">✦ Certified</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Completed Anthropic Academy's Claude 101 course.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2026-01">Jan 2026</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://github.com/tapariapurv/neopixel-game" target="_blank">
+                            <span class="log-top"><span class="log-title">Neo-Pixel Game</span><span class="proj-tag t-hw">⬡ Hardware</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Built a 30-second apple-catching game on an 8×8 NeoPixel grid, with push-button controls and piezo sound effects in a 3D-printed case.</span>
+                        </a>
+                        <a class="log-body" href="https://github.com/tapariapurv/chrome-extension" target="_blank">
+                            <span class="log-top"><span class="log-title">LiteWarden</span><span class="proj-tag t-wip">◐ In Progress</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Started a Chrome extension for managing passwords locally, without the cloud.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2025-11">Nov 2025</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="assets/Arduino Junior Certification.pdf" target="_blank">
+                            <span class="log-top"><span class="log-title">Arduino Junior Certification</span><span class="proj-tag t-cert">✦ Certified</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Passed the official Arduino Junior Certification exam with 96%.</span>
+                        </a>
+                        <a class="log-body" href="https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7" target="_blank">
+                            <span class="log-top"><span class="log-title">Air Quality Monitor</span><span class="proj-tag t-hw">⬡ Hardware</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Built an Arduino air quality monitor during the Delhi smog crisis.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2025-10">Oct 2025</time>
+                    <div class="log-entries">
+                        <a class="log-body" href="https://tapariapurv.github.io/rapidgames" target="_blank">
+                            <span class="log-top"><span class="log-title">Rapid Games</span><span class="proj-tag t-live">● Live</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Launched a free online gaming platform, built with my friends Ridit and Devansh.</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="log-month log-extra">
+                    <time class="log-date" datetime="2025-03">Mar 2025</time>
+                    <div class="log-entries">
+                        <div class="log-body">
+                            <span class="log-top"><span class="log-title">This Portfolio</span><span class="proj-tag t-mile">◆ Milestone</span></span>
+                            <span class="log-desc">Launched this site to bring my projects, books and achievements together in one place.</span>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <div class="proj-more-cta">
+                <button id="log-more-btn" class="btn-g" onclick="toggleLogMore()" aria-expanded="false" aria-controls="log">
+                    <span id="log-more-label">View Full History (+8)</span>
+                    <svg id="log-more-icon" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"
+                        style="transition: transform .3s var(--spring)">
+                        <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
         <div class="wrap">
@@ -3048,11 +3369,12 @@
                         <span class="proj-tag t-hw">⬡ Hardware</span>
                     </div>
                     <h3 class="proj-title">Neo-Pixel Game</h3>
-                    <p class="proj-desc">A game made using NeoPixels which you can play. It consists of an 8×8 Neo-Pixel
-                        Grid. — Jan 2026</p>
+                    <p class="proj-desc">A 30-second arcade game on an 8×8 NeoPixel grid: slide a 3-LED paddle with push buttons to
+                        catch falling apples (+1 per catch, −2 per miss) as a second apple joins and the speed ramps up.
+                        Runs on an Arduino Uno in a battery-powered, 3D-printed case with piezo sound effects. — Jan 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Arduino</span><span class="tech">C++</span><span
-                            class="tech">NeoPixels</span>
+                            class="tech">NeoPixels</span><span class="tech">Piezo</span>
                     </div>
                     <a href="https://github.com/tapariapurv/neopixel-game" class="proj-link" target="_blank">
                         View on Github →
@@ -3451,44 +3773,13 @@
             <div class="sec-hdr">
                 <div>
                     <div class="slabel rev">Common Questions</div>
-                    <h2 class="sec-title rev d1">Frequently Asked<br />Questions</h2>
+                    <h2 class="sec-title rev d1">Quick <em>answers</em></h2>
                 </div>
             </div>
             <div class="faq-list">
                 <details class="faq-item rev" open>
                     <summary>Who is Purv Taparia?</summary>
                     <p>Purv Taparia is a student from Grade 5 at Chatrabhuj Narsee School, Mumbai, India, who is a 5x published author, an International Rank 1 English Olympiad winner, a self-taught coder working with HTML, CSS, Python, C++ and Arduino, and the writer of a newsletter on Beehiiv.</p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>What programming languages and tools does Purv Taparia know?</summary>
-                    <p>Purv codes in HTML, CSS, JavaScript, TypeScript, Python, and C++, builds web apps with React, Next.js, Tailwind CSS, Firebase, and Streamlit, and builds hardware projects with Arduino, ESP8266, NeoPixels, and sensors. He works with AI tools including Claude Code, Google Antigravity, local LLMs via Ollama, Veo 3.1, and Nano Banana Pro, and holds Anthropic's Claude 101 and Claude Code in Action certifications and a 96% score on the Arduino Junior Certification.</p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>How many books has Purv Taparia published?</summary>
-                    <p>Purv has published 5 books across Amazon and Bribooks: "10-Year-Old's Decode the Stock Market," "Dubai and a Futuristic City," "The Tour to DigiDream," "Five Stories by Purv Taparia," and "Graduation Day" (his first book).</p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>What awards has Purv Taparia won?</summary>
-                    <p>Purv won International Rank 1 in the IEO English Olympiad in both Grade 1 and Grade 3 (earning Rs. 50,000 in prize money), International Rank 2 in the ICSO Cyber Olympiad in Grade 3, and a 94th All-India Rank in the IPM Mathematics Scholarship Examination in Grade 2. He has also placed at district, state, and national roller skating competitions.</p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>What projects has Purv Taparia built?</summary>
-                    <p>Purv builds both hardware and software — Arduino and ESP8266 devices, web apps, browser extensions, and AI-powered tools. The full, up-to-date list lives in the Projects section.</p>
-                    <p><a href="#projects" class="btn-g">
-                        View Projects
-                        <svg width="12" height="12" viewBox="0 0 13 13" fill="none">
-                            <path d="M6.5 11V2M2 6.5L6.5 2 11 6.5" stroke="currentColor" stroke-width="1.4"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a></p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>Where can I read Purv Taparia's newsletter?</summary>
-                    <p>Purv writes a newsletter on Beehiiv at <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl">tapariapurv.beehiiv.com</a>, sharing updates on his projects, writing, and learning.</p>
-                </details>
-                <details class="faq-item rev">
-                    <summary>How can I contact Purv Taparia?</summary>
-                    <p>You can reach Purv by email at tapariapurv+portfolio@gmail.com, or connect via GitHub, LinkedIn, or YouTube — all linked in the contact section below.</p>
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
@@ -3649,6 +3940,34 @@
                 icon.style.transform = 'rotate(180deg)';
             }
         }
+        function toggleLogMore() {
+            const log = document.getElementById('log');
+            const btn = document.getElementById('log-more-btn');
+            const label = document.getElementById('log-more-label');
+            const icon = document.getElementById('log-more-icon');
+            const extra = log.querySelectorAll('.log-extra .log-body').length;
+            if (log.classList.contains('expanded')) {
+                log.classList.remove('expanded');
+                log.classList.add('leaving');
+                label.textContent = 'View Full History (+' + extra + ')';
+                icon.style.transform = 'rotate(0deg)';
+                btn.setAttribute('aria-expanded', 'false');
+                const done = () => {
+                    log.classList.remove('leaving');
+                    const top = document.getElementById('latest').getBoundingClientRect().top;
+                    if (top < 0) document.getElementById('latest').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                };
+                // animationend never fires with reduced motion or in throttled tabs — fall back to a timer.
+                const t = setTimeout(done, 400);
+                log.querySelector('.log-extra').addEventListener('animationend', () => { clearTimeout(t); done(); }, { once: true });
+            } else {
+                log.classList.remove('leaving');
+                log.classList.add('expanded');
+                label.textContent = 'Show Less';
+                icon.style.transform = 'rotate(180deg)';
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        }
         function closeMnav() { mnav.classList.remove('open'); }
 
         /* ── Performance Mode Detection ───────────────────────────────
@@ -3660,9 +3979,9 @@
         if (fxLite) document.body.classList.add('fx-lite');
 
         /* ── Loader ──────────────────────────────────────────────────
-           Deliberately kept on screen for a minimum "fake lag" duration so
-           it reads as a real loading sequence rather than a flash, and a
-           friendly message shows up if things are genuinely slow. */
+           Kept on screen for a short minimum so it reads as a brand beat
+           rather than a flash, and a friendly message shows up if things
+           are genuinely slow. */
         const loader = document.getElementById('loader');
         const pctEl = document.getElementById('loader-pct');
         const statusEl = document.getElementById('loader-status');
@@ -3674,9 +3993,9 @@
                 document.querySelectorAll('.rev, .rev-l, .rev-r').forEach(el => { el.style.transition = 'none'; el.classList.add('in'); });
                 return;
             }
-            const MIN_MS = fxLite ? 900 : 2800;   // fake lag floor
+            const MIN_MS = fxLite ? 300 : 600;    // brief brand beat — long fake waits hurt bounce rate and Core Web Vitals
             const SLOW_MS = 5000;                  // show reassurance message
-            const MAX_MS = 9000;                   // hard safety cap — never trust a single event to unblock the UI
+            const MAX_MS = 4000;                   // hard safety cap — never trust a single event to unblock the UI
             const PHRASES = ['Initializing', 'Loading assets', 'Preparing portfolio', 'Almost ready'];
             const t0 = performance.now();
             let pct = 0, phraseI = 0, pageLoaded = false, slowShown = false, stallUntil = 0;
@@ -3709,7 +4028,7 @@
 
                 const doneWaiting = (pageLoaded && elapsed >= MIN_MS) || elapsed >= MAX_MS;
                 const target = doneWaiting ? 100 : Math.min(96, (elapsed / (MIN_MS * 1.15)) * 100);
-                if (!stalled) pct += (target - pct) * .1;
+                if (!stalled) pct += (target - pct) * (doneWaiting ? .25 : .1);
                 pctEl.textContent = Math.round(pct);
 
                 if (doneWaiting && pct > 99) {
@@ -3723,6 +4042,8 @@
                 requestAnimationFrame(tick);
             }
             requestAnimationFrame(tick);
+            // rAF never fires in some renderers (background tabs, some crawlers) — a plain timer guarantees the page shows.
+            setTimeout(() => loader.classList.add('gone'), MAX_MS + 500);
         })();
 
         /* ── Mouse Glow + Hero Orb Parallax (shared, rAF-throttled) ──── */
@@ -3866,7 +4187,7 @@
             function updateActive() {
                 const sy = window.scrollY + window.innerHeight * .35;
                 let current = null;
-                sections.forEach(sec => { if (sec.offsetTop <= sy) current = sec; });
+                sections.forEach(sec => { if (sec.offsetTop <= sy && sy < sec.offsetTop + sec.offsetHeight) current = sec; });
                 navLinks.forEach(a => a.classList.toggle('fx-active', !!current && a.getAttribute('href') === '#' + current.id));
             }
             window.addEventListener('scroll', updateActive, { passive: true });

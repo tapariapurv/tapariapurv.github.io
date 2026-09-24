@@ -50,9 +50,21 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - Creative Writing: descriptive stories, essays & paragraphs
 - Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code in Action
 
+## Changelog (month by month, newest first)
+
+- **Sep 2026** — Open-sourced Indian Stock Data Hub — https://github.com/tapariapurv/indian-stock-data-hub
+- **Aug 2026** — Earned the Claude Code in Action Certification (Anthropic Academy, 8/8) — https://verify.skilljar.com/c/ghgqrf8euxh7; built Market Alert Matrix (ESP8266 + NeoPixel market-move alarm); launched Logek — https://tapariapurv.github.io/Logek; designed Velvet Pour — https://cocktail-site-lac.vercel.app/
+- **Jun 2026** — Built Antigravity Usage Monitor — https://github.com/tapariapurv/antigravity-usage-monitor
+- **May 2026** — Built an Arduino UNO Radar System — https://youtube.com/shorts/xNrgtW_awv8
+- **Mar 2026** — Earned the Claude 101 Certification (Anthropic Academy)
+- **Jan 2026** — Built Neo-Pixel Game, an apple-catching arcade game on an 8×8 NeoPixel grid — https://github.com/tapariapurv/neopixel-game; started LiteWarden (Chrome extension, in progress) — https://github.com/tapariapurv/chrome-extension
+- **Nov 2025** — Passed the Arduino Junior Certification with 96%; built an Air Quality Monitor during the Delhi smog crisis — https://youtube.com/shorts/qGbcmELwwhQ
+- **Oct 2025** — Launched Rapid Games with Ridit and Devansh — https://tapariapurv.github.io/rapidgames
+- **Mar 2025** — Launched this portfolio — https://tapariapurv.github.io
+
 ## Projects
 
-- **Neo-Pixel Game** — 8×8 NeoPixel grid game (Arduino, C++) [Jan 2026] — https://github.com/tapariapurv/neopixel-game
+- **Neo-Pixel Game** — 30-second apple-catching arcade game on an 8×8 NeoPixel grid: a 3-LED paddle moved with push buttons catches falling apples (+1 per catch, −2 per miss), a second apple joins after 10 seconds and speed rises 3% each second; Arduino Uno in a battery-powered 3D-printed case with piezo sound effects (Arduino, C++, NeoPixels, Piezo) [Jan 2026] — https://github.com/tapariapurv/neopixel-game
 - **Air Quality Monitor** — Arduino-based AQM built during the Delhi smog crisis (Arduino, C++, sensors) [Nov 2025] — https://youtube.com/shorts/qGbcmELwwhQ
 - **Radar System** — Arduino UNO radar with signal processing and real-time detection [May 2026] — https://youtube.com/shorts/xNrgtW_awv8
 - **Rapid Games** — Free online gaming platform built with Ridit and Devansh (HTML/CSS/JS, GitHub Pages) [Oct 2025] — https://tapariapurv.github.io/rapidgames
