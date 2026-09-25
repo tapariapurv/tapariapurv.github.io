@@ -27,6 +27,7 @@ Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievemen
 - **Arduino Junior Certification** — Arduino Official, passed with 96%
 - **Claude 101 Certification** — Anthropic Academy
 - **Claude Code in Action Certification** — Anthropic Academy, perfect 8/8 quiz score — https://verify.skilljar.com/c/ghgqrf8euxh7
+- **Claude Code 101 Certification** — Anthropic Academy, Sep 2026 (agentic loop, Plan Mode, Explore → Plan → Code → Commit, context management, CLAUDE.md, subagents, skills, MCP, hooks) — https://verify.skilljar.com/c/hdh53pci5vhz
 
 ## Published Books (5 total)
 
@@ -48,10 +49,11 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - AI: Claude/Anthropic, Claude Code (hooks, skills, commands), Google Antigravity, local LLMs (Ollama), Prompt Engineering, Veo 3.1, Nano Banana Pro
 - Data & Finance: web scraping, PDF data extraction, REST APIs, stock market analysis, Excel (formulas, macros), PowerPoint
 - Creative Writing: descriptive stories, essays & paragraphs
-- Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code in Action
+- Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code 101, Anthropic Claude Code in Action
 
 ## Changelog (month by month, newest first)
 
+- **Sep 2026** — Earned the Claude Code 101 Certification (Anthropic Academy) — https://verify.skilljar.com/c/hdh53pci5vhz
 - **Sep 2026** — Open-sourced Envoy, a private local-first AI workspace for Model UN (built with Claude Code) — https://github.com/tapariapurv/envoy
 - **Sep 2026** — Open-sourced Indian Stock Data Hub (built with Claude Code) — https://github.com/tapariapurv/indian-stock-data-hub
 - **Aug 2026** — Earned the Claude Code in Action Certification (Anthropic Academy, 8/8) — https://verify.skilljar.com/c/ghgqrf8euxh7; built Market Alert Matrix (ESP8266 + NeoPixel market-move alarm); launched Logek (built with Claude Code) — https://tapariapurv.github.io/Logek; designed Velvet Pour — https://cocktail-site-lac.vercel.app/
