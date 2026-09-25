@@ -52,6 +52,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Changelog (month by month, newest first)
 
+- **Sep 2026** — Open-sourced Envoy, a private local-first AI workspace for Model UN (built with Claude Code) — https://github.com/tapariapurv/envoy
 - **Sep 2026** — Open-sourced Indian Stock Data Hub (built with Claude Code) — https://github.com/tapariapurv/indian-stock-data-hub
 - **Aug 2026** — Earned the Claude Code in Action Certification (Anthropic Academy, 8/8) — https://verify.skilljar.com/c/ghgqrf8euxh7; built Market Alert Matrix (ESP8266 + NeoPixel market-move alarm); launched Logek (built with Claude Code) — https://tapariapurv.github.io/Logek; designed Velvet Pour — https://cocktail-site-lac.vercel.app/
 - **Jun 2026** — Built Antigravity Usage Monitor (built with Claude Code) — https://github.com/tapariapurv/antigravity-usage-monitor
@@ -70,6 +71,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Projects
 
+- **Envoy** — Private, local-first AI workspace for Model UN delegates: research vault with cited chat, AI drafting studio with Word/PDF export, opponent simulator, committee timers, teleprompter and shareable per-conference workspaces, running locally via Ollama (Next.js, FastAPI, ChromaDB, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/envoy
 - **Neo-Pixel Game** — 30-second apple-catching arcade game on an 8×8 NeoPixel grid: a 3-LED paddle moved with push buttons catches falling apples (+1 per catch, −2 per miss), a second apple joins after 10 seconds and speed rises 3% each second; Arduino Uno in a battery-powered 3D-printed case with piezo sound effects (Arduino, C++, NeoPixels, Piezo) [Jan 2026] — https://github.com/tapariapurv/neopixel-game
 - **Air Quality Monitor** — Pocket-sized air quality monitor built during the Delhi smog crisis: MQ135 gas sensor + Arduino Nano, with a 128×64 OLED showing the live reading and a verdict like "Hazardous", in a 3D-printed case (Arduino Nano, C++, MQ135, OLED) [Nov 2025] — https://youtube.com/shorts/qGbcmELwwhQ
 - **Radar System** — Ultrasonic sensor on a 180° servo sweeps the room while an Arduino UNO measures distances; a radar screen coded in Processing plots detected objects in real time (Arduino UNO, C++, Ultrasonic, Servo, Processing) [May 2026] — https://youtube.com/shorts/xNrgtW_awv8
