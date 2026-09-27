@@ -53,6 +53,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Changelog (month by month, newest first)
 
+- **Sep 2026** — Open-sourced MarkItDown GUI, a local drag-and-drop GUI and API for Microsoft's MarkItDown (built with Claude Code) — https://github.com/tapariapurv/markitdown-gui
 - **Sep 2026** — Earned the Claude Code 101 Certification (Anthropic Academy) — https://verify.skilljar.com/c/hdh53pci5vhz
 - **Sep 2026** — Open-sourced Envoy, a private local-first AI workspace for Model UN (built with Claude Code) — https://github.com/tapariapurv/envoy
 - **Sep 2026** — Open-sourced Indian Stock Data Hub (built with Claude Code) — https://github.com/tapariapurv/indian-stock-data-hub
@@ -84,6 +85,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Market Alert Matrix** — ESP8266 + 16-LED NeoPixel ring device in a 3D-printed case that shows the market's live move from the previous close (one LED per 0.2%) and sounds a piezo alarm past 1% (ESP8266, C++, NeoPixels, APIs) [Aug 2026]
 - **Velvet Pour** — GSAP-animated cocktail brand landing page (React, GSAP, Tailwind CSS) [Aug 2026] — https://cocktail-site-lac.vercel.app/
 - **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub
+- **MarkItDown GUI** — Local drag-and-drop web GUI and REST API around Microsoft's MarkItDown that converts PDFs, Office files, images, audio, web pages and YouTube links to Markdown (Python, MarkItDown, JavaScript, REST API; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/markitdown-gui
 
 ## Links
 

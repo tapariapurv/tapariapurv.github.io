@@ -21,7 +21,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="article:modified_time" content="2026-09-25" />
+    <meta property="article:modified_time" content="2026-09-27" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Purv Taparia | Young AI Builder, Developer &amp; Author from Mumbai" />
     <meta name="twitter:description" content="Young AI builder, developer and 5x published author from Mumbai, India, shipping apps with Claude Code and building Arduino hardware." />
@@ -88,7 +88,7 @@
       "inLanguage": "en-IN",
       "publisher": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-09-25"
+      "dateModified": "2026-09-27"
     }
     </script>
 
@@ -102,7 +102,7 @@
       "isPartOf": { "@id": "https://tapariapurv.github.io/#website" },
       "about": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-09-25",
+      "dateModified": "2026-09-27",
       "breadcrumb": { "@id": "https://tapariapurv.github.io/#breadcrumb" }
     }
     </script>
@@ -208,6 +208,17 @@
           "description": "A private, local-first AI workspace for Model UN delegates: a research vault with cited answers, an AI drafting studio with Word/PDF export, an opponent simulator, committee timers and a paced teleprompter, running on-device via Ollama.",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
           "author": { "@id": "https://tapariapurv.github.io/#person" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 8,
+          "name": "MarkItDown GUI",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "macOS, Windows, Linux",
+          "url": "https://github.com/tapariapurv/markitdown-gui",
+          "description": "A local drag-and-drop web GUI and REST API around Microsoft's MarkItDown that converts PDFs, Office files, images, audio, web pages and YouTube links to Markdown, running only on 127.0.0.1.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "author": { "@id": "https://tapariapurv.github.io/#person" }
         }
       ]
     }
@@ -231,7 +242,7 @@
           "name": "Is this portfolio actively maintained?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 September 2026."
+            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 27 September 2026."
           }
         }
       ]
@@ -1513,6 +1524,12 @@
             display: none;
         }
 
+        .proj-more > .proj-card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: calc(50% - 9px);
+        }
+
         .proj-more.expanded {
             grid-column: 1 / -1;
             display: grid;
@@ -2562,6 +2579,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .proj-more > .proj-card:last-child:nth-child(odd) {
+                width: auto;
+                justify-self: stretch;
+            }
+
             .proj-card.featured {
                 flex-direction: column;
                 gap: 24px;
@@ -2984,7 +3006,7 @@
                         <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold Anthropic's <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude 101</strong></a>, <a href="assets/Claude Code 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude Code 101</strong></a> and <a href="assets/Claude Code in Action Certificate.pdf" target="_blank" class="hl"><strong>Claude Code in Action</strong></a> certifications.</p>
                         <p>I program in <strong>HTML, CSS, JavaScript, TypeScript, Python and C++</strong>, build web apps with React and Next.js, and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino and ESP8266. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                         <p>This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-09-25">25 September 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
+                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-09-27">27 September 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
                     </div>
                     <div class="stats rev d3">
                         <a href="#achievements" class="stat">
@@ -3279,6 +3301,11 @@
                 <li class="log-month rev">
                     <time class="log-date" datetime="2026-09">Sep 2026</time>
                     <div class="log-entries">
+                        <a class="log-body" href="https://github.com/tapariapurv/markitdown-gui" target="_blank">
+                            <span class="log-top"><span class="log-title">MarkItDown GUI</span><span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
+                                <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            <span class="log-desc">Open-sourced a local drag-and-drop GUI and API for Microsoft's MarkItDown that converts documents, web pages and YouTube links to Markdown.</span>
+                        </a>
                         <a class="log-body" href="https://verify.skilljar.com/c/hdh53pci5vhz" target="_blank">
                             <span class="log-top"><span class="log-title">Claude Code 101 Certification</span><span class="proj-tag t-cert">✦ Certified</span>
                                 <svg class="log-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
@@ -3750,12 +3777,35 @@
                     </a>
                 </div>
 
+                <div class="proj-card tc rev">
+                    <div class="tc-shine"></div>
+                    <div class="proj-meta">
+                        <span class="proj-num">12</span>
+                        <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
+                    </div>
+                    <h3 class="proj-title">MarkItDown GUI</h3>
+                    <p class="proj-desc">A tiny, always-on local app around Microsoft's MarkItDown that turns PDFs, Word,
+                        PowerPoint, Excel, images, audio, web pages and YouTube links into clean Markdown — drag and drop
+                        in a web GUI or call its local API with one curl. Runs only on your own computer. — September 2026</p>
+                    <div class="proj-tech">
+                        <span class="tech">Python</span><span class="tech">MarkItDown</span><span
+                            class="tech">JavaScript</span><span class="tech">REST API</span>
+                    </div>
+                    <a href="https://github.com/tapariapurv/markitdown-gui" class="proj-link" target="_blank">
+                        View on GitHub →
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                            <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
                 </div>
 
             </div>
             <div class="proj-more-cta">
                 <button id="proj-more-btn" class="btn-g" onclick="toggleProjMore()">
-                    <span id="proj-more-label">View All Projects (+8)</span>
+                    <span id="proj-more-label">View All Projects (+9)</span>
                     <svg id="proj-more-icon" width="11" height="11" viewBox="0 0 11 11" fill="none"
                         style="transition: transform .3s var(--spring)">
                         <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
@@ -3937,7 +3987,7 @@
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
-                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 September 2026.</p>
+                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 27 September 2026.</p>
                 </details>
             </div>
         </div>
@@ -4080,7 +4130,7 @@
             if (expanded) {
                 more.classList.remove('expanded');
                 more.classList.add('leaving');
-                label.textContent = 'View All Projects (+8)';
+                label.textContent = 'View All Projects (+9)';
                 icon.style.transform = 'rotate(0deg)';
                 more.addEventListener('animationend', function onEnd() {
                     more.classList.remove('leaving');

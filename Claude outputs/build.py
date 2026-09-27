@@ -150,7 +150,7 @@ EXP = [
     ("send-fill", "Newsletter Writer", "Beehiiv", "2025 &ndash; Present",
      "Publishes essays on projects, writing and learning."),
     ("github", "Open-Source Maintainer", "GitHub", "2026 &ndash; Present",
-     "Maintains Envoy, Indian Stock Data Hub, LiteWarden and Antigravity Usage Monitor as public repositories."),
+     "Maintains Envoy, Indian Stock Data Hub, MarkItDown GUI, LiteWarden and Antigravity Usage Monitor as public repositories."),
 ]
 
 EDU = [
@@ -164,6 +164,11 @@ EDU = [
 
 # badges: "live", "hw", "prog", "cc"
 PROJ = [
+    ("code-slash", "MarkItDown GUI", ["live", "cc"], "September 2026",
+     "Always-on local wrapper for Microsoft's MarkItDown: drag-and-drop web GUI and a REST API that turn "
+     "PDFs, Office files, images, audio, web pages and YouTube links into clean Markdown. Localhost only.",
+     ["Python", "MarkItDown", "JavaScript", "REST API"],
+     ("github", "github.com/tapariapurv/markitdown-gui", "https://github.com/tapariapurv/markitdown-gui")),
     ("flag-fill", "Envoy", ["live", "cc"], "September 2026",
      "Private, local-first AI workspace for Model UN delegates: chats with research documents with "
      "citations, drafts position papers for Word or PDF, simulates an opposing delegation, and runs "
