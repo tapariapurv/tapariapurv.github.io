@@ -36,7 +36,7 @@ Derived from `tapariapurv.github.io`. Use these principles when building any des
 
 ### Usage rules
 
-- **Teal accent** is the primary interactive color — buttons, links, section labels, cursor, stat numbers, card glow on hover.
+- **Teal accent** is the primary interactive color — buttons, links, section labels, focus rings, stat numbers, card glow on hover.
 - **Gold** is reserved for achievements, top rankings, prize amounts, and certification highlights. Never use it for generic UI.
 - **Coral** is only for "hardware" or physically-built project tags. Do not use it as a general warning color.
 - Backgrounds layer: `--bg` → `--bg2` for alternate sections → `--surface` for card surfaces. Never use white or light gray as a base in dark mode.
@@ -67,7 +67,7 @@ Load from Google Fonts: `Syne:wght@400;600;700;800`, `DM+Mono:wght@300;400;500`,
 | Body small | `13–13.5px` | 400 | 0 | Line-height 1.65–1.72 |
 | Section label | `10.5px` | 400 | `0.14em` | DM Mono, uppercase |
 | Nav / metadata | `11.5px` | 400/500 | `0.06–0.08em` | DM Mono, uppercase |
-| Badges | `9–9.5px` | 400 | `0.08–0.12em` | DM Mono, uppercase, pill shape |
+| Badges | `11px` (minimum for any text) | 400 | `0.08–0.12em` | DM Mono, uppercase, pill shape |
 
 ### Italic emphasis rule
 
@@ -151,7 +151,7 @@ box-shadow:
 
 - Color: `--accent`
 - On hover: gap between text and arrow icon expands (`gap` animation)
-- Transition: spring easing `cubic-bezier(0.34, 1.56, 0.64, 1)`
+- Transition: `--spring` easing
 
 ---
 
@@ -173,7 +173,7 @@ Three status tags for projects:
 | In Progress (◐) | `--gdim` | `--gold` | `--g-border` |
 | Hardware (⬡) | `--coral-dim` | `--coral` | `--coral-border` |
 
-Font for all: DM Mono, 9–9.5px, letter-spacing 0.08–0.12em, uppercase.
+Font for all: DM Mono, 11px, letter-spacing 0.08–0.12em, uppercase.
 
 ---
 
@@ -226,7 +226,7 @@ Two custom easing curves used throughout:
 | Name | Value | Use |
 |---|---|---|
 | `--ease` | `cubic-bezier(0.16, 1, 0.3, 1)` | Standard reveals, color transitions |
-| `--spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Button hover lift, gap animations, back-to-top scale |
+| `--spring` | `cubic-bezier(0.22, 1, 0.36, 1)` | Button hover lift, gap animations, back-to-top scale. Critically damped — no overshoot, since hover carries no momentum |
 
 ### Entry animations
 
@@ -244,8 +244,16 @@ For scroll-triggered elements, use IntersectionObserver with threshold 0.1 and -
 
 ### 3D card tilt
 
-On mouse move over cards: `perspective(800px) rotateX(±11deg) rotateY(±11deg) scale(1.028)`.  
-On mouse leave: spring easing back to identity over 0.5s.
+On mouse move over cards (fine pointers only, skipped for reduced motion): `perspective(800px) rotateX(±4deg) rotateY(±4deg) scale(1.012)`.  
+On press: `scale(.985)` on pointer-down. On mouse leave: `--ease` back to identity over 0.5s, no overshoot.
+
+### Interaction rules (Apple-aligned)
+
+- Feedback on pointer-down: every button has `:active { transform: scale(.97) }` and the ripple fires on `pointerdown`.
+- System cursor only — no custom cursor. No page loader, no typewriter.
+- One ambient effect at most (hero particles). The marquee pauses on hover.
+- Honour `prefers-reduced-motion`, `prefers-reduced-transparency`, `prefers-contrast` and `prefers-color-scheme` (the theme follows the OS until the visitor picks one).
+- Font sizes in `rem` so the visitor's text-size setting scales the page.
 
 ---
 

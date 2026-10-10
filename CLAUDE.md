@@ -39,7 +39,7 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 - **Published Books** ↔ `#books`
 - **Technical Skills** ↔ the skill groups in `#about`
 - **Changelog** ↔ `#latest` (month-by-month history, newest first — projects, certifications and milestones; the newest 3 months show, older ones sit behind "View Full History" as `.log-extra` rows. When something new ships, add it under its month, move the 4th-newest month to `.log-extra`, and keep the whole history)
-- **AI emphasis is deliberate.** Purv's positioning leads with AI building: the hero line, typewriter words (`AI Builder`), title/meta, Person `jobTitle`. Any project built with Claude Code gets a `<span class="proj-tag t-ai">✳ Claude Code</span>` badge on both its project card and its changelog row, and "built with Claude Code" in `llms.txt` (source of truth: the resume's project badges).
+- **AI emphasis is deliberate.** Purv's positioning leads with AI building: the hero line, the static `.hero-sub` role line (leads with `AI Builder`), title/meta, Person `jobTitle`. Any project built with Claude Code gets a `<span class="proj-tag t-ai">✳ Claude Code</span>` badge on both its project card and its changelog row, and "built with Claude Code" in `llms.txt` (source of truth: the resume's project badges).
 - Changelog rows without an exact month (Olympiads, which are only known by grade) use `<span class="log-date">2024–25<small>Grade 3</small></span>` instead of `<time>`. Grade 5 = school year 2026–27, and the school year runs June to March. Don't invent months.
 - **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one). Software projects also get an entry in the "Software Projects" ItemList JSON-LD in `index.html`. The FAQ "What projects…" answer just links to `#projects`, so it doesn't need updating.
 - **Links** ↔ hero/contact links
@@ -60,12 +60,12 @@ Grep for `Last updated\|dateModified\|modified_time` across `*.html` (excluding 
 Before calling any feature or content change done, confirm all of these. Each one has broken on this site before.
 
 **Google Search Console (SEO)**
-- Googlebot must see the content. The `#loader` overlay and the `.rev`/`.rev-l`/`.rev-r` scroll reveals are skipped for crawlers via a user-agent check at the top of the loader script. Any new element hidden until JS runs (new reveal class, new overlay, lazy content) must be added to that crawler bypass, or Search Console's Live Test screenshots it blank.
+- Googlebot must see the content. The `.rev`/`.rev-l`/`.rev-r` scroll reveals are skipped for crawlers via a user-agent check in the Scroll Reveal script. Any new element hidden until JS runs (new reveal class, new overlay, lazy content) must be added to that crawler bypass, or Search Console's Live Test screenshots it blank.
 - Content must be real text in the HTML (not injected only by JS, not only in images), with one `<h1>` on the page and `<h2>`/`<h3>` in order.
 - Links are crawlable `<a href>`; external ones use `target="_blank"`. Images get descriptive `alt`.
 - Keep the structured data valid: new projects go in the "Software Projects" ItemList JSON-LD. The FAQPage JSON-LD must contain **exactly** the questions visible in `#faq` — hidden-only FAQ markup violates Google's structured-data policy. The FAQ is intentionally trimmed to questions whose answers aren't already on the page; don't re-add ones that repeat About/Books/Projects. Validate with Google's Rich Results Test after pushing.
 - New top-level pages go in `sitemap.xml` with a `<lastmod>`, and get their own `<title>`, meta description, canonical and OG tags. Pages that shouldn't rank get `<meta name="robots" content="noindex, follow">` (like the `old-portfolio` repo). Don't block them in robots.txt, or crawlers can't read the noindex tag.
-- No artificial load delays. The loader's minimum wait is deliberately short (600ms), so don't lengthen it: speed feeds Core Web Vitals.
+- No artificial load delays. There is deliberately no page loader or splash screen; don't add one: speed feeds Core Web Vitals.
 - PDFs in `assets/` are indexed by Google, so set a real `/Title` and `/Author` ("Purv Taparia — ...") on any new PDF.
 - After pushing, tell Purv to run URL Inspection → Live Test in Search Console and resubmit `sitemap.xml`.
 
@@ -85,5 +85,5 @@ Before calling any feature or content change done, confirm all of these. Each on
 Full spec is in `.design-sync/design-principles.md`. Key tokens to reuse rather than re-derive:
 - Fonts: **Syne** (headings/body, weights 400–800), **DM Mono** (labels/metadata/nav), **Instrument Serif italic** (exactly one emphasized word per major heading).
 - Dark mode is default: bg `#080a0f`, surface `#141b27`, accent teal `#00e6be`, gold `#f5c842` (achievements only), coral `#ff6b6b` (hardware project tags only).
-- Cards use the `.tc` tilt-card pattern (mouse-tracked radial shine, 3D tilt on hover, spring easing `cubic-bezier(0.34, 1.56, 0.64, 1)`).
+- Cards use the `.tc` tilt-card pattern (mouse-tracked radial shine, a subtle 4° 3D tilt on hover with no overshoot, skipped on touch and reduced-motion).
 - Section labels follow the `.slabel` pattern (small horizontal rule + DM Mono uppercase label).
