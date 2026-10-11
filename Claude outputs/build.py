@@ -164,59 +164,46 @@ EDU = [
 
 # badges: "live", "hw", "prog", "cc"
 PROJ = [
-    ("laptop", "Hueframe", ["live", "cc"], "October 2026",
-     "Generates 4K&ndash;8K wallpapers for desktop, iPad and iPhone in any colour: 30 generative styles "
-     "with infinite variations, live device previews, colour matching and lossless PNG export up to 8K.",
-     ["JavaScript", "Canvas API", "HTML", "CSS"],
-     ("globe", "hueframe.vercel.app", "https://hueframe.vercel.app")),
-    ("bar-chart-fill", "Chip", ["live", "cc"], "September 2026",
-     "Duolingo-style app that teaches kids investing: 22 chapters of lessons, spaced-repetition practice, "
-     "streaks and leagues, a virtual fund of 14 real stocks, and a parent and teacher dashboard.",
-     ["JavaScript", "Firebase", "PWA"],
-     ("globe", "chip-stock-coach.vercel.app", "https://chip-stock-coach.vercel.app")),
-    ("mortarboard-fill", "Academix", ["live", "cc"], "September 2026",
-     "School performance dashboard with student, teacher, parent and admin portals: grades, assignments, "
-     "KPI cards, performance charts, a points system and a study planner on its own API.",
-     ["React", "Express", "SQLite", "Tailwind"],
-     ("globe", "academix-purv1.vercel.app", "https://academix-purv1.vercel.app")),
-    ("code-slash", "MarkItDown GUI", ["live", "cc"], "September 2026",
-     "Always-on local wrapper for Microsoft's MarkItDown: drag-and-drop web GUI and a REST API that turn "
-     "PDFs, Office files, images, audio, web pages and YouTube links into clean Markdown. Localhost only.",
-     ["Python", "MarkItDown", "JavaScript", "REST API"],
-     ("github", "github.com/tapariapurv/markitdown-gui", "https://github.com/tapariapurv/markitdown-gui")),
     ("flag-fill", "Envoy", ["live", "cc"], "September 2026",
      "Private, local-first AI workspace for Model UN delegates: chats with research documents with "
      "citations, drafts position papers for Word or PDF, simulates an opposing delegation, and runs "
      "committee timers. Fully offline via Ollama.",
      ["Next.js", "FastAPI", "ChromaDB", "Ollama"],
      ("github", "github.com/tapariapurv/envoy", "https://github.com/tapariapurv/envoy")),
-    ("calculator-fill", "Indian Stock Data Hub", ["live", "cc"], "September 2026",
-     "Streamlit research desk for Indian listed companies: scrapes ratios and filings, extracts every "
-     "figure from the PDFs, and exports Excel and Word reports. Optional AI runs fully offline via Ollama.",
-     ["Python", "Streamlit", "Ollama", "pdfplumber"],
-     ("github", "github.com/tapariapurv/indian-stock-data-hub", "https://github.com/tapariapurv/indian-stock-data-hub")),
-    ("cpu", "Neo-Pixel Game", ["hw"], "January 2026",
-     "Playable 8&times;8 NeoPixel grid game with piezo buzzer, rechargeable battery and 3D-printed enclosure.",
-     ["Arduino", "C++", "NeoPixels"],
-     ("github", "github.com/tapariapurv/neopixel-game", "https://github.com/tapariapurv/neopixel-game")),
-    ("gear-fill", "Air Quality Monitor", ["hw"], "November 2025",
-     "Portable AQI monitor built during Delhi's air crisis: MQ135 gas sensor, 128&times;64 OLED and "
-     "Arduino Nano in a custom enclosure.",
-     ["Arduino", "C++", "Sensors"],
-     ("youtube", "Watch on YouTube", "https://youtube.com/shorts/qGbcmELwwhQ")),
-    ("send-fill", "Radar System", ["hw"], "May 2026",
-     "Arduino UNO radar using an ultrasonic sensor for signal processing and real-time object detection.",
-     ["Arduino", "C++", "Ultrasonic"],
-     ("youtube", "Watch on YouTube", "https://youtube.com/shorts/xNrgtW_awv8")),
-    ("bar-chart-fill", "Market Alert Matrix", ["hw"], "August 2026",
-     "ESP8266 device with a 16-LED NeoPixel ring showing live market movement &mdash; one LED per 0.2% "
-     "move, piezo alarm past 1%.",
-     ["ESP8266", "C++", "NeoPixels", "APIs"], None),
+    ("bar-chart-fill", "Chip", ["live", "cc"], "September 2026",
+     "Duolingo-style app that teaches kids investing: 22 chapters of lessons, spaced-repetition practice, "
+     "streaks and leagues, a virtual fund of 14 real stocks, and a parent and teacher dashboard.",
+     ["JavaScript", "Firebase", "PWA"],
+     ("globe", "chip-stock-coach.vercel.app", "https://chip-stock-coach.vercel.app")),
     ("book-fill", "Logek", ["live", "cc"], "August 2026",
      "Adaptive vocabulary app using Bayesian skill estimation and SM-2 spaced repetition, with MCQ "
      "challenges, XP, streaks and unlockable themes.",
      ["React", "TypeScript", "Firebase", "Tailwind"],
      ("globe", "tapariapurv.github.io/Logek", "https://tapariapurv.github.io/Logek")),
+    ("calculator-fill", "Indian Stock Data Hub", ["live", "cc"], "September 2026",
+     "Streamlit research desk for Indian listed companies: scrapes ratios and filings, extracts every "
+     "figure from the PDFs, and exports Excel and Word reports. Optional AI runs fully offline via Ollama.",
+     ["Python", "Streamlit", "Ollama"],
+     ("github", "github.com/tapariapurv/indian-stock-data-hub", "https://github.com/tapariapurv/indian-stock-data-hub")),
+    ("mortarboard-fill", "Academix", ["live", "cc"], "September 2026",
+     "School performance dashboard with student, teacher, parent and admin portals: grades, assignments, "
+     "KPI cards, performance charts, a points system and a study planner on its own API.",
+     ["React", "Express", "SQLite", "Tailwind"],
+     ("globe", "academix-purv1.vercel.app", "https://academix-purv1.vercel.app")),
+    ("bar-chart-fill", "Market Alert Matrix", ["hw"], "August 2026",
+     "ESP8266 device with a 16-LED NeoPixel ring showing live market movement &mdash; one LED per 0.2% "
+     "move, piezo alarm past 1%.",
+     ["ESP8266", "C++", "NeoPixels", "APIs"], None),
+    ("laptop", "Hueframe", ["live", "cc"], "October 2026",
+     "Generates 4K&ndash;8K wallpapers for desktop, iPad and iPhone in any colour: 30 generative styles "
+     "with infinite variations, live device previews, colour matching and lossless PNG export up to 8K.",
+     ["JavaScript", "Canvas API", "HTML", "CSS"],
+     ("globe", "hueframe.vercel.app", "https://hueframe.vercel.app")),
+    ("code-slash", "MarkItDown GUI", ["live", "cc"], "September 2026",
+     "Always-on local wrapper for Microsoft's MarkItDown: drag-and-drop web GUI and a REST API that turn "
+     "PDFs, Office files, images, audio, web pages and YouTube links into clean Markdown. Localhost only.",
+     ["Python", "MarkItDown", "REST API"],
+     ("github", "github.com/tapariapurv/markitdown-gui", "https://github.com/tapariapurv/markitdown-gui")),
     ("database", "Antigravity Usage Monitor", ["live", "cc"], "June 2026",
      "Read-only analytics dashboard for Google Antigravity tracking sessions, token usage, subagents and "
      "estimated API costs with activity heatmaps.",
@@ -227,16 +214,29 @@ PROJ = [
      "browser. Free and open source.",
      ["JavaScript", "Chrome APIs", "HTML/CSS"],
      ("github", "github.com/tapariapurv/chrome-extension", "https://github.com/tapariapurv/chrome-extension")),
-    ("globe", "Velvet Pour", ["live"], "August 2026",
-     "GSAP-animated cocktail brand landing page with scroll-triggered timelines and SplitText reveals, "
-     "built in React and deployed on Vercel.",
-     ["React", "GSAP", "Tailwind", "Vite"],
-     ("globe", "cocktail-site-lac.vercel.app", "https://cocktail-site-lac.vercel.app/")),
+    ("gear-fill", "Air Quality Monitor", ["hw"], "November 2025",
+     "Portable AQI monitor built during Delhi's air crisis: MQ135 gas sensor, 128&times;64 OLED and "
+     "Arduino Nano in a custom enclosure.",
+     ["Arduino", "C++", "Sensors"],
+     ("youtube", "Watch on YouTube", "https://youtube.com/shorts/qGbcmELwwhQ")),
+    ("send-fill", "Radar System", ["hw"], "May 2026",
+     "Arduino UNO radar using an ultrasonic sensor for signal processing and real-time object detection.",
+     ["Arduino", "C++", "Ultrasonic"],
+     ("youtube", "Watch on YouTube", "https://youtube.com/shorts/xNrgtW_awv8")),
     ("robot", "Rapid Games", ["live"], "October 2025",
      "Free browser gaming platform with a hand-picked collection of curated games. Built and maintained "
      "collaboratively with Ridit and Devansh.",
      ["HTML", "CSS", "JavaScript", "GitHub Pages"],
      ("globe", "tapariapurv.github.io/rapidgames", "https://tapariapurv.github.io/rapidgames")),
+    ("globe", "Velvet Pour", ["live"], "August 2026",
+     "GSAP-animated cocktail brand landing page with scroll-triggered timelines and SplitText reveals, "
+     "built in React and deployed on Vercel.",
+     ["React", "GSAP", "Tailwind", "Vite"],
+     ("globe", "cocktail-site-lac.vercel.app", "https://cocktail-site-lac.vercel.app/")),
+    ("cpu", "Neo-Pixel Game", ["hw"], "January 2026",
+     "Playable 8&times;8 NeoPixel grid game with piezo buzzer, rechargeable battery and 3D-printed enclosure.",
+     ["Arduino", "C++", "NeoPixels"],
+     ("github", "github.com/tapariapurv/neopixel-game", "https://github.com/tapariapurv/neopixel-game")),
 ]
 
 # ---------------------------------------------------------------- CSS
