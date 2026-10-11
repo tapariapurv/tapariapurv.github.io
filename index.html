@@ -413,38 +413,38 @@
         }
 
         [data-theme="light"] {
-            --bg: #f9fafb;
-            --bg2: #f3f4f6;
-            --bg3: #e5e7eb;
+            --bg: #fbfcfc;
+            --bg2: #eff5f4;
+            --bg3: #e6efed;
             --surface: #ffffff;
-            --border: rgba(0, 0, 0, 0.08);
-            --glow: rgba(13, 148, 136, 0.25);
+            --border: rgba(15, 45, 40, 0.11);
+            --glow: rgba(11, 125, 114, 0.35);
 
-            --text: #171717;
-            --text2: #52525b;
-            --text3: #a1a1aa;
+            --text: #0e1726;
+            --text2: #3d4a5a;
+            --text3: #66758a;
 
-            --accent: #0d9488;
-            --adim: rgba(13, 148, 136, 0.10);
+            --accent: #0b7d72;
+            --adim: rgba(11, 125, 114, 0.09);
             --aglow: rgba(13, 148, 136, 0.32);
             --aglow2: rgba(13, 148, 136, 0.09);
-            --gold: #d97706;
+            --gold: #b45309;
             --gdim: rgba(217, 119, 6, 0.11);
             --g-border: rgba(217, 119, 6, 0.25);
             --coral: #dc2626;
             --coral-dim: rgba(220, 38, 38, 0.1);
             --coral-border: rgba(220, 38, 38, 0.25);
 
-            --nav-bg: rgba(250, 250, 250, 0.88);
-            --orb: radial-gradient(circle, rgba(13, 148, 136, 0.12) 0%, transparent 70%);
+            --nav-bg: rgba(251, 252, 252, 0.82);
+            --orb: radial-gradient(circle, rgba(11, 125, 114, 0.17) 0%, transparent 70%);
             --shine: radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.08) 0%, transparent 65%);
             --gh-c: #181717;
             --gh-bg: rgba(24, 23, 23, 0.07);
             --gh-box: 0 0 18px rgba(24, 23, 23, 0.15), 0 0 36px rgba(24, 23, 23, 0.05);
             --gh-box2: 0 0 18px rgba(24, 23, 23, 0.12);
             --gh-border: rgba(24, 23, 23, 0.28);
-            --tc-box1: rgba(13, 148, 136, 0.22);
-            --tc-box2: rgba(13, 148, 136, 0.12);
+            --tc-box1: rgba(11, 125, 114, 0.18);
+            --tc-box2: rgba(11, 125, 114, 0.10);
             --tc-gold-border: rgba(217, 119, 6, 0.38);
             --tc-gold-box1: rgba(217, 119, 6, 0.18);
             --tc-gold-box2: rgba(217, 119, 6, 0.09);
@@ -453,7 +453,24 @@
             --bk-cover-grad: linear-gradient(135deg, rgba(13, 148, 136, 0.08), transparent);
             --btt-box: 0 0 20px rgba(13, 148, 136, 0.22);
             --cur-blend: multiply;
-            --sd-box: rgba(0, 0, 0, 0.1);
+            --sd-box: rgba(15, 30, 50, 0.06);
+        }
+
+        /* Light mode: white cards need soft elevation to separate from the page (dark mode uses contrast instead) */
+        [data-theme="light"] .tc,
+        [data-theme="light"] .hcard,
+        [data-theme="light"] .stat,
+        [data-theme="light"] .faq-item {
+            box-shadow: 0 1px 2px rgba(15, 30, 50, 0.04), 0 6px 20px -8px rgba(15, 30, 50, 0.10);
+        }
+        [data-theme="light"] .tc:hover {
+            box-shadow: 0 0 0 1px var(--tc-box1), 0 18px 44px -12px rgba(11, 125, 114, 0.22), 0 6px 16px -6px rgba(15, 30, 50, 0.08);
+        }
+        [data-theme="light"] .chip,
+        [data-theme="light"] .tech {
+            background: #ffffff;
+            border-color: rgba(15, 45, 40, 0.13);
+            color: var(--text2);
         }
 
         /* ── RESET ──────────────────────────────────────────────── */

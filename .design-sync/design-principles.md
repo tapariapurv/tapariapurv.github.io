@@ -28,11 +28,12 @@ Derived from `tapariapurv.github.io`. Use these principles when building any des
 
 ### Light Mode
 
-- Background: `#f9fafb` / `#f3f4f6` / `#e5e7eb`
-- Text: `#171717` / `#52525b`
-- Accent: `#0d9488` (darker teal to pass contrast)
-- Gold: `#d97706` (amber)
-- Coral: `#dc2626`
+- Background: `#fbfcfc` / `#eff5f4` (teal-tinted, so alternating sections stay visible) / `#e6efed`; surface `#ffffff`
+- Border: `rgba(15,45,40,0.11)`
+- Text: `#0e1726` / `#3d4a5a` / muted `#66758a` (all pass WCAG AA on white)
+- Accent: `#0b7d72` (deeper teal, ~5:1 on white)
+- Gold: `#b45309` (amber) · Coral: `#dc2626`
+- Depth: white cards (`.tc`, `.hcard`, `.stat`, `.faq-item`) get a soft shadow, `0 1px 2px rgba(15,30,50,.04), 0 6px 20px -8px rgba(15,30,50,.10)`, because white-on-near-white has no contrast. Chips and tech tags are white with a border. Dark mode stays shadow-free.
 
 ### Usage rules
 
