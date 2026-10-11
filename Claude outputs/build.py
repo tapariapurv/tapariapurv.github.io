@@ -164,6 +164,21 @@ EDU = [
 
 # badges: "live", "hw", "prog", "cc"
 PROJ = [
+    ("laptop", "Hueframe", ["live", "cc"], "October 2026",
+     "Generates 4K&ndash;8K wallpapers for desktop, iPad and iPhone in any colour: 30 generative styles "
+     "with infinite variations, live device previews, colour matching and lossless PNG export up to 8K.",
+     ["JavaScript", "Canvas API", "HTML", "CSS"],
+     ("globe", "hueframe.vercel.app", "https://hueframe.vercel.app")),
+    ("bar-chart-fill", "Chip", ["live", "cc"], "September 2026",
+     "Duolingo-style app that teaches kids investing: 22 chapters of lessons, spaced-repetition practice, "
+     "streaks and leagues, a virtual fund of 14 real stocks, and a parent and teacher dashboard.",
+     ["JavaScript", "Firebase", "PWA"],
+     ("globe", "chip-stock-coach.vercel.app", "https://chip-stock-coach.vercel.app")),
+    ("mortarboard-fill", "Academix", ["live", "cc"], "September 2026",
+     "School performance dashboard with student, teacher, parent and admin portals: grades, assignments, "
+     "KPI cards, performance charts, a points system and a study planner on its own API.",
+     ["React", "Express", "SQLite", "Tailwind"],
+     ("globe", "academix-purv1.vercel.app", "https://academix-purv1.vercel.app")),
     ("code-slash", "MarkItDown GUI", ["live", "cc"], "September 2026",
      "Always-on local wrapper for Microsoft's MarkItDown: drag-and-drop web GUI and a REST API that turn "
      "PDFs, Office files, images, audio, web pages and YouTube links into clean Markdown. Localhost only.",
@@ -286,11 +301,11 @@ table.skills td.k svg.ic {{ margin-right: 3pt; }}
 
 .p2 {{ page-break-before: always; }}
 .proj-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; }}
-.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 9pt 10pt 9pt 10pt; }}
+.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 7pt 9pt 6pt 9pt; }}
 .card .t {{ font-size: 9.1pt; font-weight: 700; color: {INK}; }}
 .card .t svg.ic {{ margin-right: 3pt; }}
 .card .dt {{ font-size: 7.3pt; color: {DIM}; margin: 1pt 0 4pt 0; }}
-.card .x {{ line-height: 1.6; margin-bottom: 5pt; }}
+.card .x {{ line-height: 1.45; margin-bottom: 4pt; }}
 .badge {{ display: inline-block; font-size: 6.4pt; font-weight: 600; border-radius: 8pt; padding: 1pt 5pt 1.3pt 5pt;
           border: 0.7pt solid; margin-left: 2pt; vertical-align: 1pt; white-space: nowrap; }}
 .badge svg.ic {{ margin-right: 2pt; vertical-align: -0.5pt; }}
@@ -299,7 +314,7 @@ table.skills td.k svg.ic {{ margin-right: 3pt; }}
 .b-prog {{ color: {GOLD}; background: #faf4df; border-color: #dfcc8f; }}
 .b-cc {{ color: {CC}; background: #efedfb; border-color: #bdb3ea; }}
 .tag {{ display: inline-block; font-size: 7pt; color: {DIM}; background: #f3f6fa; border: 0.6pt solid #dfe5ee;
-        border-radius: 3pt; padding: 1.5pt 5pt; margin: 0 2pt 4pt 0; }}
+        border-radius: 3pt; padding: 1.5pt 5pt; margin: 0 2pt 3pt 0; }}
 .card .lk {{ font-size: 7.3pt; font-weight: 600; margin-top: 1pt; }}
 .card .lk svg.ic {{ margin-right: 3pt; }}
 """

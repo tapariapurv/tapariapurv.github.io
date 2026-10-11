@@ -53,10 +53,13 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Changelog (month by month, newest first)
 
+- **Oct 2026** — Launched Hueframe, a 4K–8K wallpaper generator for desktop, iPad and iPhone (built with Claude Code) — https://hueframe.vercel.app — https://github.com/tapariapurv/hueframe
+- **Sep 2026** — Launched Chip, a Duolingo-style investing app for kids (built with Claude Code) — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
 - **Sep 2026** — Open-sourced MarkItDown GUI, a local drag-and-drop GUI and API for Microsoft's MarkItDown (built with Claude Code) — https://github.com/tapariapurv/markitdown-gui
 - **Sep 2026** — Earned the Claude Code 101 Certification (Anthropic Academy) — https://verify.skilljar.com/c/hdh53pci5vhz
 - **Sep 2026** — Open-sourced Envoy, a private local-first AI workspace for Model UN (built with Claude Code) — https://github.com/tapariapurv/envoy
 - **Sep 2026** — Open-sourced Indian Stock Data Hub (built with Claude Code) — https://github.com/tapariapurv/indian-stock-data-hub
+- **Sep 2026** — Built Academix, a student performance dashboard with student, teacher, parent and admin portals (built with Claude Code) — https://academix-purv1.vercel.app — https://github.com/tapariapurv/academix
 - **Aug 2026** — Earned the Claude Code in Action Certification (Anthropic Academy, 8/8) — https://verify.skilljar.com/c/ghgqrf8euxh7; built Market Alert Matrix (ESP8266 + NeoPixel market-move alarm); launched Logek (built with Claude Code) — https://tapariapurv.github.io/Logek; designed Velvet Pour — https://cocktail-site-lac.vercel.app/
 - **Jun 2026** — Built Antigravity Usage Monitor (built with Claude Code) — https://github.com/tapariapurv/antigravity-usage-monitor
 - **May 2026** — Built an Arduino UNO Radar System — https://youtube.com/shorts/xNrgtW_awv8; published "10-Year-Old's Decode the Stock Market" on Amazon (15 May 2026) — https://www.amazon.in/dp/B0H1YGCL2D
@@ -86,6 +89,9 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Velvet Pour** — GSAP-animated cocktail brand landing page (React, GSAP, Tailwind CSS) [Aug 2026] — https://cocktail-site-lac.vercel.app/
 - **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub
 - **MarkItDown GUI** — Local drag-and-drop web GUI and REST API around Microsoft's MarkItDown that converts PDFs, Office files, images, audio, web pages and YouTube links to Markdown (Python, MarkItDown, JavaScript, REST API; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/markitdown-gui
+- **Academix** — A school performance dashboard with student, teacher, parent and admin portals: grades, assignments, KPI cards, performance charts, points, a focus timer and a study planner, on an Express and SQLite API. (React, Express, SQLite, Tailwind CSS; built with Claude Code) [Sep 2026] — https://academix-purv1.vercel.app — https://github.com/tapariapurv/academix
+- **Chip** — A Duolingo-style app that teaches kids investing through 22 chapters of lessons, spaced-repetition practice, streaks and leagues, a virtual fund of 14 real companies, and a parent and teacher dashboard. (JavaScript, Firebase, PWA, Vercel; built with Claude Code) [Sep 2026] — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
+- **Hueframe** — A web app that generates 4K–8K wallpapers for desktop, iPad and iPhone in any colour, with 30 generative styles, live device previews, colour matching and lossless PNG exports up to 8K. (JavaScript, Canvas API, HTML, CSS; built with Claude Code) [Oct 2026] — https://hueframe.vercel.app — https://github.com/tapariapurv/hueframe
 
 ## Links
 
