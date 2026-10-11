@@ -28,6 +28,7 @@ Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievemen
 - **Claude 101 Certification** — Anthropic Academy
 - **Claude Code in Action Certification** — Anthropic Academy, perfect 8/8 quiz score — https://verify.skilljar.com/c/ghgqrf8euxh7
 - **Claude Code 101 Certification** — Anthropic Academy, Sep 2026 (agentic loop, Plan Mode, Explore → Plan → Code → Commit, context management, CLAUDE.md, subagents, skills, MCP, hooks) — https://verify.skilljar.com/c/hdh53pci5vhz
+- **Arduino Senior Certification** — Arduino Education, Oct 2026 (official Arduino Certification in Electronics and Physical Computing) — https://certifications.arduino.cc/certificate/4e02fdbf-d55f-4417-ac29-0e64b3ef22bb
 
 ## Published Books (5 total)
 
@@ -49,11 +50,12 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - AI: Claude/Anthropic, Claude Code (hooks, skills, commands), Google Antigravity, local LLMs (Ollama), Prompt Engineering, Veo 3.1, Nano Banana Pro
 - Data & Finance: web scraping, PDF data extraction, REST APIs, stock market analysis, Excel (formulas, macros), PowerPoint
 - Creative Writing: descriptive stories, essays & paragraphs
-- Certifications: Arduino Junior (96%), Anthropic Claude 101, Anthropic Claude Code 101, Anthropic Claude Code in Action
+- Certifications: Arduino Junior (96%), Arduino Senior, Anthropic Claude 101, Anthropic Claude Code 101, Anthropic Claude Code in Action
 
 ## Changelog (month by month, newest first)
 
 - **Oct 2026** — Launched Hueframe, a 4K–8K wallpaper generator for desktop, iPad and iPhone (built with Claude Code) — https://hueframe.vercel.app — https://github.com/tapariapurv/hueframe
+- **Oct 2026** — Earned the Arduino Senior Certification (Electronics and Physical Computing, Arduino Education) — https://certifications.arduino.cc/certificate/4e02fdbf-d55f-4417-ac29-0e64b3ef22bb
 - **Sep 2026** — Launched Chip, a Duolingo-style investing app for kids (built with Claude Code) — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
 - **Sep 2026** — Open-sourced MarkItDown GUI, a local drag-and-drop GUI and API for Microsoft's MarkItDown (built with Claude Code) — https://github.com/tapariapurv/markitdown-gui
 - **Sep 2026** — Earned the Claude Code 101 Certification (Anthropic Academy) — https://verify.skilljar.com/c/hdh53pci5vhz

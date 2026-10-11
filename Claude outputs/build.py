@@ -76,7 +76,7 @@ PROFILE = {
         "Grade 5 student at Chatrabhuj Narsee School, Mumbai. Programs in HTML, CSS, JavaScript, Python "
         "and C++, and builds web apps with React, TypeScript, Next.js and Firebase. Designs and solders "
         "Arduino and ESP8266 hardware &mdash; a playable NeoPixel game, an air quality monitor, a radar "
-        "system and a live stock-market alert device. Holds four certifications: Arduino Junior (96%), "
+        "system and a live stock-market alert device. Holds five certifications: Arduino Junior (96%), Arduino Senior, "
         "Claude 101, Claude Code 101 and Claude Code in Action (perfect 8/8). Published 5 books on Amazon and Bribooks, won "
         "International Rank 1 in the English Olympiad twice, and competes at national level in roller skating."
     ),
@@ -129,8 +129,11 @@ BOOKS = [
 
 CERT_BASE = "https://tapariapurv.github.io/assets/"
 CERTS = [
-    ("lightning-fill", "Arduino Junior Certification", "Arduino Official", "Passed with <b>96%</b>",
-     [("View", CERT_BASE + "Arduino%20Junior%20Certification.pdf")]),
+    ("lightning-fill", "Arduino Junior &amp; Senior Certifications", "Arduino Education",
+     "Junior <b>96%</b> &middot; Senior Oct 2026",
+     [("Junior", CERT_BASE + "Arduino%20Junior%20Certification.pdf"),
+      ("Senior", CERT_BASE + "Arduino%20Senior%20Certification.pdf"),
+      ("Verify", "https://certifications.arduino.cc/certificate/4e02fdbf-d55f-4417-ac29-0e64b3ef22bb")]),
     ("patch-check-fill", "Claude 101 Certification", "Anthropic Academy",
      "Claude Projects, AI workflows &amp; productivity",
      [("View", CERT_BASE + "Claude%20101%20Certificate.pdf")]),
