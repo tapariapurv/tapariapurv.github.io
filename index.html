@@ -4175,7 +4175,7 @@
             </div>
             <div class="proj-more-cta">
                 <button id="proj-more-btn" class="btn-g" onclick="toggleProjMore()">
-                    <span id="proj-more-label">View All Projects (+13)</span>
+                    <span id="proj-more-label">View All Projects (+14)</span>
                     <svg id="proj-more-icon" width="11" height="11" viewBox="0 0 11 11" fill="none"
                         style="transition: transform .3s var(--spring)">
                         <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
@@ -4500,7 +4500,7 @@
             if (expanded) {
                 more.classList.remove('expanded');
                 more.classList.add('leaving');
-                label.textContent = 'View All Projects (+13)';
+                label.textContent = 'View All Projects (+14)';
                 icon.style.transform = 'rotate(0deg)';
                 more.addEventListener('animationend', function onEnd() {
                     more.classList.remove('leaving');
