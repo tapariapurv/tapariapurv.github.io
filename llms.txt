@@ -44,7 +44,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Technical Skills
 
-- Programming: HTML, CSS, JavaScript, TypeScript, Python, C++, Block Coding
+- Programming: HTML, CSS, JavaScript, TypeScript, Python, C++, Swift & SwiftUI, Block Coding
 - Web & App Development: React, Next.js, Tailwind CSS, GSAP, Firebase, SQLite, Streamlit, Chrome Extensions, Git & GitHub, Vercel & GitHub Pages
 - Hardware & Robotics: Arduino, ESP8266 / NodeMCU, NeoPixels, sensors & radar, breadboards & LEDs, 3D-printed enclosures
 - AI: Claude/Anthropic, Claude Code (hooks, skills, commands), Google Antigravity, local LLMs (Ollama), Prompt Engineering, Veo 3.1, Nano Banana Pro
@@ -54,6 +54,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Changelog (month by month, newest first)
 
+- **Oct 2026** — Released Pomly, a free, open-source Pomodoro focus timer for iPhone, iPad, Mac and Apple Watch (built with Claude Code) — https://tapariapurv.github.io/pomly/ — https://github.com/tapariapurv/pomly
 - **Oct 2026** — Launched Hueframe, a 4K–8K wallpaper generator for desktop, iPad and iPhone (built with Claude Code) — https://hueframe.vercel.app — https://github.com/tapariapurv/hueframe
 - **Oct 2026** — Earned the Arduino Senior Certification with 91% (Electronics and Physical Computing, Arduino Education) — https://certifications.arduino.cc/certificate/4e02fdbf-d55f-4417-ac29-0e64b3ef22bb
 - **Sep 2026** — Launched Chip, a Duolingo-style investing app for kids (built with Claude Code) — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
@@ -80,6 +81,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 ## Projects
 
 - **Envoy** — Private, local-first AI workspace for Model UN delegates: research vault with cited chat, AI drafting studio with Word/PDF export, opponent simulator, committee timers, teleprompter and shareable per-conference workspaces, running locally via Ollama (Next.js, FastAPI, ChromaDB, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/envoy
+- **Pomly** — A free, open-source native Pomodoro focus timer for iPhone, iPad, Mac and Apple Watch: a drag-to-set dial, Live Activity and Dynamic Island, Home and Lock Screen widgets, a Mac menu bar timer, Apple Watch complications, 6-character pairing-code sync between devices and a companion browser extension that blocks distracting sites during focus; no account, no tracking (Swift, SwiftUI, WidgetKit, Firebase; built with Claude Code) [Oct 2026] — https://tapariapurv.github.io/pomly/ — https://github.com/tapariapurv/pomly
 - **Chip** — A Duolingo-style app that teaches kids investing through 22 chapters of lessons, spaced-repetition practice, streaks and leagues, a virtual fund of 14 real companies, and a parent and teacher dashboard. (JavaScript, Firebase, PWA, Vercel; built with Claude Code) [Sep 2026] — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
 - **Logek** — Adaptive vocabulary learning app with spaced repetition and gamification (React, TypeScript, Firebase; built with Claude Code) [Aug 2026] — https://tapariapurv.github.io/Logek
 - **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub

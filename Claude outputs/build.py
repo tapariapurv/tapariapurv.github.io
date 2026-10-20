@@ -110,7 +110,7 @@ ACH = [
 ]
 
 SKILLS = [
-    ("code-slash", "Code", "HTML &amp; CSS &middot; JavaScript &middot; Python &middot; C++ &middot; Block Coding"),
+    ("code-slash", "Code", "HTML &amp; CSS &middot; JavaScript &middot; Python &middot; C++ &middot; Swift &amp; SwiftUI &middot; Block Coding"),
     ("globe", "Web", "React &middot; TypeScript &middot; Next.js &middot; Tailwind CSS &middot; GSAP &middot; Vite"),
     ("cpu", "Hardware", "Arduino &middot; ESP8266 &middot; NeoPixels &middot; Sensors &middot; Breadboards &amp; LEDs"),
     ("robot", "AI", "Claude / Anthropic &middot; Veo 3.1 &middot; Nano Banana Pro &middot; Prompt Engineering"),
@@ -173,6 +173,12 @@ PROJ = [
      "committee timers. Fully offline via Ollama.",
      ["Next.js", "FastAPI", "ChromaDB", "Ollama"],
      ("github", "github.com/tapariapurv/envoy", "https://github.com/tapariapurv/envoy")),
+    ("speedometer2", "Pomly", ["live", "cc"], "October 2026",
+     "Free, open-source native Pomodoro timer for iPhone, iPad, Mac and Apple Watch: Live Activities, "
+     "widgets, a Mac menu bar timer, Watch complications, pairing-code sync and a site-blocking "
+     "browser extension.",
+     ["Swift", "SwiftUI", "WidgetKit", "Firebase"],
+     ("globe", "tapariapurv.github.io/pomly", "https://tapariapurv.github.io/pomly/")),
     ("bar-chart-fill", "Chip", ["live", "cc"], "September 2026",
      "Duolingo-style app that teaches kids investing: 22 chapters of lessons, spaced-repetition practice, "
      "streaks and leagues, a virtual fund of 14 real stocks, and a parent and teacher dashboard.",
@@ -303,12 +309,12 @@ table.skills td.k svg.ic {{ margin-right: 3pt; }}
 .ach .row b {{ font-size: 8.2pt; color: {INK}; }}
 
 .p2 {{ page-break-before: always; }}
-.proj-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; }}
-.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 7pt 9pt 6pt 9pt; }}
+.proj-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4pt; }}
+.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 6pt 9pt 5pt 9pt; break-inside: avoid; }}
 .card .t {{ font-size: 9.1pt; font-weight: 700; color: {INK}; }}
 .card .t svg.ic {{ margin-right: 3pt; }}
-.card .dt {{ font-size: 7.3pt; color: {DIM}; margin: 1pt 0 4pt 0; }}
-.card .x {{ line-height: 1.45; margin-bottom: 4pt; }}
+.card .dt {{ font-size: 7.3pt; color: {DIM}; margin: 1pt 0 3pt 0; }}
+.card .x {{ font-size: 7.2pt; line-height: 1.38; margin-bottom: 3pt; }}
 .badge {{ display: inline-block; font-size: 6.4pt; font-weight: 600; border-radius: 8pt; padding: 1pt 5pt 1.3pt 5pt;
           border: 0.7pt solid; margin-left: 2pt; vertical-align: 1pt; white-space: nowrap; }}
 .badge svg.ic {{ margin-right: 2pt; vertical-align: -0.5pt; }}
