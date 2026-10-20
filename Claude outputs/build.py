@@ -189,6 +189,11 @@ PROJ = [
      "challenges, XP, streaks and unlockable themes.",
      ["React", "TypeScript", "Firebase", "Tailwind"],
      ("globe", "tapariapurv.github.io/Logek", "https://tapariapurv.github.io/Logek")),
+    ("pencil-fill", "Parchly", ["live", "cc"], "October 2026",
+     "Native Markdown editor for macOS: a Document mode that hides syntax as you read, a floating "
+     "formatting bar, side-by-side preview with math and Mermaid, 10 themes and a Finder Quick Look extension.",
+     ["Swift", "AppKit", "SwiftUI"],
+     ("globe", "tapariapurv.github.io/parchly", "https://tapariapurv.github.io/parchly/")),
     ("calculator-fill", "Indian Stock Data Hub", ["live", "cc"], "September 2026",
      "Streamlit research desk for Indian listed companies: scrapes ratios and filings, extracts every "
      "figure from the PDFs, and exports Excel and Word reports. Optional AI runs fully offline via Ollama.",
