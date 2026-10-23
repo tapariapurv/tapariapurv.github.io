@@ -21,7 +21,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="article:modified_time" content="2026-10-20" />
+    <meta property="article:modified_time" content="2026-10-23" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Purv Taparia | Young AI Builder, Developer &amp; Author from Mumbai" />
     <meta name="twitter:description" content="Young AI builder, developer and 5x published author from Mumbai, India, shipping apps with Claude Code and building Arduino hardware." />
@@ -88,7 +88,7 @@
       "inLanguage": "en-IN",
       "publisher": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-10-20"
+      "dateModified": "2026-10-23"
     }
     </script>
 
@@ -102,7 +102,7 @@
       "isPartOf": { "@id": "https://tapariapurv.github.io/#website" },
       "about": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-10-20",
+      "dateModified": "2026-10-23",
       "breadcrumb": { "@id": "https://tapariapurv.github.io/#breadcrumb" }
     }
     </script>
@@ -380,7 +380,7 @@
           "name": "Is this portfolio actively maintained?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 20 October 2026."
+            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 23 October 2026."
           }
         }
       ]
@@ -1750,6 +1750,17 @@
             justify-content: center;
             font-size: 60px;
             border: 1px solid var(--border);
+        }
+
+        .proj-shot {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            border-radius: var(--rl);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
         }
 
         .proj-meta {
@@ -3167,7 +3178,7 @@
                         <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold Anthropic's <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude 101</strong></a>, <a href="assets/Claude Code 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude Code 101</strong></a> and <a href="assets/Claude Code in Action Certificate.pdf" target="_blank" class="hl"><strong>Claude Code in Action</strong></a> certifications.</p>
                         <p>I program in <strong>HTML, CSS, JavaScript, TypeScript, Python, C++ and Swift</strong>, build web apps with React and Next.js and native Apple apps with SwiftUI, and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino and ESP8266. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                         <p>This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-10-20">20 October 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
+                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-10-23">23 October 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
                     </div>
                     <div class="stats rev d3">
                         <a href="#achievements" class="stat">
@@ -3758,10 +3769,7 @@
                             <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                         </div>
                         <h3 class="proj-title">Envoy</h3>
-                        <p class="proj-desc">A private, local-first AI workspace for Model UN delegates — chat with your own
-                            research documents with citations, draft position papers and export them to Word or PDF,
-                            simulate an opposing delegation's arguments, and run committee timers and a paced teleprompter,
-                            all on your own computer via Ollama. — September 2026</p>
+                        <p class="proj-desc">A private, local-first AI workspace for Model UN delegates: chat with your own research with citations, draft position papers, and simulate opposing delegations, all on your computer via Ollama. — September 2026</p>
                         <div class="proj-tech">
                             <span class="tech">Next.js</span><span class="tech">FastAPI</span><span
                                 class="tech">ChromaDB</span><span class="tech">Ollama</span>
@@ -3779,12 +3787,13 @@
 
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
+                    <img class="proj-shot" src="assets/projects/pomly.webp" alt="Screenshot of the Pomly website hero: a focus timer app for iPhone, iPad, Mac and Apple Watch" width="800" height="507" loading="lazy">
                     <div class="proj-meta">
                         <span class="proj-num">02</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Pomly</h3>
-                    <p class="proj-desc">A free, open-source Pomodoro timer built natively in SwiftUI for iPhone, iPad, Mac and Apple Watch: drag the dial to set a session, then follow it in the Dynamic Island, widgets, a Mac menu bar timer and Watch complications. Devices sync with a pairing code, and a companion browser extension blocks distracting sites while you focus. — October 2026</p>
+                    <p class="proj-desc">A free, open-source Pomodoro timer in native SwiftUI for iPhone, iPad, Mac and Apple Watch, with Dynamic Island, widgets and a companion extension that blocks distracting sites. — October 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Swift</span><span class="tech">SwiftUI</span><span class="tech">WidgetKit</span><span class="tech">Firebase</span>
                     </div>
@@ -3808,12 +3817,13 @@
 
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
+                    <img class="proj-shot" src="assets/projects/chip.webp" alt="Chip app splash screen with its orange bull mascot and the tagline “The fun way to learn about money & stocks!”" width="800" height="507" loading="lazy">
                     <div class="proj-meta">
                         <span class="proj-num">03</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Chip</h3>
-                    <p class="proj-desc">A Duolingo-style app that teaches kids how investing works: 22 chapters of bite-sized lessons with spaced-repetition practice, streaks, XP and leagues, plus a virtual fund where kids invest coins in 14 real companies at daily closing prices. Includes a parent and teacher dashboard with classroom codes, and installs as an offline-ready app. — September 2026</p>
+                    <p class="proj-desc">A Duolingo-style app that teaches kids how investing works, with 22 short lessons, streaks and leagues, and a virtual fund of 14 real companies at daily closing prices. — September 2026</p>
                     <div class="proj-tech">
                         <span class="tech">JavaScript</span><span class="tech">Firebase</span><span class="tech">PWA</span><span class="tech">Vercel</span>
                     </div>
@@ -3844,9 +3854,7 @@
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Logek</h3>
-                    <p class="proj-desc">An adaptive vocabulary learning app — Bayesian skill estimation and SM-2
-                        spaced repetition pick words that challenge without overwhelming, with MCQ challenges, XP,
-                        streaks, and unlockable themes. — August 2026</p>
+                    <p class="proj-desc">An adaptive vocabulary app that uses Bayesian skill estimation and spaced repetition to pick words that challenge without overwhelming. — August 2026</p>
                     <div class="proj-tech">
                         <span class="tech">React</span><span class="tech">TypeScript</span><span
                             class="tech">Firebase</span><span class="tech">Tailwind CSS</span>
@@ -3862,12 +3870,13 @@
 
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
+                    <img class="proj-shot" src="assets/projects/parchly.webp" alt="Screenshot of the Parchly website: a native Markdown editor for Mac with a document view and formatting bar" width="800" height="507" loading="lazy">
                     <div class="proj-meta">
                         <span class="proj-num">05</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Parchly</h3>
-                    <p class="proj-desc">A calm, native Markdown editor for macOS — a Document mode that hides the syntax as you read and brings it back on the line you're editing, a floating formatting bar so you never need to know Markdown, and a side-by-side preview with KaTeX math, Mermaid diagrams and colour-coded code. Includes 10 themes, wiki-style cross-references, a Quick Look extension for Finder and automatic updates. — October 2026</p>
+                    <p class="proj-desc">A calm, native Markdown editor for macOS that hides the syntax as you read and brings it back on the line you're editing, with a formatting bar, live preview and 10 themes. — October 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Swift</span><span class="tech">AppKit</span><span class="tech">SwiftUI</span><span class="tech">cmark-gfm</span>
                     </div>
@@ -3892,13 +3901,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">05</span>
+                        <span class="proj-num">06</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Indian Stock Data Hub</h3>
-                    <p class="proj-desc">An open-source research desk for Indian listed companies — pulls key ratios,
-                        quarterly trends, filings and news for any ticker, adds a plain-English verdict from a local
-                        AI model via Ollama, and exports formatted Excel and Word reports. — September 2026</p>
+                    <p class="proj-desc">An open-source research desk for Indian listed companies: key ratios, filings and news for any ticker, a plain-English verdict from a local Ollama model, and Excel and Word exports. — September 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Python</span><span class="tech">Streamlit</span><span
                             class="tech">Ollama</span><span class="tech">pdfplumber</span>
@@ -3915,11 +3922,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">06</span>
+                        <span class="proj-num">07</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Academix</h3>
-                    <p class="proj-desc">A school performance dashboard with separate student, teacher, parent and admin portals — grades, assignments and submissions, KPI cards, performance charts, a points system, a focus timer and a study planner, all backed by its own Express and SQLite API. — September 2026</p>
+                    <p class="proj-desc">A school performance dashboard with student, teacher, parent and admin portals, covering grades, assignments, charts, a points system and a study planner. — September 2026</p>
                     <div class="proj-tech">
                         <span class="tech">React</span><span class="tech">Express</span><span class="tech">SQLite</span><span class="tech">Tailwind CSS</span>
                     </div>
@@ -3944,13 +3951,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">07</span>
+                        <span class="proj-num">08</span>
                         <span class="proj-tag t-hw">⬡ Hardware</span>
                     </div>
                     <h3 class="proj-title">Market Alert Matrix</h3>
-                    <p class="proj-desc">A device with a 16-LED NeoPixel Ring, ESP8266 NodeMCU, piezo, and pushbutton in
-                        a 3D-printed case. It shows the market's live movement from the previous close, lighting one LED
-                        per 0.2% move, and sounds the piezo past 1% — silenced with a push of the button. — August 2026</p>
+                    <p class="proj-desc">An ESP8266 device in a 3D-printed case that lights one NeoPixel per 0.2% market move from the previous close and sounds a piezo past 1%. — August 2026</p>
                     <div class="proj-tech">
                         <span class="tech">ESP8266</span><span class="tech">C++</span><span
                             class="tech">NeoPixels</span><span class="tech">APIs</span>
@@ -3959,12 +3964,13 @@
 
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
+                    <img class="proj-shot" src="assets/projects/hueframe.webp" alt="Screenshot of Hueframe generating a nebula wallpaper previewed on a MacBook and an iPhone" width="800" height="507" loading="lazy">
                     <div class="proj-meta">
-                        <span class="proj-num">08</span>
+                        <span class="proj-num">09</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Hueframe</h3>
-                    <p class="proj-desc">A generator for 4K–8K wallpapers for desktop, iPad and iPhone in any colour: 30 generative styles with infinite variations, live device previews, 24 palettes, an eyedropper and device finish colours, lossless PNG exports up to 8K, and shareable links. — October 2026</p>
+                    <p class="proj-desc">A generator for 4K–8K wallpapers in any colour: 30 generative styles, live device previews, and lossless PNG export up to 8K. — October 2026</p>
                     <div class="proj-tech">
                         <span class="tech">JavaScript</span><span class="tech">Canvas API</span><span class="tech">HTML</span><span class="tech">CSS</span>
                     </div>
@@ -3989,13 +3995,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">09</span>
+                        <span class="proj-num">10</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">MarkItDown GUI</h3>
-                    <p class="proj-desc">A tiny, always-on local app around Microsoft's MarkItDown that turns PDFs, Word,
-                        PowerPoint, Excel, images, audio, web pages and YouTube links into clean Markdown — drag and drop
-                        in a web GUI or call its local API with one curl. Runs only on your own computer. — September 2026</p>
+                    <p class="proj-desc">A tiny local app around Microsoft's MarkItDown that turns PDFs, Office files, images, audio and web pages into clean Markdown, via drag-and-drop or a local API. — September 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Python</span><span class="tech">MarkItDown</span><span
                             class="tech">JavaScript</span><span class="tech">REST API</span>
@@ -4012,13 +4016,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">10</span>
+                        <span class="proj-num">11</span>
                         <span class="proj-tag t-live">● Live</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">Antigravity Usage Monitor</h3>
-                    <p class="proj-desc">A plug-and-play, read-only analytics dashboard for Google Antigravity —
-                        tracks sessions, token usage, subagents, and estimated API costs with activity heatmaps,
-                        model distribution charts, and a session explorer. — June 2026</p>
+                    <p class="proj-desc">A read-only analytics dashboard for Google Antigravity that tracks sessions, token usage and estimated API costs with heatmaps and a session explorer. — June 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Next.js</span><span class="tech">TypeScript</span><span
                             class="tech">SQLite</span><span class="tech">Tailwind CSS</span>
@@ -4035,7 +4037,7 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">11</span>
+                        <span class="proj-num">12</span>
                         <span class="proj-tag t-wip">◐ In Progress</span><span class="proj-tag t-ai">✳ Claude Code</span>
                     </div>
                     <h3 class="proj-title">LiteWarden</h3>
@@ -4058,7 +4060,7 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">12</span>
+                        <span class="proj-num">13</span>
                         <span class="proj-tag t-hw">⬡ Hardware</span>
                     </div>
                     <h3 class="proj-title">Air Quality Monitor</h3>
@@ -4082,7 +4084,7 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">13</span>
+                        <span class="proj-num">14</span>
                         <span class="proj-tag t-hw">⬡ Hardware</span>
                     </div>
                     <h3 class="proj-title">Radar System</h3>
@@ -4104,7 +4106,7 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">14</span>
+                        <span class="proj-num">15</span>
                         <span class="proj-tag t-live">● Live</span>
                     </div>
                     <h3 class="proj-title">Rapid Games</h3>
@@ -4127,7 +4129,7 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">15</span>
+                        <span class="proj-num">16</span>
                         <span class="proj-tag t-live">● Live</span>
                     </div>
                     <h3 class="proj-title">Velvet Pour</h3>
@@ -4149,13 +4151,11 @@
                 <div class="proj-card tc rev">
                     <div class="tc-shine"></div>
                     <div class="proj-meta">
-                        <span class="proj-num">16</span>
+                        <span class="proj-num">17</span>
                         <span class="proj-tag t-hw">⬡ Hardware</span>
                     </div>
                     <h3 class="proj-title">Neo-Pixel Game</h3>
-                    <p class="proj-desc">A 30-second arcade game on an 8×8 NeoPixel grid: slide a 3-LED paddle with push buttons to
-                        catch falling apples (+1 per catch, −2 per miss) as a second apple joins and the speed ramps up.
-                        Runs on an Arduino Uno in a battery-powered, 3D-printed case with piezo sound effects. — Jan 2026</p>
+                    <p class="proj-desc">A 30-second arcade game on an 8×8 NeoPixel grid: slide a 3-LED paddle to catch falling apples as the speed ramps up, on an Arduino Uno in a 3D-printed case. — Jan 2026</p>
                     <div class="proj-tech">
                         <span class="tech">Arduino</span><span class="tech">C++</span><span
                             class="tech">NeoPixels</span><span class="tech">Piezo</span>
@@ -4357,7 +4357,7 @@
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
-                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 20 October 2026.</p>
+                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 23 October 2026.</p>
                 </details>
             </div>
         </div>
