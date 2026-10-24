@@ -242,6 +242,11 @@ PROJ = [
      "Arduino UNO radar using an ultrasonic sensor for signal processing and real-time object detection.",
      ["Arduino", "C++", "Ultrasonic"],
      ("youtube", "Watch on YouTube", "https://youtube.com/shorts/xNrgtW_awv8")),
+    ("robot", "Rapid Games", ["live"], "October 2025",
+     "Free browser gaming platform with a hand-picked collection of curated games. Built and maintained "
+     "collaboratively with Ridit and Devansh.",
+     ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+     ("globe", "tapariapurv.github.io/rapidgames", "https://tapariapurv.github.io/rapidgames")),
     ("globe", "Velvet Pour", ["live"], "August 2026",
      "GSAP-animated cocktail brand landing page with scroll-triggered timelines and SplitText reveals, "
      "built in React and deployed on Vercel.",
@@ -315,11 +320,11 @@ table.skills td.k svg.ic {{ margin-right: 3pt; }}
 
 .p2 {{ page-break-before: always; }}
 .proj-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4pt; }}
-.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 6pt 9pt 5pt 9pt; break-inside: avoid; }}
+.card {{ border: 0.8pt solid {LINE}; border-radius: 7pt; padding: 5pt 8pt 3pt 8pt; break-inside: avoid; }}
 .card .t {{ font-size: 9.1pt; font-weight: 700; color: {INK}; }}
 .card .t svg.ic {{ margin-right: 3pt; }}
-.card .dt {{ font-size: 7.3pt; color: {DIM}; margin: 1pt 0 3pt 0; }}
-.card .x {{ font-size: 7.2pt; line-height: 1.38; margin-bottom: 3pt; }}
+.card .dt {{ font-size: 7.3pt; color: {DIM}; margin: 0.5pt 0 2pt 0; }}
+.card .x {{ font-size: 7.2pt; line-height: 1.28; margin-bottom: 2pt; }}
 .badge {{ display: inline-block; font-size: 6.4pt; font-weight: 600; border-radius: 8pt; padding: 1pt 5pt 1.3pt 5pt;
           border: 0.7pt solid; margin-left: 2pt; vertical-align: 1pt; white-space: nowrap; }}
 .badge svg.ic {{ margin-right: 2pt; vertical-align: -0.5pt; }}
@@ -328,7 +333,7 @@ table.skills td.k svg.ic {{ margin-right: 3pt; }}
 .b-prog {{ color: {GOLD}; background: #faf4df; border-color: #dfcc8f; }}
 .b-cc {{ color: {CC}; background: #efedfb; border-color: #bdb3ea; }}
 .tag {{ display: inline-block; font-size: 7pt; color: {DIM}; background: #f3f6fa; border: 0.6pt solid #dfe5ee;
-        border-radius: 3pt; padding: 1.5pt 5pt; margin: 0 2pt 3pt 0; }}
+        border-radius: 3pt; padding: 1pt 5pt; margin: 0 2pt 2pt 0; }}
 .card .lk {{ font-size: 7.3pt; font-weight: 600; margin-top: 1pt; }}
 .card .lk svg.ic {{ margin-right: 3pt; }}
 """
