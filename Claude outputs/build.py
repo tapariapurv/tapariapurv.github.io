@@ -184,6 +184,11 @@ PROJ = [
      "streaks and leagues, a virtual fund of 14 real stocks, and a parent and teacher dashboard.",
      ["JavaScript", "Firebase", "PWA"],
      ("globe", "chip-stock-coach.vercel.app", "https://chip-stock-coach.vercel.app")),
+    ("pencil-fill", "Wordtick", ["live", "cc"], "October 2026",
+     "Words-to-time calculator for speeches, essays and scripts: reading-aloud and silent times "
+     "at three speeds. Also a Google Docs and Word add-in.",
+     ["JavaScript", "Apps Script", "Office Add-ins"],
+     ("globe", "wordtick.vercel.app", "https://wordtick.vercel.app")),
     ("book-fill", "Logek", ["live", "cc"], "August 2026",
      "Adaptive vocabulary app using Bayesian skill estimation and SM-2 spaced repetition, with MCQ "
      "challenges, XP, streaks and unlockable themes.",
@@ -237,11 +242,6 @@ PROJ = [
      "Arduino UNO radar using an ultrasonic sensor for signal processing and real-time object detection.",
      ["Arduino", "C++", "Ultrasonic"],
      ("youtube", "Watch on YouTube", "https://youtube.com/shorts/xNrgtW_awv8")),
-    ("robot", "Rapid Games", ["live"], "October 2025",
-     "Free browser gaming platform with a hand-picked collection of curated games. Built and maintained "
-     "collaboratively with Ridit and Devansh.",
-     ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-     ("globe", "tapariapurv.github.io/rapidgames", "https://tapariapurv.github.io/rapidgames")),
     ("globe", "Velvet Pour", ["live"], "August 2026",
      "GSAP-animated cocktail brand landing page with scroll-triggered timelines and SplitText reveals, "
      "built in React and deployed on Vercel.",
