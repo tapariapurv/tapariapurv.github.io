@@ -9,17 +9,30 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://tapariapurv.github.io/terms.html" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}</script>
     <style>
         :root {
-            --bg: #080a0f;
-            --surface: #141b27;
-            --border: rgba(255, 255, 255, 0.07);
-            --text: #e8edf5;
-            --text2: #aab4c6;
-            --accent: #00e6be;
-            --ff: 'Syne', sans-serif;
-            --fm: 'DM Mono', monospace;
+            --bg: #fffbf0;
+            --surface: #ffffff;
+            --ink: #0a0a0a;
+            --text: #0a0a0a;
+            --text2: #2b2b2b;
+            --text3: #5a5a5a;
+            --yellow: #ffd23f;
+            --blue: #6aa6ff;
+            --ff: 'Space Grotesk', sans-serif;
+            --fd: 'Archivo Black', 'Space Grotesk', sans-serif;
+            --fm: 'Space Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --bg: #121212;
+            --surface: #1f1e1c;
+            --ink: #f2eee3;
+            --text: #f2eee3;
+            --text2: #d4cfc2;
+            --text3: #a29d90;
         }
 
         * { box-sizing: border-box; }
@@ -28,53 +41,85 @@
             margin: 0;
             background: var(--bg);
             color: var(--text2);
-            font-family: var(--fm);
-            font-size: 14.5px;
-            line-height: 1.75;
+            font-family: var(--ff);
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 100px;
+            max-width: 760px;
+            margin: 48px auto 80px;
+            padding: 40px 36px 48px;
+            background: var(--surface);
+            border: 3px solid var(--ink);
+            box-shadow: 8px 8px 0 var(--ink);
         }
 
-        a { color: var(--accent); }
+        a {
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--blue);
+        }
+
+        a:hover { background: var(--yellow); color: #0a0a0a; }
 
         .back {
             display: inline-block;
+            font-family: var(--fm);
             font-size: 12px;
-            letter-spacing: .06em;
             text-transform: uppercase;
+            text-decoration: none;
+            color: #0a0a0a;
+            background: var(--yellow);
+            border: 3px solid var(--ink);
+            box-shadow: 3px 3px 0 var(--ink);
+            padding: 6px 12px;
             margin-bottom: 32px;
         }
 
+        .back:active { transform: translate(3px, 3px); box-shadow: none; }
+
         h1 {
-            font-family: var(--ff);
-            font-size: clamp(30px, 4vw, 42px);
-            font-weight: 800;
+            font-family: var(--fd);
+            font-weight: 400;
+            font-size: clamp(34px, 6vw, 56px);
+            line-height: .95;
+            text-transform: uppercase;
             color: var(--text);
-            letter-spacing: -.02em;
-            margin: 0 0 8px;
+            margin: 0 0 14px;
         }
 
         .updated {
-            font-size: 11.5px;
-            color: #6b7d95;
-            margin-bottom: 40px;
+            display: inline-block;
+            font-family: var(--fm);
+            font-size: 12px;
+            color: var(--text);
+            border: 2px solid var(--ink);
+            padding: 2px 10px;
+            margin-bottom: 36px;
         }
 
         h2 {
-            font-family: var(--ff);
-            font-size: 19px;
-            font-weight: 700;
+            font-family: var(--fd);
+            font-weight: 400;
+            font-size: 20px;
+            text-transform: uppercase;
             color: var(--text);
             margin: 40px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--ink);
         }
 
         p, li { color: var(--text2); }
 
         ul { padding-left: 20px; }
+
+        @media (max-width: 680px) {
+            .wrap { margin: 16px 16px 48px; padding: 28px 20px 32px; box-shadow: 5px 5px 0 var(--ink); }
+        }
     </style>
 </head>
 
