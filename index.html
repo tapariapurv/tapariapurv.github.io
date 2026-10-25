@@ -29,17 +29,7 @@
     <link rel="canonical" href="https://tapariapurv.github.io" />
     <link rel="icon" href="assets/favicon.ico" />
     <link rel="preload" as="image" href="assets/purv.webp" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonts load non-render-blocking so the loader paints instantly even on slow connections -->
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    </noscript>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne-latin.woff2" crossorigin />
 
     <script type="application/ld+json">
     {
@@ -69,7 +59,7 @@
         "availableLanguage": ["English"]
       },
       "author": [
-        { "@type": "Book", "name": "10-Year-Old's Decode the Stock Market", "url": "https://www.amazon.in/dp/B0H1YGCL2D", "datePublished": "2026-05-15" },
+        { "@type": "Book", "name": "10-Year-Olds Decode the Stock Market", "url": "https://www.amazon.in/dp/B0H1YGCL2D", "datePublished": "2026-05-15" },
         { "@type": "Book", "name": "Dubai and a Futuristic City", "url": "https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city", "datePublished": "2023-12-06" },
         { "@type": "Book", "name": "The Tour to DigiDream", "url": "https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia", "datePublished": "2025-06-10" },
         { "@type": "Book", "name": "Five Stories by Purv Taparia", "url": "https://www.bribooks.com/bookstore/5-stories-by-purv-taparia/", "datePublished": "2023-06-13" },
@@ -270,7 +260,7 @@
           "image": "https://tapariapurv.github.io/assets/projects/academix.webp",
           "applicationCategory": "EducationalApplication",
           "operatingSystem": "Web",
-          "url": "https://academix-purv1.vercel.app",
+          "url": "https://lumino-s.vercel.app",
           "sameAs": "https://github.com/tapariapurv/academix",
           "description": "A school performance dashboard with student, teacher, parent and admin portals: grades, assignments, KPI cards, performance charts, points, a focus timer and a study planner, on an Express and SQLite API.",
           "offers": {
@@ -388,12 +378,19 @@
         (function () {
             var d = document.documentElement;
             d.classList.add('js');
-            try { if (localStorage.getItem('theme') === 'light') d.setAttribute('data-theme', 'light'); } catch (e) {}
+            var t = null; try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t === 'light' || (!t && window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches)) d.setAttribute('data-theme', 'light');
             // Crawlers and AI scrapers get the plain, fully expanded page: no reveals, no pinned scroll, no collapsed lists.
             if (/bot|crawl|spider|slurp|inspectiontool|headless|facebookexternalhit|embedly|preview/i.test(navigator.userAgent)) d.classList.add('bot');
         })();
     </script>
     <style>
+        /* Fonts are self-hosted (SIL Open Font License) so the page needs no third-party requests to render */
+        @font-face { font-family: 'Syne'; font-style: normal; font-weight: 400 800; font-display: swap; src: url(assets/fonts/syne-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face { font-family: 'Syne'; font-style: normal; font-weight: 400 800; font-display: swap; src: url(assets/fonts/syne-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/dm-mono-400.woff2) format('woff2'); }
+        @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/dm-mono-500.woff2) format('woff2'); }
+        @font-face { font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url(assets/fonts/instrument-serif-italic.woff2) format('woff2'); }
         /* ── TOKENS ─────────────────────────────────────────────── */
         :root {
             --bg: #080a0f;
@@ -426,6 +423,8 @@
             --rxl: 28px;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
             --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --soft: cubic-bezier(0.22, 1, 0.36, 1);
+            --gentle: cubic-bezier(0.34, 1.25, 0.64, 1);
             --nav-h: 68px;
             color-scheme: dark;
         }
@@ -486,7 +485,7 @@
         .hl strong { color: inherit; }
 
         /* Scroll reveal (skipped for crawlers and reduced motion) */
-        .js .rev { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+        .js .rev { opacity: 0; transform: translateY(16px); transition: opacity .9s var(--soft), transform 1s var(--soft); }
         .js .rev.in { opacity: 1; transform: none; }
         .d1 { transition-delay: .08s !important; }
         .d2 { transition-delay: .16s !important; }
@@ -502,7 +501,7 @@
         .sec-note { max-width: 360px; color: var(--text2); font-size: 14px; }
 
         /* ── BUTTONS ───────────────────────────────────────────── */
-        .btn-p, .btn-g { display: inline-flex; align-items: center; gap: 9px; font-family: var(--fm); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; padding: 13px 24px; border-radius: 10px; transition: transform .35s var(--spring), box-shadow .3s var(--ease), border-color .25s, color .25s, background-color .25s; white-space: nowrap; }
+        .btn-p, .btn-g { display: inline-flex; align-items: center; gap: 9px; font-family: var(--fm); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; padding: 13px 24px; border-radius: 10px; transition: transform .45s var(--gentle), box-shadow .4s var(--soft), border-color .3s, color .3s, background-color .3s; white-space: nowrap; }
         .btn-p { background: var(--accent); color: var(--ink); font-weight: 500; }
         [data-theme="light"] .btn-p { color: #fff; }
         .btn-g { border: 1px solid var(--border2); color: var(--text2); background: var(--surface); }
@@ -524,7 +523,7 @@
         .t-mile { background: var(--bg3); color: var(--text2); }
 
         /* Cards with the mouse-tracked shine */
-        .tc { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--rl); box-shadow: var(--card-shadow); transition: transform .5s var(--spring), border-color .3s, box-shadow .4s var(--ease); }
+        .tc { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--rl); box-shadow: var(--card-shadow); transition: transform .55s var(--soft), border-color .35s var(--soft), box-shadow .45s var(--soft); }
         .tc::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--adim), transparent 45%); }
         @media (hover: hover) and (pointer: fine) {
             .tc:hover { border-color: var(--glow); box-shadow: var(--shadow); }
@@ -554,8 +553,8 @@
         .nav-ham[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
         .nav-ham[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
         .nav-ham[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-        .mnav { position: fixed; inset: 0; z-index: 140; background: var(--bg); display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 90px 32px 40px; visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
-        .mnav.open { visibility: visible; opacity: 1; transform: none; transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s; }
+        .mnav { position: fixed; inset: 0; z-index: 140; background: var(--bg); display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 90px 32px 40px; visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .3s var(--soft), transform .3s var(--soft), visibility 0s .3s; }
+        .mnav.open { visibility: visible; opacity: 1; transform: none; transition: opacity .4s var(--soft), transform .4s var(--soft), visibility 0s; }
         .mnav a, .mnav .theme-row { font-size: 30px; font-weight: 800; letter-spacing: -.02em; color: var(--text2); text-align: left; display: flex; align-items: center; gap: 14px; }
         .mnav a:hover, .mnav a:focus-visible { color: var(--accent); }
         .mnav .theme-row { font-size: 18px; margin-top: 16px; font-family: var(--fm); font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
@@ -609,9 +608,9 @@
 
         .hero-name { font-size: clamp(50px, 6.6vw, 88px); font-weight: 800; letter-spacing: -.04em; line-height: .95; cursor: default; }
         .hero-name em { color: var(--accent); }
-        .hero-name .ch { display: inline-block; --tx: 0px; --ty: 0px; --tr: 0deg; --hop: 0px; --hr: 0deg; transform: translate(var(--tx), calc(var(--ty) + var(--hop))) rotate(calc(var(--tr) + var(--hr))); transition: transform .5s var(--spring), color .2s; }
+        .hero-name .ch { display: inline-block; --tx: 0px; --ty: 0px; --tr: 0deg; --hop: 0px; --hr: 0deg; transform: translate(var(--tx), calc(var(--ty) + var(--hop))) rotate(calc(var(--tr) + var(--hr))); transition: transform .6s var(--gentle), color .35s var(--soft); }
         .hero-name .ch.pop { transition-duration: .18s; }
-        .hero-name.magnet .ch { transition: transform .12s linear, color .2s; }
+        .hero-name.magnet .ch { transition: transform .1s linear, color .35s var(--soft); }
         .hero-name .ch.hot { color: var(--accent); }
         .hero-name em .ch.hot { color: var(--gold); }
         .hero-sub { margin-top: 18px; font-family: var(--fm); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--text2); min-height: 1.6em; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; text-align: center; }
@@ -620,7 +619,7 @@
         .fx-cursor { width: 2px; height: 1.1em; background: var(--accent); animation: blink 1s steps(1) infinite; }
         @keyframes blink { 50% { opacity: 0; } }
         .hero-socials { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; justify-content: center; }
-        .soc { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--text2); background: var(--surface); border: 1px solid var(--border2); box-shadow: var(--card-shadow); transition: transform .4s var(--spring), color .2s, border-color .2s, box-shadow .3s; }
+        .soc { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--text2); background: var(--surface); border: 1px solid var(--border2); box-shadow: var(--card-shadow); transition: transform .5s var(--gentle), color .3s, border-color .3s, box-shadow .4s var(--soft); }
         .soc svg { width: 18px; height: 18px; }
         @media (hover: hover) and (pointer: fine) {
             .soc:hover { transform: translateY(-4px) rotate(-6deg); }
@@ -633,9 +632,6 @@
         .s-em:hover { color: var(--accent); border-color: var(--glow); box-shadow: 0 0 18px var(--adim); }
 
         .hero-r { min-width: 0; }
-        .hero-hi { font-family: var(--fs); font-style: italic; font-size: clamp(28px, 3vw, 38px); color: var(--accent); line-height: 1; margin-bottom: 14px; display: inline-block; transform-origin: 70% 80%; }
-        @media (prefers-reduced-motion: no-preference) { .js .hero-hi { animation: wave 2.6s var(--ease) 1s 2; } }
-        @keyframes wave { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(-8deg); } 20%, 40% { transform: rotate(8deg); } }
         .hero-desc { font-size: clamp(19px, 1.9vw, 24px); line-height: 1.55; color: var(--text2); max-width: 560px; letter-spacing: -.01em; }
         .hero-desc strong { color: var(--text); }
         .hero-desc .hl { border-bottom-width: 2px; }
@@ -645,7 +641,7 @@
         .tops-h::after { content: ''; flex: 1; height: 1px; background: var(--border); }
         .tops-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
         .hcard { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; }
-        .hcard-ico { flex: none; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--adim); color: var(--accent); transition: transform .5s var(--spring); }
+        .hcard-ico { flex: none; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--adim); color: var(--accent); transition: transform .6s var(--soft); }
         .hcard-ico.g { background: var(--gdim); color: var(--gold); }
         .hcard-ico.c { background: var(--coral-dim); color: var(--coral); }
         .hcard-ico svg { width: 17px; height: 17px; }
@@ -674,12 +670,12 @@
         .about-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 80px; align-items: start; }
         .about-sticky { position: sticky; top: calc(var(--nav-h) + 48px); }
         .about-hl { font-size: clamp(40px, 5vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; }
-        .about-hl .sw { display: inline-block; color: var(--text3); opacity: 1; transition: color .4s var(--ease), opacity .4s var(--ease), transform .6s var(--spring); transform-origin: left 70%; }
+        .about-hl .sw { display: inline-block; color: var(--text3); opacity: 1; transition: color .6s var(--soft), opacity .6s var(--soft), transform .8s var(--soft); transform-origin: left 70%; }
         .about-hl .sw.on { color: var(--text); opacity: 1; transform: translateX(10px) rotate(-1.5deg); }
         .about-hl em .sw.on { color: var(--accent); }
         .bot .about-hl .sw { color: var(--text); opacity: 1; }
         .about-dots { display: flex; gap: 8px; margin-top: 28px; }
-        .about-dots i { width: 28px; height: 4px; border-radius: 4px; background: var(--border2); transition: background-color .3s, width .4s var(--spring); }
+        .about-dots i { width: 28px; height: 4px; border-radius: 4px; background: var(--border2); transition: background-color .5s var(--soft), width .6s var(--soft); }
         .about-dots i.on { background: var(--accent); width: 44px; }
         .about-body p { color: var(--text2); margin-bottom: 18px; }
         .def-quote { border-left: 3px solid var(--accent); background: var(--adim); padding: 18px 22px; border-radius: 0 14px 14px 0; margin: 6px 0 22px; color: var(--text2); font-size: 15px; }
@@ -693,7 +689,7 @@
         .sg { margin-bottom: 22px; }
         .sg-title { font-family: var(--fm); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
         .chips { display: flex; flex-wrap: wrap; gap: 7px; }
-        .chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--fm); font-size: 11.5px; color: var(--text2); background: var(--surface); border: 1px solid var(--border); padding: 6px 12px; border-radius: 100px; transition: transform .4s var(--spring), color .2s, background-color .2s, border-color .2s; }
+        .chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--fm); font-size: 11.5px; color: var(--text2); background: var(--surface); border: 1px solid var(--border); padding: 6px 12px; border-radius: 100px; transition: transform .45s var(--gentle), color .2s, background-color .2s, border-color .2s; }
         .chip .ci { width: 12px; height: 12px; color: var(--accent); flex: none; }
         @media (hover: hover) and (pointer: fine) { .chip:hover { transform: translateY(-2px) rotate(-2deg); color: var(--accent); background: var(--adim); border-color: var(--glow); } }
 
@@ -712,10 +708,10 @@
         .ach.plain .medal-rib { background: linear-gradient(90deg, var(--text3) 0 33%, var(--surface) 33% 66%, var(--text3) 66%); }
         @media (hover: hover) and (pointer: fine) {
             .ach:hover { transform: rotate(0) translateY(-6px) !important; }
-            .ach:hover .medal { animation: swing 1.1s var(--ease); }
+            .ach:hover .medal { animation: swing 1.4s ease-in-out; }
             .ach.gold:hover { border-color: var(--g-border); box-shadow: 0 0 0 1px rgba(245, 200, 66, .18), 0 20px 60px rgba(245, 200, 66, .09), 0 40px 80px rgba(0, 0, 0, .3); }
         }
-        @keyframes swing { 0% { transform: rotate(0); } 20% { transform: rotate(12deg); } 45% { transform: rotate(-8deg); } 65% { transform: rotate(4deg); } 85% { transform: rotate(-2deg); } 100% { transform: rotate(0); } }
+        @keyframes swing { 0% { transform: rotate(0); } 18% { transform: rotate(10deg); } 42% { transform: rotate(-7deg); } 64% { transform: rotate(3.5deg); } 84% { transform: rotate(-1.5deg); } 100% { transform: rotate(0); } }
         .ach-badge { display: inline-block; margin-bottom: 10px; }
         .ach-title { font-size: 17px; font-weight: 700; letter-spacing: -.02em; line-height: 1.3; margin-bottom: 10px; }
         .ach-body { font-size: 13.5px; color: var(--text2); line-height: 1.75; }
@@ -735,7 +731,7 @@
         .cert-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
         .cert-issuer { font-family: var(--fm); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); display: flex; align-items: center; gap: 7px; line-height: 1.3; }
         .cert-issuer svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
-        .ring { --p: 0; width: 58px; height: 58px; flex: none; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) calc(var(--p) * 1%), var(--bg3) 0); transition: --p 1.4s var(--ease); position: relative; }
+        .ring { --p: 0; width: 58px; height: 58px; flex: none; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) calc(var(--p) * 1%), var(--bg3) 0); transition: --p 1.6s var(--soft); position: relative; }
         .ring::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: var(--surface); }
         .ring b { position: relative; font-family: var(--fm); font-size: 12.5px; font-weight: 500; letter-spacing: -.02em; color: var(--text); }
         .ring svg { position: relative; width: 20px; height: 20px; color: var(--accent); }
@@ -763,7 +759,7 @@
         .log-date small { display: block; font-size: 10px; color: var(--text3); }
         .log-month:first-child .log-date { color: var(--accent); }
         .log-entries { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; padding-left: 20px; }
-        .log-body { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px 34px 16px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--card-shadow); transition: transform .45s var(--spring), border-color .25s, box-shadow .3s; }
+        .log-body { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px 34px 16px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--card-shadow); transition: transform .55s var(--soft), border-color .35s var(--soft), box-shadow .45s var(--soft); }
         a.log-body:hover { transform: translateY(-4px) rotate(-.6deg); border-color: var(--glow); box-shadow: var(--shadow); }
         .log-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
         .log-title { font-weight: 700; font-size: 14.5px; letter-spacing: -.01em; margin-right: 4px; line-height: 1.3; }
@@ -782,6 +778,16 @@
         #projects { padding: 0; }
         .hs-pin { padding: 110px 0 70px; }
         .hs-hdr { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+        .hs-filter { display: flex; gap: 8px; flex-wrap: wrap; }
+        .hs-chip { font-family: var(--fm); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; border: 1px solid var(--border2); background: var(--surface); color: var(--text2); transition: color .3s var(--soft), border-color .3s var(--soft), background-color .3s var(--soft), transform .45s var(--gentle); }
+        .hs-chip b { font-weight: 500; color: var(--text3); margin-left: 4px; }
+        .hs-chip:hover { border-color: var(--glow); color: var(--text); transform: translateY(-2px); }
+        .hs-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+        .hs-chip[aria-pressed="true"] b { color: inherit; }
+        [data-theme="light"] .hs-chip[aria-pressed="true"] { color: #fff; }
+        .pc.out { display: none; }
+        .js .pc.in-f { animation: pop .6s var(--soft) backwards; }
+        .bot .hs-filter { display: none !important; }
         .hs-meta { display: flex; align-items: center; gap: 14px; font-family: var(--fm); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); }
         .hs-count b { color: var(--accent); font-weight: 500; }
         .hs-bar { width: 140px; height: 3px; border-radius: 3px; background: var(--border2); overflow: hidden; }
@@ -793,7 +799,7 @@
         .pc:nth-child(odd) { --tilt: -1deg; }
         .pc:nth-child(even) { --tilt: 1deg; }
         .pc-shot { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg3); border-bottom: 1px solid var(--border); }
-        .pc-shot img, .pc-shot svg { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .7s var(--ease); }
+        .pc-shot img, .pc-shot svg { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .9s var(--soft); }
         a.pc-shot::after { content: attr(data-cta); position: absolute; right: 12px; bottom: 12px; font-family: var(--fm); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: var(--accent); padding: 6px 11px; border-radius: 100px; transform: translateY(8px); opacity: 0; transition: opacity .2s var(--ease), transform .35s var(--spring); }
         [data-theme="light"] a.pc-shot::after { color: #fff; }
         a.pc-shot:hover img, a.pc-shot:hover svg, a.pc-shot:focus-visible img { transform: scale(1.045); }
@@ -858,7 +864,7 @@
         .bk.r { margin-left: auto; transform: rotate(1.6deg); grid-template-columns: minmax(0, 1fr) 168px; }
         .bk.r .bk-cover-wrap { order: 2; }
         .bk-cover-wrap { perspective: 900px; }
-        .bk-cover { display: block; position: relative; aspect-ratio: 2 / 3; border-radius: 4px 10px 10px 4px; overflow: hidden; box-shadow: -6px 10px 24px -6px rgba(0, 0, 0, .55), inset 6px 0 10px -4px rgba(0, 0, 0, .3); transform: rotateY(-14deg); transform-origin: left center; transition: transform .7s var(--spring), box-shadow .4s; background: var(--bg3); }
+        .bk-cover { display: block; position: relative; aspect-ratio: 2 / 3; border-radius: 4px 10px 10px 4px; overflow: hidden; box-shadow: -6px 10px 24px -6px rgba(0, 0, 0, .55), inset 6px 0 10px -4px rgba(0, 0, 0, .3); transform: rotateY(-14deg); transform-origin: left center; transition: transform .8s var(--soft), box-shadow .6s var(--soft); background: var(--bg3); }
         .bk-cover::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 9px; background: linear-gradient(90deg, rgba(0, 0, 0, .35), rgba(255, 255, 255, .18) 60%, transparent); }
         .bk-cover img { width: 100%; height: 100%; object-fit: cover; }
         .bk.r .bk-cover { transform: rotateY(14deg); transform-origin: right center; }
@@ -889,7 +895,7 @@
         .pick-panel { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 22px; align-items: start; padding: 24px; border-radius: 20px; background: var(--bg2); border: 1px dashed var(--border2); }
         .js .pick-panel.off { display: none; }
         .bot .pick-panel.off { display: grid !important; margin-top: 12px; }
-        .js .pick-panel.show { animation: pop .5s var(--spring); }
+        .js .pick-panel.show { animation: pop .6s var(--soft); }
         @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.97) rotate(-1deg); } to { opacity: 1; transform: none; } }
         .pick-panel img { border-radius: 4px 8px 8px 4px; box-shadow: -4px 8px 18px -6px rgba(0, 0, 0, .5); aspect-ratio: 2 / 3; object-fit: cover; width: 100%; }
         .pick-panel h4 { font-size: 20px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 12px; }
@@ -908,7 +914,7 @@
         .faq-a { display: flex; gap: 12px; align-items: flex-end; margin-top: 12px; max-width: 92%; }
         .faq-a img { flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 2px solid var(--glow); }
         .faq-a p { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--card-shadow); color: var(--text2); padding: 15px 19px; border-radius: 22px 22px 22px 6px; font-size: 14.5px; }
-        .js .faq-item[open] .faq-a { animation: pop .45s var(--spring); }
+        .js .faq-item[open] .faq-a { animation: pop .6s var(--soft); }
 
         /* ── CONTACT ───────────────────────────────────────────── */
         .contact-card { position: relative; padding: 70px 56px; border-radius: 36px; text-align: center; overflow: hidden; }
@@ -1003,8 +1009,16 @@
             footer { padding: 26px 20px; }
             .hcard { padding: 10px 12px; }
         }
+        @media (max-width: 700px) {
+            .tops-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -20px; padding: 2px 20px 8px; scrollbar-width: none; }
+            .tops-grid::-webkit-scrollbar { display: none; }
+            .tops-grid .hcard { flex: 0 0 74%; scroll-snap-align: start; }
+            .bot .tops-grid { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; }
+            .tops-h::after { content: 'swipe'; flex: none; height: auto; background: none; letter-spacing: .14em; color: var(--text3); order: 3; }
+            .tops-h::before { content: ''; flex: 1; order: 2; height: 1px; background: var(--border); }
+            .bot .tops-h::after { content: none; }
+        }
         @media (max-width: 420px) {
-            .hcard { flex-direction: column; align-items: flex-start; gap: 8px; }
             .hcard-val { font-size: 12.5px; }
             .bk, .bk.r { grid-template-columns: 84px minmax(0, 1fr); }
             .bk.r { grid-template-columns: minmax(0, 1fr) 84px; }
@@ -1019,8 +1033,6 @@
             .bk.r .bk-cover-wrap { order: 0; justify-self: end; }
         }
         @media (max-width: 340px) {
-            .tops-grid { grid-template-columns: minmax(0, 1fr); }
-            .hcard { flex-direction: row; align-items: center; }
             .hero-ctas a { flex: 1 1 100%; justify-content: center; }
         }
 
@@ -1138,7 +1150,6 @@
             </div>
 
             <div class="hero-r">
-                <div class="hero-hi" aria-hidden="true">Hello!</div>
                 <p class="hero-desc">
                     Hi! I'm <strong>Purv</strong>, a student from Mumbai. I
                     <a href="#projects" class="hl"><strong>build apps with AI &amp; Claude Code</strong></a>,
@@ -1532,7 +1543,7 @@
                             <span class="log-top"><span class="log-title">Indian Stock Data Hub</span><span class="tag t-live">● Live</span><span class="tag t-ai">✳ Claude Code</span><svg><use href="#i-arrow"/></svg></span>
                             <span class="log-desc">Open-sourced a research desk for Indian listed companies, with a plain-English verdict from a local AI model and one-click Excel and Word reports.</span>
                         </a>
-                        <a class="log-body" href="https://academix-purv1.vercel.app" target="_blank">
+                        <a class="log-body" href="https://lumino-s.vercel.app" target="_blank">
                             <span class="log-top"><span class="log-title">Academix</span><span class="tag t-live">● Live</span><span class="tag t-ai">✳ Claude Code</span><svg><use href="#i-arrow"/></svg></span>
                             <span class="log-desc">Built a school performance dashboard with student, teacher, parent and admin portals, charts and a points system.</span>
                         </a>
@@ -1567,7 +1578,7 @@
                             <span class="log-desc">Built an Arduino UNO radar: an ultrasonic sensor on a sweeping servo, plotted live on a radar screen I coded in Processing.</span>
                         </a>
                         <a class="log-body" href="https://www.amazon.in/dp/B0H1YGCL2D" target="_blank">
-                            <span class="log-top"><span class="log-title">10-Year-Old's Decode the Stock Market</span><span class="tag t-mile">✎ Book</span><svg><use href="#i-arrow"/></svg></span>
+                            <span class="log-top"><span class="log-title">10-Year-Olds Decode the Stock Market</span><span class="tag t-mile">✎ Book</span><svg><use href="#i-arrow"/></svg></span>
                             <span class="log-desc">Published a finance book on Amazon that explains the stock market for young readers.</span>
                         </a>
                     </div>
@@ -1700,6 +1711,11 @@
                     <div class="slabel">Built by Me</div>
                     <h2 class="sec-title">Projects</h2>
                 </div>
+                <div class="hs-filter no-js-hide" role="group" aria-label="Filter projects">
+                    <button type="button" class="hs-chip" aria-pressed="true" data-f="all">All <b></b></button>
+                    <button type="button" class="hs-chip" aria-pressed="false" data-f="t-ai">Claude Code <b></b></button>
+                    <button type="button" class="hs-chip" aria-pressed="false" data-f="t-hw">Hardware <b></b></button>
+                </div>
                 <div class="hs-meta" aria-hidden="true">
                     <span class="hs-count"><b id="hs-n">01</b> / <span id="hs-t">16</span></span>
                     <span class="hs-bar"><i id="hs-bar"></i></span>
@@ -1812,7 +1828,7 @@
                 </article>
 
                 <article class="pc tc">
-                    <a class="pc-shot" href="https://academix-purv1.vercel.app" target="_blank" data-cta="Open Live App" data-umami-event="project-live-academix">
+                    <a class="pc-shot" href="https://lumino-s.vercel.app" target="_blank" data-cta="Open Live App" data-umami-event="project-live-academix">
                         <img src="assets/projects/academix.webp" alt="Screenshot of the Academix student portal: a study activity heatmap and an upcoming tasks panel" width="800" height="500" loading="lazy" decoding="async">
                     </a>
                     <div class="pc-body">
@@ -1821,7 +1837,7 @@
                         <p class="pc-desc">A school performance dashboard with student, teacher, parent and admin portals, covering grades, assignments, charts, a points system and a study planner. — September 2026</p>
                         <div class="pc-tech"><span class="tech">React</span><span class="tech">Express</span><span class="tech">SQLite</span><span class="tech">Tailwind CSS</span></div>
                         <div class="pc-links">
-                            <a href="https://academix-purv1.vercel.app" class="lnk" target="_blank" data-umami-event="project-live-academix">Open Live App <svg><use href="#i-arrow"/></svg></a>
+                            <a href="https://lumino-s.vercel.app" class="lnk" target="_blank" data-umami-event="project-live-academix">Open Live App <svg><use href="#i-arrow"/></svg></a>
                             <a href="https://github.com/tapariapurv/academix" class="lnk" target="_blank">View on GitHub <svg><use href="#i-arrow"/></svg></a>
                         </div>
                     </div>
@@ -2047,7 +2063,7 @@
                     <div class="bk-cover-wrap"><a class="bk-cover" href="https://www.amazon.in/dp/B0H1YGCL2D" target="_blank" tabindex="-1" aria-hidden="true"><img src="assets/books/stock.webp" alt="" width="400" height="600" loading="lazy" decoding="async"></a></div>
                     <div>
                         <div class="bk-genre">Finance / Non-fiction · Amazon</div>
-                        <h3 class="bk-title">10-Year-Old's Decode the Stock Market</h3>
+                        <h3 class="bk-title">10-Year-Olds Decode the Stock Market</h3>
                         <p class="bk-desc">A beginner-friendly guide to the stock market written for young readers —
                             covering investing fundamentals, how markets work, and financial literacy concepts in simple
                             language.</p>
@@ -2124,7 +2140,7 @@
                     <div class="pick-panel" role="tabpanel" id="pp-1" aria-labelledby="pt-1">
                         <img src="assets/books/stock.webp" alt="" width="400" height="600" loading="lazy" decoding="async">
                         <div>
-                            <h4>10-Year-Old's Decode the Stock Market</h4>
+                            <h4>10-Year-Olds Decode the Stock Market</h4>
                             <dl class="pick-dl"><dt>Genre</dt><dd>Finance / Non-fiction</dd><dt>Best for</dt><dd>Readers who want a beginner-friendly intro to investing and financial literacy</dd><dt>Platform</dt><dd>Amazon</dd></dl>
                             <a href="https://www.amazon.in/dp/B0H1YGCL2D" class="lnk" target="_blank">Buy on Amazon <svg><use href="#i-arrow"/></svg></a>
                         </div>
@@ -2228,490 +2244,7 @@
 
     <button id="btt" type="button" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
 
-    <script>
-        (function () {
-            const root = document.documentElement;
-            const isBot = root.classList.contains('bot');
-            const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-            const calm = () => isBot || rm.matches;
-            const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-            const $ = (s, el) => (el || document).querySelector(s);
-            const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
-            if (calm()) root.classList.add('no-motion');
-
-            /* ── Theme ─────────────────────────────────────────── */
-            function syncThemeLabel() {
-                const light = root.getAttribute('data-theme') === 'light';
-                $$('.theme-label').forEach(el => el.textContent = light ? 'Dark Mode' : 'Light Mode');
-                const m = $('meta[name="theme-color"]'); if (m) m.content = light ? '#fbfcfc' : '#080a0f';
-            }
-            $$('[data-theme-toggle]').forEach(btn => btn.addEventListener('click', () => {
-                const light = root.getAttribute('data-theme') !== 'light';
-                if (light) root.setAttribute('data-theme', 'light'); else root.removeAttribute('data-theme');
-                try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
-                syncThemeLabel();
-            }));
-            syncThemeLabel();
-
-            /* ── Nav, mobile menu, progress, back to top ───────── */
-            const nav = $('#nav'), ham = $('.nav-ham'), mnav = $('#mnav'), sprog = $('#sprog'), btt = $('#btt');
-            function setMenu(open) {
-                mnav.classList.toggle('open', open);
-                ham.setAttribute('aria-expanded', open);
-                document.body.style.overflow = open ? 'hidden' : '';
-            }
-            ham.addEventListener('click', () => setMenu(!mnav.classList.contains('open')));
-            $$('a', mnav).forEach(a => a.addEventListener('click', () => setMenu(false)));
-            document.addEventListener('keydown', e => { if (e.key === 'Escape' && mnav.classList.contains('open')) { setMenu(false); ham.focus(); } });
-            btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: calm() ? 'instant' : 'smooth' }));
-
-            const navLinks = $$('.nav-links a[href^="#"]:not(.nav-cta)');
-            const navTargets = navLinks.map(a => $(a.getAttribute('href')));
-            function onScrollBasic() {
-                const y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
-                nav.classList.toggle('scrolled', y > 30);
-                btt.classList.toggle('show', y > innerHeight * 1.2);
-                sprog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
-                let cur = -1;
-                navTargets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < innerHeight * .4) cur = i; });
-                navLinks.forEach((a, i) => a.classList.toggle('active', i === cur));
-            }
-
-            /* ── Scroll reveal ─────────────────────────────────── */
-            const revs = $$('.rev, .cert');
-            if (calm() || !('IntersectionObserver' in window)) revs.forEach(el => el.classList.add('in'));
-            else {
-                const io = new IntersectionObserver(es => es.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-                }), { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
-                revs.forEach(el => io.observe(el));
-            }
-
-            /* ── Count-up stats ────────────────────────────────── */
-            $$('[data-count]').forEach(el => {
-                if (calm()) return;
-                const to = +el.dataset.count, suf = el.dataset.suffix || '';
-                const io = new IntersectionObserver(es => {
-                    if (!es[0].isIntersecting) return; io.disconnect();
-                    const t0 = performance.now();
-                    (function step(now) {
-                        const p = Math.min(1, (now - t0) / 1100), e = 1 - Math.pow(1 - p, 3);
-                        el.textContent = Math.round(to * e) + suf;
-                        if (p < 1) requestAnimationFrame(step);
-                    })(t0);
-                });
-                io.observe(el);
-            });
-
-            /* ── Card shine follows the pointer ────────────────── */
-            if (fine) document.addEventListener('pointermove', e => {
-                const c = e.target.closest && e.target.closest('.tc');
-                if (!c) return;
-                const r = c.getBoundingClientRect();
-                c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-            }, { passive: true });
-
-            /* ── Typewriter ────────────────────────────────────── */
-            (function () {
-                const el = $('#tw-word');
-                if (calm()) { el.textContent = 'Student · Author · Coder · Blogger'; $('.tw-pre').style.display = 'none'; return; }
-                const words = ['Student', 'AI Builder', 'Author', 'Coder', 'Maker', 'Blogger'];
-                const pre = $('.tw-pre');
-                let w = 0, i = words[0].length, del = false;
-                function tick() {
-                    const word = words[w];
-                    if (i === 0 && !del) pre.innerHTML = (/^[AEIOU]/.test(word) ? "I'm an" : "I'm a") + '&nbsp;';
-                    i += del ? -1 : 1;
-                    el.textContent = word.slice(0, i);
-                    let wait = del ? 45 : 85;
-                    if (!del && i === word.length) { del = true; wait = 1600; }
-                    else if (del && i === 0) { del = false; w = (w + 1) % words.length; wait = 280; }
-                    setTimeout(tick, wait);
-                }
-                setTimeout(() => { del = true; tick(); }, 2000);
-                if (fine) el.addEventListener('click', () => {
-                    w = (w + 1) % words.length; i = 0; del = false; el.textContent = '';
-                    el.animate([{ transform: 'scale(1.25) rotate(-4deg)' }, { transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.34,1.56,.64,1)' });
-                });
-            })();
-
-            const hero = $('#hero');
-            const toys = !calm() && fine && innerWidth > 960;   // the extra toys are for mouse users on big screens
-
-            /* ── Wobbly name: letters hop on tap, dodge the cursor on desktop ── */
-            (function () {
-                const h1 = $('#hero-name');
-                h1.setAttribute('aria-label', 'Purv Taparia');
-                [h1, $('em', h1)].forEach(node => {
-                    Array.from(node.childNodes).forEach(n => {
-                        if (n.nodeType !== 3 || !n.textContent.trim()) return;
-                        const frag = document.createDocumentFragment();
-                        n.textContent.trim().split('').forEach(ch => {
-                            const s = document.createElement('span');
-                            s.className = 'ch'; s.textContent = ch; s.setAttribute('aria-hidden', 'true');
-                            frag.appendChild(s);
-                        });
-                        n.replaceWith(frag);
-                    });
-                });
-                if (calm()) return;
-                const chars = $$('.ch', h1);
-                function hop(s, big) {
-                    s.classList.add('pop');
-                    s.style.setProperty('--hop', (big ? -18 : -12) + 'px');
-                    s.style.setProperty('--hr', (Math.random() * 16 - 8) * (big ? 1.4 : 1) + 'deg');
-                    setTimeout(() => { s.classList.remove('pop'); s.style.setProperty('--hop', '0px'); s.style.setProperty('--hr', '0deg'); }, 180);
-                }
-                chars.forEach(s => s.addEventListener('pointerenter', () => hop(s)));
-                h1.addEventListener('click', () => chars.forEach((s, i) => setTimeout(() => hop(s, true), i * 45)));
-                window.__wave = () => chars.forEach((s, i) => setTimeout(() => hop(s), i * 40));
-                if (!toys) return;
-                // Magnet: letters lean away from the cursor
-                let base = null, px = 0, py = 0, queued = false;
-                function measure() {
-                    base = chars.map(s => { const r = s.getBoundingClientRect(); return [r.left + r.width / 2 - (parseFloat(s.style.getPropertyValue('--tx')) || 0), r.top + r.height / 2 - (parseFloat(s.style.getPropertyValue('--ty')) || 0)]; });
-                }
-                function frame() {
-                    queued = false;
-                    chars.forEach((s, i) => {
-                        const dx = base[i][0] - px, dy = base[i][1] - py, d = Math.hypot(dx, dy) || 1, R = 150;
-                        const f = d < R ? 1 - d / R : 0;
-                        s.style.setProperty('--tx', (dx / d * f * 30).toFixed(1) + 'px');
-                        s.style.setProperty('--ty', (dy / d * f * 30).toFixed(1) + 'px');
-                        s.style.setProperty('--tr', (dx / d * f * 16).toFixed(1) + 'deg');
-                        s.classList.toggle('hot', f > .4);
-                    });
-                }
-                hero.addEventListener('pointermove', e => {
-                    if (e.pointerType !== 'mouse') return;
-                    if (!base) measure();
-                    px = e.clientX; py = e.clientY;
-                    h1.classList.add('magnet');
-                    if (!queued) { queued = true; requestAnimationFrame(frame); }
-                });
-                hero.addEventListener('pointerleave', () => {
-                    h1.classList.remove('magnet');
-                    chars.forEach(s => { s.style.setProperty('--tx', '0px'); s.style.setProperty('--ty', '0px'); s.style.setProperty('--tr', '0deg'); s.classList.remove('hot'); });
-                });
-                window.addEventListener('scroll', () => { base = null; }, { passive: true });
-                window.addEventListener('resize', () => { base = null; });
-            })();
-
-            /* ── Wobbly photo: drag it, it springs back; tap it on phones ── */
-            (function () {
-                const me = $('#me'), card = $('#me-card'), bubble = $('#me-bubble');
-                const lines = ["Hi, I'm Purv!", 'Drag me around!', 'Fling the stickers!', 'Poke my name!', 'Again?'];
-                let line = 0;
-                function say(t) {
-                    bubble.textContent = t; me.classList.add('talk');
-                    clearTimeout(say.t); say.t = setTimeout(() => me.classList.remove('talk'), 1600);
-                }
-                if (calm()) { card.classList.remove('idle'); return; }
-                if (!fine) {
-                    // Phones: a small squish and a hello, nothing that fights with scrolling
-                    me.addEventListener('click', () => {
-                        card.classList.add('squish');
-                        setTimeout(() => card.classList.remove('squish'), 140);
-                        say(lines[0]);
-                    });
-                    return;
-                }
-                function confetti(n) {
-                    const cols = ['var(--accent)', '#f5c842', '#ff6b6b', 'var(--paper)'];
-                    for (let i = 0; i < n; i++) {
-                        const p = document.createElement('i');
-                        p.className = 'confetti'; p.style.background = cols[i % cols.length];
-                        me.appendChild(p);
-                        const a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 120;
-                        p.animate([
-                            { transform: 'translate(-50%,-50%) rotate(0)', opacity: 1 },
-                            { transform: 'translate(calc(-50% + ' + (Math.cos(a) * d).toFixed(0) + 'px), calc(-50% + ' + (Math.sin(a) * d + 50).toFixed(0) + 'px)) rotate(' + (Math.random() * 720 - 360).toFixed(0) + 'deg)', opacity: 0 }
-                        ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(.16,1,.3,1)' }).onfinish = () => p.remove();
-                    }
-                }
-                let x = 0, y = 0, vx = 0, vy = 0, rot = -3, vr = 0, tx = 0, ty = 0;
-                let dragging = false, sx = 0, sy = 0, moved = 0, raf = 0, tilt = { x: 0, y: 0 };
-                function frame() {
-                    const k = dragging ? 0.35 : 0.12, d = dragging ? 0.6 : 0.78;
-                    vx = (vx + (tx - x) * k) * d; vy = (vy + (ty - y) * k) * d;
-                    x += vx; y += vy;
-                    const targetRot = -3 + vx * 1.6;
-                    vr = (vr + (targetRot - rot) * 0.18) * 0.72; rot += vr;
-                    card.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + rot + 'deg) perspective(700px) rotateX(' + tilt.y + 'deg) rotateY(' + tilt.x + 'deg)';
-                    if (dragging || Math.abs(vx) + Math.abs(vy) + Math.abs(vr) + Math.abs(x) + Math.abs(y) + Math.abs(rot + 3) + Math.abs(tilt.x) + Math.abs(tilt.y) > 0.05) raf = requestAnimationFrame(frame);
-                    else { raf = 0; card.style.transform = ''; card.classList.add('idle'); }
-                }
-                function kick() { card.classList.remove('idle'); if (!raf) raf = requestAnimationFrame(frame); }
-                me.addEventListener('pointerdown', e => {
-                    dragging = true; sx = e.clientX; sy = e.clientY; moved = 0;
-                    me.classList.add('grab'); me.setPointerCapture(e.pointerId); kick();
-                });
-                me.addEventListener('pointermove', e => {
-                    if (dragging) {
-                        const dx = e.clientX - sx, dy = e.clientY - sy;
-                        moved = Math.max(moved, Math.hypot(dx, dy));
-                        tx = Math.max(-140, Math.min(140, dx * .8)); ty = Math.max(-100, Math.min(100, dy * .8));
-                        if (moved > 30) say('Wheee!');
-                    } else if (e.pointerType === 'mouse') {
-                        const r = me.getBoundingClientRect();
-                        tilt.x = ((e.clientX - r.left) / r.width - .5) * 16;
-                        tilt.y = -((e.clientY - r.top) / r.height - .5) * 16;
-                        kick();
-                    }
-                });
-                function release() {
-                    if (!dragging) return;
-                    dragging = false; tx = ty = 0; me.classList.remove('grab');
-                    vr += vx * 2.2; kick();
-                    if (moved < 6) { confetti(16); say(lines[line++ % lines.length]); vy -= 6; }
-                    if (window.__wave) window.__wave();
-                }
-                me.addEventListener('pointerup', release);
-                me.addEventListener('pointercancel', release);
-                me.addEventListener('pointerleave', () => { tilt.x = tilt.y = 0; kick(); });
-                me.addEventListener('keydown', e => {
-                    if (e.key !== 'Enter' && e.key !== ' ') return;
-                    e.preventDefault(); vx = 9; vr = 10; kick(); confetti(12); say(lines[line++ % lines.length]);
-                    if (window.__wave) window.__wave();
-                });
-            })();
-
-            /* ── Desktop toys: flingable stickers, cursor spotlight, tilting cards ── */
-            (function () {
-                if (!toys) return;
-                const layer = $('#hero-stk'), els = $$('.stk', layer), navH = 76;
-                let W = 0, H = 0, st = [], raf = 0, drag = null, z = 10;
-                const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-                const draw = s => { s.el.style.transform = 'translate(' + s.x.toFixed(1) + 'px,' + s.y.toFixed(1) + 'px) rotate(' + s.r.toFixed(1) + 'deg)'; };
-                function place() {
-                    W = hero.clientWidth; H = hero.clientHeight;
-                    const hr = hero.getBoundingClientRect(), pr = $('#me').getBoundingClientRect();
-                    const ox = pr.left - hr.left, oy = pr.top - hr.top, pw = pr.width, ph = pr.height;
-                    // Stuck around the polaroid, ready to be peeled off
-                    const spots = [[-0.6, 0.06, -12], [1.04, 0.16, 9], [-0.64, 0.6, 7], [1.0, 0.7, -8], [0.62, -0.17, -5]];
-                    st = els.map((el, i) => {
-                        const w = el.offsetWidth, h = el.offsetHeight, p = spots[i];
-                        return { el, w, h, x: clamp(ox + p[0] * pw, 8, W - w - 8), y: clamp(oy + p[1] * ph, navH, H - h - 8), vx: 0, vy: 0, r: p[2], vr: 0, base: p[2] };
-                    });
-                    st.forEach(draw);
-                }
-                function tick() {
-                    let moving = false;
-                    st.forEach(s => {
-                        if (s === drag) return;
-                        s.vx *= 0.955; s.vy *= 0.955; s.vr *= 0.92;
-                        s.x += s.vx; s.y += s.vy; s.r += s.vr;
-                        if (s.x < 0) { s.x = 0; s.vx = -s.vx * 0.6; s.vr += s.vy * .3; }
-                        if (s.x > W - s.w) { s.x = W - s.w; s.vx = -s.vx * 0.6; s.vr -= s.vy * .3; }
-                        if (s.y < navH) { s.y = navH; s.vy = -s.vy * 0.6; s.vr -= s.vx * .3; }
-                        if (s.y > H - s.h) { s.y = H - s.h; s.vy = -s.vy * 0.6; s.vr += s.vx * .3; }
-                        if (Math.abs(s.vx) + Math.abs(s.vy) + Math.abs(s.vr) > 0.05) moving = true;
-                        draw(s);
-                    });
-                    if (drag) { draw(drag); moving = true; }
-                    raf = moving ? requestAnimationFrame(tick) : 0;
-                }
-                const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
-                st = [];
-                els.forEach((el, i) => {
-                    el.addEventListener('pointerdown', e => {
-                        const s = st[i]; if (!s) return;
-                        const hr = hero.getBoundingClientRect();
-                        drag = s; s.offX = e.clientX - hr.left - s.x; s.offY = e.clientY - hr.top - s.y;
-                        s.vx = s.vy = 0; el.style.zIndex = ++z; el.classList.add('grab');
-                        el.setPointerCapture(e.pointerId); go();
-                    });
-                    el.addEventListener('pointermove', e => {
-                        const s = st[i]; if (drag !== s) return;
-                        const hr = hero.getBoundingClientRect();
-                        const nx = clamp(e.clientX - hr.left - s.offX, 0, W - s.w), ny = clamp(e.clientY - hr.top - s.offY, navH, H - s.h);
-                        s.vx = s.vx * .5 + (nx - s.x) * .5; s.vy = s.vy * .5 + (ny - s.y) * .5;
-                        s.x = nx; s.y = ny; s.r = s.base + clamp(s.vx * 2, -28, 28);
-                    });
-                    const up = () => {
-                        const s = st[i]; if (drag !== s) return;
-                        drag = null; el.classList.remove('grab');
-                        s.vx = clamp(s.vx, -45, 45); s.vy = clamp(s.vy, -45, 45); s.vr = s.vx * .6; s.base = s.r; go();
-                    };
-                    el.addEventListener('pointerup', up);
-                    el.addEventListener('pointercancel', up);
-                });
-                function init() {
-                    place();
-                    els.forEach((el, i) => setTimeout(() => el.classList.add('on'), 500 + i * 140));
-                }
-                if (document.readyState === 'complete') init(); else window.addEventListener('load', init);
-                window.addEventListener('resize', () => { if (innerWidth > 960) place(); });
-
-                hero.addEventListener('pointermove', e => {
-                    if (e.pointerType !== 'mouse') return;
-                    const r = hero.getBoundingClientRect();
-                    hero.style.setProperty('--hx', (e.clientX - r.left) + 'px');
-                    hero.style.setProperty('--hy', (e.clientY - r.top) + 'px');
-                    hero.classList.add('lit');
-                });
-                hero.addEventListener('pointerleave', () => hero.classList.remove('lit'));
-
-                $$('.hcard', hero).forEach(c => {
-                    c.addEventListener('pointermove', e => {
-                        const r = c.getBoundingClientRect();
-                        const ry = ((e.clientX - r.left) / r.width - .5) * 14, rx = -((e.clientY - r.top) / r.height - .5) * 14;
-                        c.style.transform = 'perspective(600px) rotateX(' + rx.toFixed(1) + 'deg) rotateY(' + ry.toFixed(1) + 'deg) translateY(-3px)';
-                    });
-                    c.addEventListener('pointerleave', () => { c.style.transform = ''; });
-                });
-            })();
-
-            /* ── About: Student, Author, Coder, Blogger light up as you scroll ── */
-            const about = $('#about'), words = $$('#about-hl .sw'), dots = $$('.about-dots i');
-            function onScrollAbout() {
-                if (isBot) return;
-                const r = about.getBoundingClientRect();
-                const p = (innerHeight * .55 - r.top) / Math.max(1, r.height - innerHeight * .35);
-                const idx = Math.max(0, Math.min(words.length - 1, Math.floor(p * words.length)));
-                words.forEach((w, i) => w.classList.toggle('on', i === idx));
-                dots.forEach((d, i) => d.classList.toggle('on', i === idx));
-            }
-
-            /* ── Collapsible lists (history, books) ────────────── */
-            function collapsible(btn, getTarget, labelEl, openText, closedText, onToggle) {
-                if (!btn) return;
-                btn.addEventListener('click', () => {
-                    const open = btn.getAttribute('aria-expanded') !== 'true';
-                    btn.setAttribute('aria-expanded', open);
-                    getTarget().classList.toggle(onToggle, open);
-                    labelEl.textContent = open ? openText : closedText;
-                    if (open) { const first = getTarget().querySelector('.log-extra, .bk'); if (first) first.querySelectorAll('.rev').forEach(r => r.classList.add('in')); }
-                    if (!open) btn.scrollIntoView({ block: 'center', behavior: calm() ? 'instant' : 'smooth' });
-                    drawRoad();
-                });
-            }
-            const extra = $$('.log-extra').length;
-            const logLabel = $('#log-more-label');
-            logLabel.textContent = 'View Full History (+' + extra + ' months)';
-            collapsible($('#log-more-btn'), () => $('#log'), logLabel, 'Show Less', 'View Full History (+' + extra + ' months)', 'all');
-            collapsible($('#bk-more-btn'), () => $('#bk-more'), $('#bk-more-label'), 'Show Fewer Books', 'View More Books (+2)', 'open');
-
-            /* ── Projects: vertical scroll moves the row sideways ── */
-            const hs = $('#projects'), pin = $('.hs-pin', hs), track = $('#hs-track'), cards = $$('.pc', track);
-            const hsN = $('#hs-n'), hsBar = $('#hs-bar'), hsHint = $('#hs-hint');
-            $('#hs-t').textContent = String(cards.length).padStart(2, '0');
-            let pinned = false, dist = 0;
-            function layoutHS() {
-                const want = !calm() && innerWidth >= 700 && innerHeight >= 620;
-                pinned = want;
-                hs.classList.toggle('pinned', want);
-                if (!want) { hs.style.height = ''; track.style.transform = ''; hsHint.textContent = fine ? 'Scroll sideways' : 'Swipe'; return; }
-                hsHint.textContent = 'Scroll';
-                dist = Math.max(0, track.scrollWidth - innerWidth);
-                hs.style.height = (innerHeight + dist) + 'px';
-                onScrollHS();
-            }
-            function setProgress(p) {
-                hsBar.style.transform = 'scaleX(' + Math.max(.06, p) + ')';
-                const n = Math.min(cards.length, Math.max(1, Math.round(p * (cards.length - 1)) + 1));
-                hsN.textContent = String(n).padStart(2, '0');
-            }
-            function onScrollHS() {
-                if (!pinned) return;
-                const top = hs.getBoundingClientRect().top;
-                const x = Math.max(0, Math.min(dist, -top));
-                track.style.transform = 'translate3d(' + (-x) + 'px,0,0)';
-                setProgress(dist ? x / dist : 0);
-            }
-            track.addEventListener('scroll', () => {
-                if (pinned) return;
-                const max = track.scrollWidth - track.clientWidth;
-                setProgress(max > 0 ? track.scrollLeft / max : 0);
-            }, { passive: true });
-            // Keyboard users: tabbing into an off-screen card scrolls the page to it
-            track.addEventListener('focusin', e => {
-                if (!pinned) return;
-                const card = e.target.closest('.pc'); if (!card) return;
-                const offset = card.offsetLeft - (innerWidth - card.offsetWidth) / 2;
-                const x = Math.max(0, Math.min(dist, offset));
-                pin.scrollLeft = 0;
-                window.scrollTo({ top: hs.offsetTop + x, behavior: 'instant' });
-                onScrollHS();
-            });
-
-            /* ── Books: draw the winding road between covers ───── */
-            const road = $('#bk-road'), path = $('#bk-path');
-            let roadLen = 0;
-            function drawRoad() {
-                if (!road) return;
-                const pr = path.getBoundingClientRect();
-                const pts = $$('.bk', path).filter(b => b.offsetParent !== null).map(b => {
-                    const c = $('.bk-cover', b).getBoundingClientRect();
-                    return [c.left - pr.left + c.width / 2, c.top - pr.top + c.height / 2];
-                });
-                if (pts.length < 2) return;
-                let d = 'M' + pts[0][0] + ' ' + pts[0][1];
-                for (let i = 1; i < pts.length; i++) {
-                    const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], my = (y0 + y1) / 2;
-                    d += ' C' + x0 + ' ' + my + ',' + x1 + ' ' + my + ',' + x1 + ' ' + y1;
-                }
-                road.setAttribute('viewBox', '0 0 ' + pr.width + ' ' + pr.height);
-                $$('path', road).forEach(p => p.setAttribute('d', d));
-                const fill = $('.road-fill', road);
-                roadLen = fill.getTotalLength();
-                fill.style.strokeDasharray = roadLen;
-                onScrollRoad();
-            }
-            function onScrollRoad() {
-                if (!roadLen) return;
-                const fill = $('.road-fill', road);
-                if (calm()) { fill.style.strokeDashoffset = 0; return; }
-                const r = path.getBoundingClientRect();
-                const p = Math.max(0, Math.min(1, (innerHeight * .7 - r.top) / r.height));
-                fill.style.strokeDashoffset = roadLen * (1 - p);
-            }
-
-            /* ── Which book? picker (tabs) ─────────────────────── */
-            (function () {
-                const tabs = $$('.pick-opt'), panels = $$('.pick-panel');
-                function select(i, focus) {
-                    tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
-                    panels.forEach((p, j) => { p.classList.toggle('off', j !== i); p.classList.toggle('show', j === i); });
-                    if (focus) tabs[i].focus();
-                }
-                tabs.forEach((t, i) => {
-                    t.addEventListener('click', () => select(i));
-                    t.addEventListener('keydown', e => {
-                        const k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-                        if (k) { e.preventDefault(); select((i + k + tabs.length) % tabs.length, true); }
-                        if (e.key === 'Home') { e.preventDefault(); select(0, true); }
-                        if (e.key === 'End') { e.preventDefault(); select(tabs.length - 1, true); }
-                    });
-                });
-                if (!isBot) select(0);
-            })();
-
-            /* ── Copy email ────────────────────────────────────── */
-            const copyBtn = $('#copy-email');
-            copyBtn.addEventListener('click', () => {
-                const done = () => { copyBtn.classList.add('done'); setTimeout(() => copyBtn.classList.remove('done'), 1800); };
-                if (navigator.clipboard) navigator.clipboard.writeText('tapariapurv+portfolio@gmail.com').then(done, () => location.href = 'mailto:tapariapurv+portfolio@gmail.com');
-                else location.href = 'mailto:tapariapurv+portfolio@gmail.com';
-            });
-
-            /* ── One scroll loop, one resize handler ───────────── */
-            let ticking = false;
-            function onScroll() {
-                if (ticking) return; ticking = true;
-                requestAnimationFrame(() => { ticking = false; onScrollBasic(); onScrollAbout(); onScrollHS(); onScrollRoad(); });
-            }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            let rz;
-            window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { layoutHS(); drawRoad(); onScroll(); }, 120); });
-            rm.addEventListener && rm.addEventListener('change', () => location.reload());
-            layoutHS(); onScrollBasic(); onScrollAbout();
-            window.addEventListener('load', () => { layoutHS(); drawRoad(); onScroll(); });
-            if (document.fonts) document.fonts.ready.then(() => { layoutHS(); drawRoad(); });
-        })();
-    </script>
-
+    <script src="assets/site.js?v=f787b398" defer></script>
 </body>
 
 </html>

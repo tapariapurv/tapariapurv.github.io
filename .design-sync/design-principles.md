@@ -54,7 +54,7 @@ Derived from `tapariapurv.github.io`. Use these principles when building any des
 | **DM Mono** (300/400/500) | `--fm` | Section labels, nav links, metadata, badges, chips, code-style tags |
 | **Instrument Serif** (italic) | `--fs` | Single italic word/phrase inside a heading for editorial emphasis |
 
-Load from Google Fonts: `Syne:wght@400;600;700;800`, `DM+Mono:wght@300;400;500`, `Instrument+Serif:ital@0;1`.
+Self-hosted in `assets/fonts/` (WOFF2, latin subsets): Syne variable 400–800 (plus latin-ext for ₹), DM Mono 400/500, Instrument Serif italic. Don't add Google Fonts links back; they add two third-party requests.
 
 ### Type scale
 
@@ -82,7 +82,9 @@ Use `Instrument Serif italic` for exactly one word or short phrase inside large 
 - **Section padding:** 110px top and bottom (72px on mobile)
 - **Primary grid:** 2-column (50/50) for hero, about, certifications
 - **Achievement grid:** 3 columns
-- **Books grid:** 5 columns (→ 3 → 2 → 1 on smaller screens)
+- **Books:** a winding path, cards alternating left and right with a 1.6° tilt and a 3D book cover; the dashed road between covers draws itself as you scroll. The last two books sit behind "View More Books". On phones the alternation stays (cover left, then cover right).
+- **Projects:** one horizontal row (cards `clamp(280px, 31vw, 380px)`, 16:10 screenshot on top). On desktop the section pins and vertical scroll moves the row sideways; on phones and with reduced motion it is a normal swipe row. Filter chips: All · Claude Code · Hardware.
+- **Hero:** two columns. Left: polaroid photo, name, typewriter line, socials. Right: bio, buttons, six top-achievement cards (a swipe row on phones).
 - **Card gap:** 14–18px
 
 ### Border radius
@@ -250,6 +252,18 @@ On mouse leave: spring easing back to identity over 0.5s.
 
 ---
 
+### Smooth motion (October 2026 redesign)
+
+| Token | Value | Use |
+|---|---|---|
+| `--soft` | `cubic-bezier(0.22, 1, 0.36, 1)` | Default for reveals, cards, covers, panels: glides to rest with no overshoot |
+| `--gentle` | `cubic-bezier(0.34, 1.25, 0.64, 1)` | Small buttons, chips and social icons: a hint of bounce |
+
+- Scroll reveals: `opacity` + `translateY(16px)`, 0.9–1s on `--soft`.
+- Anything driven by scroll or the pointer (the projects row, the books road, the name magnet) eases toward its target in a `requestAnimationFrame` loop instead of jumping, and the loop stops once it settles.
+- Animate only `transform` and `opacity`.
+- **Playful toys are desktop-only** (fine pointer, wider than 960px): flingable stickers around the photo, name letters that dodge the cursor, a cursor spotlight, tilting achievement cards, confetti on photo click. Phones get only a tap squish and a speech bubble. Crawlers (`html.bot`) and reduced-motion users get none of it.
+
 ## 11. Navigation
 
 - Fixed top, transparent until scrolled 40px then: `background: rgba(8,10,15,0.88)`, `backdrop-filter: blur(20px)`, `border-bottom: 1px solid --border`
@@ -263,7 +277,7 @@ On mouse leave: spring easing back to identity over 0.5s.
 
 A scrolling strip between hero and content:
 
-- Background: `--bg2`
+- Background: `--accent` (a tilted teal tape strip, text in `--ink`); was `--bg2`
 - Border top + bottom: `1px solid --border`
 - Items: DM Mono, 10.5px, letter-spacing 0.10em, uppercase, `--text2`
 - Separator: `✦` in `--accent` (font-size 14px)

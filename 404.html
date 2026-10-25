@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found | Purv Taparia</title>
+    <meta name="description" content="This page doesn't exist. Head back to Purv Taparia's portfolio." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <script>
+        (function () {
+            var t = null; try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t === 'light' || (!t && window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches)) document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
+    <style>
+        @font-face { font-family: 'Syne'; font-weight: 400 800; font-display: swap; src: url(/assets/fonts/syne-latin.woff2) format('woff2'); }
+        @font-face { font-family: 'DM Mono'; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400.woff2) format('woff2'); }
+        @font-face { font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-italic.woff2) format('woff2'); }
+        :root { --bg: #080a0f; --surface: #141b27; --border: rgba(255, 255, 255, 0.12); --text: #e8edf5; --text2: #aab4c6; --accent: #00e6be; --ink: #080a0f; --paper: #fbf8f1; color-scheme: dark; }
+        [data-theme="light"] { --bg: #fbfcfc; --surface: #ffffff; --border: rgba(15, 45, 40, 0.18); --text: #0e1726; --text2: #3d4a5a; --accent: #0b7d72; --ink: #ffffff; color-scheme: light; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 40px 20px; background: var(--bg); color: var(--text); font-family: 'Syne', system-ui, sans-serif; text-align: center; background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 26px 26px; }
+        .card { position: relative; max-width: 460px; }
+        .polaroid { width: 200px; margin: 0 auto 34px; background: var(--paper); padding: 10px 10px 40px; border-radius: 6px; transform: rotate(-4deg); box-shadow: 0 24px 50px -14px rgba(0, 0, 0, .5); position: relative; }
+        .polaroid .blank { aspect-ratio: 1; border-radius: 3px; background: #dfe3e8; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 46px; color: #8a94a3; }
+        .polaroid span { position: absolute; left: 0; right: 0; bottom: 9px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 20px; color: #3a3f4a; }
+        .polaroid::before { content: ''; position: absolute; top: -12px; left: 50%; width: 80px; height: 24px; margin-left: -40px; background: color-mix(in srgb, var(--accent) 55%, transparent); transform: rotate(5deg); }
+        h1 { font-size: clamp(34px, 8vw, 52px); font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 14px; }
+        h1 em { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; color: var(--accent); }
+        p { color: var(--text2); line-height: 1.7; margin-bottom: 28px; }
+        a { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 13px 24px; border-radius: 10px; background: var(--accent); color: var(--ink); text-decoration: none; transition: transform .45s cubic-bezier(.34, 1.25, .64, 1); }
+        a:hover { transform: translateY(-3px) rotate(-1deg); }
+        a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="polaroid" aria-hidden="true"><div class="blank">404</div><span>Nothing here</span></div>
+        <h1>This page <em>wandered off</em></h1>
+        <p>The link might be old or mistyped. Everything I've built, written and won is on the home page.</p>
+        <a href="/">Back to the portfolio →</a>
+    </main>
+</body>
+
+</html>

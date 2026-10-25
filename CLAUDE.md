@@ -6,7 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is Purv Taparia's personal portfolio: a static site with no build system, package manager, or test suite — plain HTML/CSS/JS deployed directly via GitHub Pages.
 
-- `index.html` — the entire single-page site (hero, about, achievements, certifications, latest/changelog, projects, books, FAQ, contact), with all CSS and JS inline. Large file (~3.9k lines); also holds six `<script type="application/ld+json">` blocks (Person, WebSite, WebPage, BreadcrumbList, software-projects ItemList, FAQPage).
+- `index.html` — the entire single-page site (hero, about, achievements, certifications, latest/changelog, projects, books, FAQ, contact), with all CSS inline (JS lives in `assets/site.js`). Large file (~3.9k lines); also holds six `<script type="application/ld+json">` blocks (Person, WebSite, WebPage, BreadcrumbList, software-projects ItemList, FAQPage).
+- `assets/site.js` — all page behaviour (loaded with `defer` and a `?v=` cache-busting query; bump it when the file changes). Only the tiny theme/crawler flag script stays inline at the top of `<head>`.
+- `assets/fonts/` — self-hosted WOFF2 fonts (Syne, DM Mono, Instrument Serif). Don't re-add Google Fonts links.
+- `404.html` — custom not-found page (noindex, not in the sitemap).
 - `privacy.html`, `terms.html` — standalone legal pages, same visual system as the main site.
 - `assets/Purv Taparia - Resume.pdf` — the resume, linked from the hero "Download Resume" button. It's a PDF edited outside this repo; flag bio changes to Purv rather than trying to edit it. (`Resume Old.pdf` is the previous version.)
 - `assets/og-image.png` — social preview image referenced by `og:image`, `twitter:image`, and the Person JSON-LD. Don't delete it.
