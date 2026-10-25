@@ -78,6 +78,7 @@ Before calling any feature or content change done, confirm all of these. Each on
 
 **Design and QA (anything that touches the UI)**
 - Build from `.design-sync/design-principles.md` tokens and existing classes (`.slabel`, `.sec-title` + one `<em>` italic word, `.proj-tag t-live/t-wip/t-hw`, `--ease`/`--spring`). Keep section backgrounds alternating `--bg` / `--bg2`.
+- Playful hero toys (flingable stickers, the name magnet, cursor spotlight, card tilt, confetti) run only for mouse users wider than 960px (`toys` in the script). Phones get only a tap squish and a speech bubble, and the photo uses `touch-action: pan-y` so it never blocks scrolling. Purv wants the phone site kept light: put new interactive effects behind the same gate.
 - Look at it before shipping: screenshot desktop (~1300px) and phone (375px and 320px) in **both dark and light themes**. Headless Chrome won't go narrower than 500px, so wrap the page in a narrow `<iframe>` for phone widths. Check hover and focus states, long titles wrapping, missing links (non-link rows), and no horizontal overflow.
 
 ## Design system

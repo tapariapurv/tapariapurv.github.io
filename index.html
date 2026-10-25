@@ -576,7 +576,31 @@
         .me-tape { position: absolute; top: -12px; left: 50%; width: 92px; height: 26px; margin-left: -46px; background: color-mix(in srgb, var(--accent) 55%, transparent); transform: rotate(4deg); border-radius: 2px; opacity: .85; z-index: 2; }
         .me-bubble { position: absolute; right: -18px; top: 18px; z-index: 3; background: var(--accent); color: var(--ink); font-family: var(--fm); font-size: 12px; letter-spacing: .06em; padding: 7px 12px; border-radius: 14px 14px 14px 3px; transform: scale(.6) rotate(-8deg); opacity: 0; transition: opacity .2s var(--ease), transform .45s var(--spring); pointer-events: none; }
         [data-theme="light"] .me-bubble { color: #fff; }
-        .me:hover .me-bubble, .me.grab .me-bubble, .me:focus-visible .me-bubble { opacity: 1; transform: scale(1) rotate(6deg); }
+        .me:hover .me-bubble, .me.grab .me-bubble, .me:focus-visible .me-bubble, .me.talk .me-bubble { opacity: 1; transform: scale(1) rotate(6deg); }
+        .me-card.squish { transform: rotate(-3deg) scale(.95) !important; transition: transform .12s var(--ease); }
+        .confetti { position: absolute; left: 50%; top: 45%; width: 9px; height: 9px; border-radius: 2px; pointer-events: none; z-index: 4; }
+        .play-hint { display: none; margin-top: 18px; font-family: var(--fs); font-style: italic; font-size: 17px; color: var(--text3); }
+        @media (hover: hover) and (pointer: fine) and (min-width: 961px) {
+            .js:not(.no-motion):not(.bot) .play-hint { display: block; }
+            .js:not(.no-motion):not(.bot) #tw-word { cursor: pointer; }
+        }
+        .hero-spot { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s var(--ease); background: radial-gradient(340px circle at var(--hx, 50%) var(--hy, 40%), var(--adim), transparent 70%); }
+        #hero.lit .hero-spot { opacity: 1; }
+        .hero-stk { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+        .stk { position: absolute; left: 0; top: 0; pointer-events: auto; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: none; display: flex; align-items: center; gap: 7px; white-space: nowrap; font-family: var(--fm); font-size: 11.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 9px 14px; border-radius: 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border2); box-shadow: 0 2px 0 rgba(0, 0, 0, .25), 0 12px 26px -12px rgba(0, 0, 0, .6); will-change: transform; opacity: 0; transition: opacity .5s var(--ease), box-shadow .2s; }
+        .stk.on { opacity: 1; }
+        .stk svg { width: 13px; height: 13px; }
+        .stk.grab { cursor: grabbing; box-shadow: 0 2px 0 rgba(0, 0, 0, .25), 0 24px 40px -14px rgba(0, 0, 0, .7); }
+        .stk.t { background: var(--accent); color: var(--ink); border-color: transparent; }
+        .stk.g { background: #f5c842; color: #1d1604; border-color: transparent; }
+        .stk.c { background: #ff6b6b; color: #fff; border-color: transparent; }
+        .stk.p { background: var(--paper); color: #2a2f3a; border-color: transparent; }
+        [data-theme="light"] .stk.t { color: #fff; }
+        [data-theme="light"] .stk { box-shadow: 0 2px 0 rgba(15, 30, 50, .08), 0 12px 26px -12px rgba(15, 30, 50, .35); }
+        /* Toys are for mouse users on big screens only; phones stay calm */
+        @media (max-width: 960px), (hover: none), (pointer: coarse) { .hero-stk, .hero-spot { display: none; } }
+        .no-motion .hero-stk, .bot .hero-stk, .no-motion .hero-spot, .bot .hero-spot { display: none; }
+        @media (pointer: coarse) { .me { touch-action: pan-y; cursor: default; } }
         .me-hint { font-family: var(--fm); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text3); margin-top: 16px; }
         @media (prefers-reduced-motion: no-preference) {
             .js .me-card.idle { animation: wobble 6s ease-in-out infinite; }
@@ -585,11 +609,14 @@
 
         .hero-name { font-size: clamp(50px, 6.6vw, 88px); font-weight: 800; letter-spacing: -.04em; line-height: .95; cursor: default; }
         .hero-name em { color: var(--accent); }
-        .hero-name .ch { display: inline-block; transition: transform .5s var(--spring), color .2s; }
+        .hero-name .ch { display: inline-block; --tx: 0px; --ty: 0px; --tr: 0deg; --hop: 0px; --hr: 0deg; transform: translate(var(--tx), calc(var(--ty) + var(--hop))) rotate(calc(var(--tr) + var(--hr))); transition: transform .5s var(--spring), color .2s; }
         .hero-name .ch.pop { transition-duration: .18s; }
+        .hero-name.magnet .ch { transition: transform .12s linear, color .2s; }
+        .hero-name .ch.hot { color: var(--accent); }
+        .hero-name em .ch.hot { color: var(--gold); }
         .hero-sub { margin-top: 18px; font-family: var(--fm); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--text2); min-height: 1.6em; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; text-align: center; }
         .hero-sub .tw-pre { color: var(--text3); }
-        #tw-word { color: var(--accent); }
+        #tw-word { color: var(--accent); display: inline-block; }
         .fx-cursor { width: 2px; height: 1.1em; background: var(--accent); animation: blink 1s steps(1) infinite; }
         @keyframes blink { 50% { opacity: 0; } }
         .hero-socials { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; justify-content: center; }
@@ -1080,11 +1107,19 @@
     <!-- ── HERO ── -->
     <section id="hero">
         <div class="hero-blob" aria-hidden="true"></div>
+        <div class="hero-spot" aria-hidden="true"></div>
+        <div class="hero-stk" id="hero-stk" aria-hidden="true">
+            <span class="stk t"><svg><use href="#i-spark"/></svg>Claude Code</span>
+            <span class="stk g"><svg><use href="#i-trophy"/></svg>Rank #1</span>
+            <span class="stk p"><svg><use href="#i-book"/></svg>5 Books</span>
+            <span class="stk c"><svg><use href="#i-cpu"/></svg>Arduino</span>
+            <span class="stk">Mumbai</span>
+        </div>
         <div class="wrap hero-grid">
             <div class="hero-l">
                 <figure class="me" id="me" tabindex="0" aria-label="Photo of Purv Taparia. Drag it, it wobbles.">
                     <span class="me-tape" aria-hidden="true"></span>
-                    <span class="me-bubble" aria-hidden="true">Hi, I'm Purv!</span>
+                    <span class="me-bubble" id="me-bubble" aria-hidden="true">Hi, I'm Purv!</span>
                     <div class="me-card idle" id="me-card">
                         <img src="assets/purv.webp" alt="Purv Taparia smiling, wearing a yellow T-shirt" width="480" height="552" fetchpriority="high" decoding="async" draggable="false">
                         <figcaption class="me-cap">Purv</figcaption>
@@ -1099,6 +1134,7 @@
                     <a href="mailto:tapariapurv+portfolio@gmail.com" aria-label="Email" class="soc s-em"><svg><use href="#i-mail"/></svg></a>
                     <a href="https://youtube.com/@decodewithpurv" target="_blank" rel="noopener" aria-label="YouTube" class="soc s-yt"><svg><use href="#i-yt"/></svg></a>
                 </div>
+                <p class="play-hint" aria-hidden="true">Psst: drag the photo, fling the stickers, poke my name.</p>
             </div>
 
             <div class="hero-r">
@@ -2294,9 +2330,16 @@
                     setTimeout(tick, wait);
                 }
                 setTimeout(() => { del = true; tick(); }, 2000);
+                if (fine) el.addEventListener('click', () => {
+                    w = (w + 1) % words.length; i = 0; del = false; el.textContent = '';
+                    el.animate([{ transform: 'scale(1.25) rotate(-4deg)' }, { transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.34,1.56,.64,1)' });
+                });
             })();
 
-            /* ── Wobbly name: letters hop on hover / tap ───────── */
+            const hero = $('#hero');
+            const toys = !calm() && fine && innerWidth > 960;   // the extra toys are for mouse users on big screens
+
+            /* ── Wobbly name: letters hop on tap, dodge the cursor on desktop ── */
             (function () {
                 const h1 = $('#hero-name');
                 h1.setAttribute('aria-label', 'Purv Taparia');
@@ -2315,22 +2358,80 @@
                 if (calm()) return;
                 const chars = $$('.ch', h1);
                 function hop(s, big) {
-                    const r = (Math.random() * 16 - 8) * (big ? 1.4 : 1);
                     s.classList.add('pop');
-                    s.style.transform = 'translateY(' + (big ? -18 : -12) + 'px) rotate(' + r + 'deg)';
-                    setTimeout(() => { s.classList.remove('pop'); s.style.transform = ''; }, 180);
+                    s.style.setProperty('--hop', (big ? -18 : -12) + 'px');
+                    s.style.setProperty('--hr', (Math.random() * 16 - 8) * (big ? 1.4 : 1) + 'deg');
+                    setTimeout(() => { s.classList.remove('pop'); s.style.setProperty('--hop', '0px'); s.style.setProperty('--hr', '0deg'); }, 180);
                 }
                 chars.forEach(s => s.addEventListener('pointerenter', () => hop(s)));
                 h1.addEventListener('click', () => chars.forEach((s, i) => setTimeout(() => hop(s, true), i * 45)));
                 window.__wave = () => chars.forEach((s, i) => setTimeout(() => hop(s), i * 40));
+                if (!toys) return;
+                // Magnet: letters lean away from the cursor
+                let base = null, px = 0, py = 0, queued = false;
+                function measure() {
+                    base = chars.map(s => { const r = s.getBoundingClientRect(); return [r.left + r.width / 2 - (parseFloat(s.style.getPropertyValue('--tx')) || 0), r.top + r.height / 2 - (parseFloat(s.style.getPropertyValue('--ty')) || 0)]; });
+                }
+                function frame() {
+                    queued = false;
+                    chars.forEach((s, i) => {
+                        const dx = base[i][0] - px, dy = base[i][1] - py, d = Math.hypot(dx, dy) || 1, R = 150;
+                        const f = d < R ? 1 - d / R : 0;
+                        s.style.setProperty('--tx', (dx / d * f * 30).toFixed(1) + 'px');
+                        s.style.setProperty('--ty', (dy / d * f * 30).toFixed(1) + 'px');
+                        s.style.setProperty('--tr', (dx / d * f * 16).toFixed(1) + 'deg');
+                        s.classList.toggle('hot', f > .4);
+                    });
+                }
+                hero.addEventListener('pointermove', e => {
+                    if (e.pointerType !== 'mouse') return;
+                    if (!base) measure();
+                    px = e.clientX; py = e.clientY;
+                    h1.classList.add('magnet');
+                    if (!queued) { queued = true; requestAnimationFrame(frame); }
+                });
+                hero.addEventListener('pointerleave', () => {
+                    h1.classList.remove('magnet');
+                    chars.forEach(s => { s.style.setProperty('--tx', '0px'); s.style.setProperty('--ty', '0px'); s.style.setProperty('--tr', '0deg'); s.classList.remove('hot'); });
+                });
+                window.addEventListener('scroll', () => { base = null; }, { passive: true });
+                window.addEventListener('resize', () => { base = null; });
             })();
 
-            /* ── Wobbly photo: drag it, it springs back ────────── */
+            /* ── Wobbly photo: drag it, it springs back; tap it on phones ── */
             (function () {
-                const me = $('#me'), card = $('#me-card');
+                const me = $('#me'), card = $('#me-card'), bubble = $('#me-bubble');
+                const lines = ["Hi, I'm Purv!", 'Drag me around!', 'Fling the stickers!', 'Poke my name!', 'Again?'];
+                let line = 0;
+                function say(t) {
+                    bubble.textContent = t; me.classList.add('talk');
+                    clearTimeout(say.t); say.t = setTimeout(() => me.classList.remove('talk'), 1600);
+                }
                 if (calm()) { card.classList.remove('idle'); return; }
+                if (!fine) {
+                    // Phones: a small squish and a hello, nothing that fights with scrolling
+                    me.addEventListener('click', () => {
+                        card.classList.add('squish');
+                        setTimeout(() => card.classList.remove('squish'), 140);
+                        say(lines[0]);
+                    });
+                    return;
+                }
+                function confetti(n) {
+                    const cols = ['var(--accent)', '#f5c842', '#ff6b6b', 'var(--paper)'];
+                    for (let i = 0; i < n; i++) {
+                        const p = document.createElement('i');
+                        p.className = 'confetti'; p.style.background = cols[i % cols.length];
+                        me.appendChild(p);
+                        const a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 120;
+                        p.animate([
+                            { transform: 'translate(-50%,-50%) rotate(0)', opacity: 1 },
+                            { transform: 'translate(calc(-50% + ' + (Math.cos(a) * d).toFixed(0) + 'px), calc(-50% + ' + (Math.sin(a) * d + 50).toFixed(0) + 'px)) rotate(' + (Math.random() * 720 - 360).toFixed(0) + 'deg)', opacity: 0 }
+                        ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(.16,1,.3,1)' }).onfinish = () => p.remove();
+                    }
+                }
                 let x = 0, y = 0, vx = 0, vy = 0, rot = -3, vr = 0, tx = 0, ty = 0;
-                let dragging = false, sx = 0, sy = 0, raf = 0, lastX = 0, tilt = { x: 0, y: 0 };
+                let dragging = false, sx = 0, sy = 0, moved = 0, raf = 0, tilt = { x: 0, y: 0 };
                 function frame() {
                     const k = dragging ? 0.35 : 0.12, d = dragging ? 0.6 : 0.78;
                     vx = (vx + (tx - x) * k) * d; vy = (vy + (ty - y) * k) * d;
@@ -2343,13 +2444,15 @@
                 }
                 function kick() { card.classList.remove('idle'); if (!raf) raf = requestAnimationFrame(frame); }
                 me.addEventListener('pointerdown', e => {
-                    dragging = true; sx = e.clientX; sy = e.clientY; lastX = e.clientX;
+                    dragging = true; sx = e.clientX; sy = e.clientY; moved = 0;
                     me.classList.add('grab'); me.setPointerCapture(e.pointerId); kick();
                 });
                 me.addEventListener('pointermove', e => {
                     if (dragging) {
                         const dx = e.clientX - sx, dy = e.clientY - sy;
-                        tx = Math.max(-120, Math.min(120, dx * .8)); ty = Math.max(-90, Math.min(90, dy * .8));
+                        moved = Math.max(moved, Math.hypot(dx, dy));
+                        tx = Math.max(-140, Math.min(140, dx * .8)); ty = Math.max(-100, Math.min(100, dy * .8));
+                        if (moved > 30) say('Wheee!');
                     } else if (e.pointerType === 'mouse') {
                         const r = me.getBoundingClientRect();
                         tilt.x = ((e.clientX - r.left) / r.width - .5) * 16;
@@ -2361,6 +2464,7 @@
                     if (!dragging) return;
                     dragging = false; tx = ty = 0; me.classList.remove('grab');
                     vr += vx * 2.2; kick();
+                    if (moved < 6) { confetti(16); say(lines[line++ % lines.length]); vy -= 6; }
                     if (window.__wave) window.__wave();
                 }
                 me.addEventListener('pointerup', release);
@@ -2368,7 +2472,94 @@
                 me.addEventListener('pointerleave', () => { tilt.x = tilt.y = 0; kick(); });
                 me.addEventListener('keydown', e => {
                     if (e.key !== 'Enter' && e.key !== ' ') return;
-                    e.preventDefault(); vx = 9; vr = 10; kick(); if (window.__wave) window.__wave();
+                    e.preventDefault(); vx = 9; vr = 10; kick(); confetti(12); say(lines[line++ % lines.length]);
+                    if (window.__wave) window.__wave();
+                });
+            })();
+
+            /* ── Desktop toys: flingable stickers, cursor spotlight, tilting cards ── */
+            (function () {
+                if (!toys) return;
+                const layer = $('#hero-stk'), els = $$('.stk', layer), navH = 76;
+                let W = 0, H = 0, st = [], raf = 0, drag = null, z = 10;
+                const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+                const draw = s => { s.el.style.transform = 'translate(' + s.x.toFixed(1) + 'px,' + s.y.toFixed(1) + 'px) rotate(' + s.r.toFixed(1) + 'deg)'; };
+                function place() {
+                    W = hero.clientWidth; H = hero.clientHeight;
+                    const hr = hero.getBoundingClientRect(), pr = $('#me').getBoundingClientRect();
+                    const ox = pr.left - hr.left, oy = pr.top - hr.top, pw = pr.width, ph = pr.height;
+                    // Stuck around the polaroid, ready to be peeled off
+                    const spots = [[-0.6, 0.06, -12], [1.04, 0.16, 9], [-0.64, 0.6, 7], [1.0, 0.7, -8], [0.62, -0.17, -5]];
+                    st = els.map((el, i) => {
+                        const w = el.offsetWidth, h = el.offsetHeight, p = spots[i];
+                        return { el, w, h, x: clamp(ox + p[0] * pw, 8, W - w - 8), y: clamp(oy + p[1] * ph, navH, H - h - 8), vx: 0, vy: 0, r: p[2], vr: 0, base: p[2] };
+                    });
+                    st.forEach(draw);
+                }
+                function tick() {
+                    let moving = false;
+                    st.forEach(s => {
+                        if (s === drag) return;
+                        s.vx *= 0.955; s.vy *= 0.955; s.vr *= 0.92;
+                        s.x += s.vx; s.y += s.vy; s.r += s.vr;
+                        if (s.x < 0) { s.x = 0; s.vx = -s.vx * 0.6; s.vr += s.vy * .3; }
+                        if (s.x > W - s.w) { s.x = W - s.w; s.vx = -s.vx * 0.6; s.vr -= s.vy * .3; }
+                        if (s.y < navH) { s.y = navH; s.vy = -s.vy * 0.6; s.vr -= s.vx * .3; }
+                        if (s.y > H - s.h) { s.y = H - s.h; s.vy = -s.vy * 0.6; s.vr += s.vx * .3; }
+                        if (Math.abs(s.vx) + Math.abs(s.vy) + Math.abs(s.vr) > 0.05) moving = true;
+                        draw(s);
+                    });
+                    if (drag) { draw(drag); moving = true; }
+                    raf = moving ? requestAnimationFrame(tick) : 0;
+                }
+                const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
+                st = [];
+                els.forEach((el, i) => {
+                    el.addEventListener('pointerdown', e => {
+                        const s = st[i]; if (!s) return;
+                        const hr = hero.getBoundingClientRect();
+                        drag = s; s.offX = e.clientX - hr.left - s.x; s.offY = e.clientY - hr.top - s.y;
+                        s.vx = s.vy = 0; el.style.zIndex = ++z; el.classList.add('grab');
+                        el.setPointerCapture(e.pointerId); go();
+                    });
+                    el.addEventListener('pointermove', e => {
+                        const s = st[i]; if (drag !== s) return;
+                        const hr = hero.getBoundingClientRect();
+                        const nx = clamp(e.clientX - hr.left - s.offX, 0, W - s.w), ny = clamp(e.clientY - hr.top - s.offY, navH, H - s.h);
+                        s.vx = s.vx * .5 + (nx - s.x) * .5; s.vy = s.vy * .5 + (ny - s.y) * .5;
+                        s.x = nx; s.y = ny; s.r = s.base + clamp(s.vx * 2, -28, 28);
+                    });
+                    const up = () => {
+                        const s = st[i]; if (drag !== s) return;
+                        drag = null; el.classList.remove('grab');
+                        s.vx = clamp(s.vx, -45, 45); s.vy = clamp(s.vy, -45, 45); s.vr = s.vx * .6; s.base = s.r; go();
+                    };
+                    el.addEventListener('pointerup', up);
+                    el.addEventListener('pointercancel', up);
+                });
+                function init() {
+                    place();
+                    els.forEach((el, i) => setTimeout(() => el.classList.add('on'), 500 + i * 140));
+                }
+                if (document.readyState === 'complete') init(); else window.addEventListener('load', init);
+                window.addEventListener('resize', () => { if (innerWidth > 960) place(); });
+
+                hero.addEventListener('pointermove', e => {
+                    if (e.pointerType !== 'mouse') return;
+                    const r = hero.getBoundingClientRect();
+                    hero.style.setProperty('--hx', (e.clientX - r.left) + 'px');
+                    hero.style.setProperty('--hy', (e.clientY - r.top) + 'px');
+                    hero.classList.add('lit');
+                });
+                hero.addEventListener('pointerleave', () => hero.classList.remove('lit'));
+
+                $$('.hcard', hero).forEach(c => {
+                    c.addEventListener('pointermove', e => {
+                        const r = c.getBoundingClientRect();
+                        const ry = ((e.clientX - r.left) / r.width - .5) * 14, rx = -((e.clientY - r.top) / r.height - .5) * 14;
+                        c.style.transform = 'perspective(600px) rotateX(' + rx.toFixed(1) + 'deg) rotateY(' + ry.toFixed(1) + 'deg) translateY(-3px)';
+                    });
+                    c.addEventListener('pointerleave', () => { c.style.transform = ''; });
                 });
             })();
 
