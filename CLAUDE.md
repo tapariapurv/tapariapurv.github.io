@@ -38,7 +38,7 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 - **Certifications** ↔ `#certifications`
 - **Published Books** ↔ `#books`
 - **Technical Skills** ↔ the skill groups in `#about`
-- **Changelog** ↔ `#latest` (month-by-month history, newest first — projects, certifications and milestones; the newest 3 months show, older ones sit behind "View Full History" as `.log-extra` rows. When something new ships, add it under its month, move the 4th-newest month to `.log-extra`, and keep the whole history)
+- **Changelog** ↔ `#latest` (month-by-month history, newest first — projects, certifications and milestones; only the newest month shows, older ones sit behind "View Full History" as `.log-extra` rows. When a new month starts, add it as the first `<li>` (no `.log-extra`), add `.log-extra` to the previous month, and keep the whole history)
 - **AI emphasis is deliberate.** Purv's positioning leads with AI building: the hero line, typewriter words (`AI Builder`), title/meta, Person `jobTitle`. Any project built with Claude Code gets a `<span class="proj-tag t-ai">✳ Claude Code</span>` badge on both its project card and its changelog row, and "built with Claude Code" in `llms.txt` (source of truth: the resume's project badges).
 - Changelog rows without an exact month (Olympiads, which are only known by grade) use `<span class="log-date">2024–25<small>Grade 3</small></span>` instead of `<time>`. Grade 5 = school year 2026–27, and the school year runs June to March. Don't invent months.
 - **Projects** ↔ `#projects` (every card, same order, with `[Mon YYYY]` date, tech, and the card's link if it has one). Software projects also get an entry in the "Software Projects" ItemList JSON-LD in `index.html`. The FAQ "What projects…" answer just links to `#projects`, so it doesn't need updating.
@@ -60,12 +60,12 @@ Grep for `Last updated\|dateModified\|modified_time` across `*.html` (excluding 
 Before calling any feature or content change done, confirm all of these. Each one has broken on this site before.
 
 **Google Search Console (SEO)**
-- Googlebot must see the content. The `#loader` overlay and the `.rev`/`.rev-l`/`.rev-r` scroll reveals are skipped for crawlers via a user-agent check at the top of the loader script. Any new element hidden until JS runs (new reveal class, new overlay, lazy content) must be added to that crawler bypass, or Search Console's Live Test screenshots it blank.
+- Googlebot must see the content. A tiny script at the top of `<head>` adds `html.js` (and `html.bot` for crawler user agents). Everything that hides content is keyed to those classes: `.rev` reveals, collapsed `.log-extra` months, the `.bk-more` books, the book-picker panels, and the pinned horizontal projects row. `html.bot` (and no-JS visitors) get the plain, fully expanded page. Any new hidden-until-JS element must follow the same pattern (hide only under `.js`, show under `.bot`), or Search Console's Live Test screenshots it blank. Don't serve bots different *content*; that is cloaking.
 - Content must be real text in the HTML (not injected only by JS, not only in images), with one `<h1>` on the page and `<h2>`/`<h3>` in order.
 - Links are crawlable `<a href>`; external ones use `target="_blank"`. Images get descriptive `alt`.
 - Keep the structured data valid: new projects go in the "Software Projects" ItemList JSON-LD. The FAQPage JSON-LD must contain **exactly** the questions visible in `#faq` — hidden-only FAQ markup violates Google's structured-data policy. The FAQ is intentionally trimmed to questions whose answers aren't already on the page; don't re-add ones that repeat About/Books/Projects. Validate with Google's Rich Results Test after pushing.
 - New top-level pages go in `sitemap.xml` with a `<lastmod>`, and get their own `<title>`, meta description, canonical and OG tags. Pages that shouldn't rank get `<meta name="robots" content="noindex, follow">` (like the `old-portfolio` repo). Don't block them in robots.txt, or crawlers can't read the noindex tag.
-- No artificial load delays. The loader's minimum wait is deliberately short (600ms), so don't lengthen it: speed feeds Core Web Vitals.
+- No artificial load delays. The old page-loader overlay was removed in the October 2026 redesign; don't add one back. The hero photo (`assets/purv.webp`) is the LCP image and is preloaded, so keep it small (WebP, ~25 KB).
 - PDFs in `assets/` are indexed by Google, so set a real `/Title` and `/Author` ("Purv Taparia — ...") on any new PDF.
 - After pushing, tell Purv to run URL Inspection → Live Test in Search Console and resubmit `sitemap.xml`.
 
