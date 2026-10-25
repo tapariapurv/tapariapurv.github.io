@@ -120,7 +120,7 @@ SKILLS = [
 ]
 
 BOOKS = [
-    ("10-Year-Old's Decode the Stock Market", "Amazon", "https://www.amazon.in/dp/B0H1YGCL2D"),
+    ("10-Year-Olds Decode the Stock Market", "Amazon", "https://www.amazon.in/dp/B0H1YGCL2D"),
     ("Dubai and a Futuristic City", "Bribooks", "https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city"),
     ("The Tour to DigiDream", "Bribooks", "https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia"),
     ("Five Stories by Purv Taparia", "Bribooks", "https://www.bribooks.com/bookstore/5-stories-by-purv-taparia/"),
@@ -148,12 +148,12 @@ CERTS = [
 
 EXP = [
     ("pencil-fill", "Author &amp; Self-Publisher", "Independent", "Mar 2025 &ndash; May 2026",
-     "Researched, wrote and published <i>10-Year-Old's Decode the Stock Market</i> for young readers, "
+     "Researched, wrote and published <i>10-Year-Olds Decode the Stock Market</i> for young readers, "
      "then produced YouTube Shorts to market it."),
     ("send-fill", "Newsletter Writer", "Beehiiv", "2025 &ndash; Present",
      "Publishes essays on projects, writing and learning."),
     ("github", "Open-Source Maintainer", "GitHub", "2026 &ndash; Present",
-     "Maintains Envoy, Indian Stock Data Hub, MarkItDown GUI, LiteWarden and Antigravity Usage Monitor as public repositories."),
+     "Maintains Envoy, Indian Stock Data Hub, MarkItDown GUI and LiteWarden as public repositories."),
 ]
 
 EDU = [
@@ -208,7 +208,7 @@ PROJ = [
      "School performance dashboard with student, teacher, parent and admin portals: grades, assignments, "
      "KPI cards, performance charts, a points system and a study planner on its own API.",
      ["React", "Express", "SQLite", "Tailwind"],
-     ("globe", "academix-purv1.vercel.app", "https://academix-purv1.vercel.app")),
+     ("globe", "lumino-s.vercel.app", "https://lumino-s.vercel.app")),
     ("bar-chart-fill", "Market Alert Matrix", ["hw"], "August 2026",
      "ESP8266 device with a 16-LED NeoPixel ring showing live market movement &mdash; one LED per 0.2% "
      "move, piezo alarm past 1%.",
@@ -223,11 +223,6 @@ PROJ = [
      "PDFs, Office files, images, audio, web pages and YouTube links into clean Markdown. Localhost only.",
      ["Python", "MarkItDown", "REST API"],
      ("github", "github.com/tapariapurv/markitdown-gui", "https://github.com/tapariapurv/markitdown-gui")),
-    ("database", "Antigravity Usage Monitor", ["live", "cc"], "June 2026",
-     "Read-only analytics dashboard for Google Antigravity tracking sessions, token usage, subagents and "
-     "estimated API costs with activity heatmaps.",
-     ["Next.js", "TypeScript", "SQLite", "Tailwind"],
-     ("github", "github.com/tapariapurv/antigravity-usage-monitor", "https://github.com/tapariapurv/antigravity-usage-monitor")),
     ("shield-fill-check", "LiteWarden", ["prog", "cc"], "January 2026",
      "Local-first Chrome extension for on-device password management and autofill. Nothing leaves the "
      "browser. Free and open source.",
@@ -242,11 +237,6 @@ PROJ = [
      "Arduino UNO radar using an ultrasonic sensor for signal processing and real-time object detection.",
      ["Arduino", "C++", "Ultrasonic"],
      ("youtube", "Watch on YouTube", "https://youtube.com/shorts/xNrgtW_awv8")),
-    ("robot", "Rapid Games", ["live"], "October 2025",
-     "Free browser gaming platform with a hand-picked collection of curated games. Built and maintained "
-     "collaboratively with Ridit and Devansh.",
-     ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-     ("globe", "tapariapurv.github.io/rapidgames", "https://tapariapurv.github.io/rapidgames")),
     ("globe", "Velvet Pour", ["live"], "August 2026",
      "GSAP-animated cocktail brand landing page with scroll-triggered timelines and SplitText reveals, "
      "built in React and deployed on Vercel.",
@@ -438,6 +428,7 @@ def build():
 <html lang="en"><head><meta charset="utf-8">
 <title>Purv Taparia &mdash; Resume</title>
 <meta name="description" content="Purv Taparia - student, coder and 5x published author from Mumbai, India.">
+<meta name="author" content="Purv Taparia">
 <style>{CSS}</style></head><body>
 {header()}
 {stats()}

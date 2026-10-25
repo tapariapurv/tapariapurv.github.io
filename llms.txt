@@ -2,6 +2,8 @@
 
 > Purv Taparia is a student in Grade 5 at Chatrabhuj Narsee School, Mumbai, India. He is a young AI builder who ships apps with Claude Code, a 5× published author, two-time International Rank 1 English Olympiad winner, coder, newsletter blogger, Arduino-certified maker, and national-level roller skating competitor.
 
+Last updated: 25 October 2026 · Live since March 2025
+
 ## About
 
 Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievements spanning academic Olympiads, creative writing, hardware engineering, and software development. He studies at Chatrabhuj Narsee School (cns.ac.in), Mumbai.
@@ -32,7 +34,7 @@ Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievemen
 
 ## Published Books (5 total)
 
-1. **10-Year-Old's Decode the Stock Market** — Finance / non-fiction, Amazon — https://www.amazon.in/dp/B0H1YGCL2D
+1. **10-Year-Olds Decode the Stock Market** — Finance / non-fiction, Amazon — https://www.amazon.in/dp/B0H1YGCL2D
 2. **Dubai and a Futuristic City** — Adventure / sci-fi, Bribooks — https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city
 3. **The Tour to DigiDream** — Educational fiction, Bribooks — https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia
 4. **Five Stories by Purv Taparia** — Short story collection, Bribooks — https://www.bribooks.com/bookstore/5-stories-by-purv-taparia/
@@ -64,14 +66,12 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Sep 2026** — Earned the Claude Code 101 Certification (Anthropic Academy) — https://verify.skilljar.com/c/hdh53pci5vhz
 - **Sep 2026** — Open-sourced Envoy, a private local-first AI workspace for Model UN (built with Claude Code) — https://github.com/tapariapurv/envoy
 - **Sep 2026** — Open-sourced Indian Stock Data Hub (built with Claude Code) — https://github.com/tapariapurv/indian-stock-data-hub
-- **Sep 2026** — Built Academix, a student performance dashboard with student, teacher, parent and admin portals (built with Claude Code) — https://academix-purv1.vercel.app — https://github.com/tapariapurv/academix
+- **Sep 2026** — Built Academix, a student performance dashboard with student, teacher, parent and admin portals (built with Claude Code) — https://lumino-s.vercel.app — https://github.com/tapariapurv/academix
 - **Aug 2026** — Earned the Claude Code in Action Certification (Anthropic Academy, 8/8) — https://verify.skilljar.com/c/ghgqrf8euxh7; built Market Alert Matrix (ESP8266 + NeoPixel market-move alarm); launched Logek (built with Claude Code) — https://tapariapurv.github.io/Logek; designed Velvet Pour — https://cocktail-site-lac.vercel.app/
-- **Jun 2026** — Built Antigravity Usage Monitor (built with Claude Code) — https://github.com/tapariapurv/antigravity-usage-monitor
-- **May 2026** — Built an Arduino UNO Radar System — https://youtube.com/shorts/xNrgtW_awv8; published "10-Year-Old's Decode the Stock Market" on Amazon (15 May 2026) — https://www.amazon.in/dp/B0H1YGCL2D
+- **May 2026** — Built an Arduino UNO Radar System — https://youtube.com/shorts/xNrgtW_awv8; published "10-Year-Olds Decode the Stock Market" on Amazon (15 May 2026) — https://www.amazon.in/dp/B0H1YGCL2D
 - **Mar 2026** — Earned the Claude 101 Certification (Anthropic Academy)
 - **Jan 2026** — Built Neo-Pixel Game, an apple-catching arcade game on an 8×8 NeoPixel grid — https://github.com/tapariapurv/neopixel-game; started LiteWarden (Chrome extension, built with Claude Code, in progress) — https://github.com/tapariapurv/chrome-extension
 - **Nov 2025** — Passed the Arduino Junior Certification with 96%; built an Air Quality Monitor during the Delhi smog crisis — https://youtube.com/shorts/qGbcmELwwhQ
-- **Oct 2025** — Launched Rapid Games with Ridit and Devansh — https://tapariapurv.github.io/rapidgames
 - **Jun 2025** — Published "The Tour to DigiDream" on Bribooks (5th Bribooks book) — https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia
 - **Mar 2025** — Launched this portfolio — https://tapariapurv.github.io
 - **School year 2024–25 (Grade 3)** — International Rank 1, IEO English Olympiad (40/40 at Level 1; 40/40 at Level 2, won ₹50,000); International Rank 2, ICSO Cyber Olympiad (39/40, won ₹8,333)
@@ -89,15 +89,13 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Logek** — Adaptive vocabulary learning app with spaced repetition and gamification (React, TypeScript, Firebase; built with Claude Code) [Aug 2026] — https://tapariapurv.github.io/Logek
 - **Parchly** — A calm, native Markdown editor for macOS: a Document mode that hides syntax as you read, a floating formatting bar, a side-by-side preview with KaTeX math and Mermaid diagrams, 10 themes, wiki-style cross-references, a Finder Quick Look extension and automatic updates (Swift, AppKit, SwiftUI, cmark-gfm; built with Claude Code) [Oct 2026] — https://tapariapurv.github.io/parchly/ — https://github.com/tapariapurv/parchly
 - **Indian Stock Data Hub** — Open-source research desk for Indian listed companies with local AI analysis and Excel/Word reports (Python, Streamlit, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/indian-stock-data-hub
-- **Academix** — A school performance dashboard with student, teacher, parent and admin portals: grades, assignments, KPI cards, performance charts, points, a focus timer and a study planner, on an Express and SQLite API. (React, Express, SQLite, Tailwind CSS; built with Claude Code) [Sep 2026] — https://academix-purv1.vercel.app — https://github.com/tapariapurv/academix
+- **Academix** — A school performance dashboard with student, teacher, parent and admin portals: grades, assignments, KPI cards, performance charts, points, a focus timer and a study planner, on an Express and SQLite API. (React, Express, SQLite, Tailwind CSS; built with Claude Code) [Sep 2026] — https://lumino-s.vercel.app — https://github.com/tapariapurv/academix
 - **Market Alert Matrix** — ESP8266 + 16-LED NeoPixel ring device in a 3D-printed case that shows the market's live move from the previous close (one LED per 0.2%) and sounds a piezo alarm past 1% (ESP8266, C++, NeoPixels, APIs) [Aug 2026]
 - **Hueframe** — A web app that generates 4K–8K wallpapers for desktop, iPad and iPhone in any colour, with 30 generative styles, live device previews, colour matching and lossless PNG exports up to 8K. (JavaScript, Canvas API, HTML, CSS; built with Claude Code) [Oct 2026] — https://hueframe.vercel.app — https://github.com/tapariapurv/hueframe
 - **MarkItDown GUI** — Local drag-and-drop web GUI and REST API around Microsoft's MarkItDown that converts PDFs, Office files, images, audio, web pages and YouTube links to Markdown (Python, MarkItDown, JavaScript, REST API; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/markitdown-gui
-- **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript, SQLite; built with Claude Code) [Jun 2026] — https://github.com/tapariapurv/antigravity-usage-monitor
 - **LiteWarden** — Chrome extension for local password management (JavaScript, Chrome APIs; built with Claude Code) [Jan 2026, in progress] — https://github.com/tapariapurv/chrome-extension
 - **Air Quality Monitor** — Pocket-sized air quality monitor built during the Delhi smog crisis: MQ135 gas sensor + Arduino Nano, with a 128×64 OLED showing the live reading and a verdict like "Hazardous", in a 3D-printed case (Arduino Nano, C++, MQ135, OLED) [Nov 2025] — https://youtube.com/shorts/qGbcmELwwhQ
 - **Radar System** — Ultrasonic sensor on a 180° servo sweeps the room while an Arduino UNO measures distances; a radar screen coded in Processing plots detected objects in real time (Arduino UNO, C++, Ultrasonic, Servo, Processing) [May 2026] — https://youtube.com/shorts/xNrgtW_awv8
-- **Rapid Games** — Free online gaming platform built with Ridit and Devansh (HTML/CSS/JS, GitHub Pages) [Oct 2025] — https://tapariapurv.github.io/rapidgames
 - **Velvet Pour** — GSAP-animated cocktail brand landing page (React, GSAP, Tailwind CSS) [Aug 2026] — https://cocktail-site-lac.vercel.app/
 - **Neo-Pixel Game** — 30-second apple-catching arcade game on an 8×8 NeoPixel grid: a 3-LED paddle moved with push buttons catches falling apples (+1 per catch, −2 per miss), a second apple joins after 10 seconds and speed rises 3% each second; Arduino Uno in a battery-powered 3D-printed case with piezo sound effects (Arduino, C++, NeoPixels, Piezo) [Jan 2026] — https://github.com/tapariapurv/neopixel-game
 
