@@ -21,13 +21,15 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="article:modified_time" content="2026-10-25" />
+    <meta property="article:modified_time" content="2026-10-26" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Purv Taparia | Young AI Builder, Developer &amp; Author from Mumbai" />
     <meta name="twitter:description" content="Young AI builder, developer and 5x published author from Mumbai, India, shipping apps with Claude Code and building Arduino hardware." />
     <meta name="twitter:image" content="https://tapariapurv.github.io/assets/og-image.png" />
     <link rel="canonical" href="https://tapariapurv.github.io" />
-    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="icon" href="assets/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preload" as="image" href="assets/purv.webp" fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne-latin.woff2" crossorigin />
 
@@ -79,7 +81,7 @@
       "inLanguage": "en-IN",
       "publisher": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-10-25"
+      "dateModified": "2026-10-26"
     }
     </script>
 
@@ -93,7 +95,7 @@
       "isPartOf": { "@id": "https://tapariapurv.github.io/#website" },
       "about": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-10-25",
+      "dateModified": "2026-10-26",
       "breadcrumb": { "@id": "https://tapariapurv.github.io/#breadcrumb" }
     }
     </script>
@@ -366,7 +368,7 @@
           "name": "Is this portfolio actively maintained?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 October 2026."
+            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 26 October 2026."
           }
         }
       ]
@@ -534,8 +536,16 @@
         #sprog { position: fixed; top: 0; left: 0; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--accent); z-index: 200; }
         #nav { position: fixed; inset: 0 0 auto; height: var(--nav-h); z-index: 150; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: background-color .3s, border-color .3s, backdrop-filter .3s; border-bottom: 1px solid transparent; }
         #nav.scrolled { background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: var(--border); }
-        .nav-logo { font-weight: 800; font-size: 16px; letter-spacing: -.02em; }
-        .nav-logo span { color: var(--accent); }
+        .nav-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; letter-spacing: -.02em; }
+        .nav-mark { width: 26px; height: 26px; flex: none; overflow: visible; }
+        .nav-mark path { stroke: var(--text); stroke-dasharray: 100; }
+        .nav-mark circle { fill: var(--accent); transform-origin: 34px 38px; }
+        @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+            .nav-logo:hover .nav-mark path { animation: trace .7s var(--ease); }
+            .nav-logo:hover .nav-mark circle { animation: node .5s .45s var(--spring) backwards; }
+        }
+        @keyframes trace { from { stroke-dashoffset: 100; } }
+        @keyframes node { from { transform: scale(0); } }
         .nav-links { display: flex; align-items: center; gap: 26px; }
         .nav-links a:not(.nav-cta) { font-family: var(--fm); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--text2); position: relative; transition: color .2s; }
         .nav-links a:not(.nav-cta)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
@@ -1081,7 +1091,7 @@
 
     <!-- NAV -->
     <nav id="nav" aria-label="Main">
-        <a href="#hero" class="nav-logo"><span>P</span>urv Taparia</a>
+        <a href="#hero" class="nav-logo"><svg class="nav-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M19 53V12h17l10 10v6l-10 10h-2" pathLength="100" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="38" r="6"/></svg>Purv Taparia</a>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#achievements">Achievements</a>
@@ -1240,7 +1250,7 @@
                     <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold Anthropic's <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude 101</strong></a>, <a href="assets/Claude Code 101 Certificate.pdf" target="_blank" class="hl"><strong>Claude Code 101</strong></a> and <a href="assets/Claude Code in Action Certificate.pdf" target="_blank" class="hl"><strong>Claude Code in Action</strong></a> certifications.</p>
                     <p>I program in <strong>HTML, CSS, JavaScript, TypeScript, Python, C++ and Swift</strong>, build web apps with React and Next.js and native Apple apps with SwiftUI, and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino and ESP8266. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                     <p>This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-                    <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-10-25">25 October 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
+                    <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-10-26">26 October 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
                 </div>
                 <div class="stats rev">
                     <a href="#achievements" class="stat tc">
@@ -2199,7 +2209,7 @@
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
-                    <div class="faq-a"><img src="assets/purv.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 25 October 2026.</p></div>
+                    <div class="faq-a"><img src="assets/purv.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 26 October 2026.</p></div>
                 </details>
             </div>
         </div>

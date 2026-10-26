@@ -267,9 +267,20 @@ On mouse leave: spring easing back to identity over 0.5s.
 ## 11. Navigation
 
 - Fixed top, transparent until scrolled 40px then: `background: rgba(8,10,15,0.88)`, `backdrop-filter: blur(20px)`, `border-bottom: 1px solid --border`
-- Logo: Syne 800, 16px, letter-spacing -0.02em. First letter in `--accent`.
+- Logo: the trace-P mark (26px, see §11a) + "Purv Taparia" in Syne 800, 16px, letter-spacing -0.02em, 10px gap.
 - Nav links: DM Mono, 11.5px, uppercase, `--text2` default. Hover: `--text`. Underline on hover via `::after` scaleX transition.
 - CTA button in nav uses the nav-CTA style (see §5).
+
+## 11a. Logo
+
+The mark is a capital **P drawn as one circuit trace** with 45° chamfered corners, ending in a single round **node** (the solder pad). One line plus one dot: a PCB trace (hardware), a network node (AI), a pen stroke ending in ink (author). Don't add more nodes, rings or text to it.
+
+- Geometry (64×64 viewBox): `path d="M19 53V12h17l10 10v6l-10 10h-2"`, stroke-width 8, round caps and joins; `circle cx=34 cy=38 r=6`.
+- Colour: the trace is `--text`, the node is `--accent` (light mode: `#0e1726` / `#0b7d72`). The node is the only teal part. Never gold or coral.
+- On a surface (favicon, avatars): the mark sits on a `#0d1117` rounded tile (rx 14 of 64) so it reads on both light and dark browser tabs.
+- Files: `assets/favicon.svg` (master), `assets/favicon.ico` (16/32/48), `assets/apple-touch-icon.png` (180, full-bleed). Regenerate the PNG/ICO from the SVG if the mark changes.
+- Nav hover (mouse only, motion allowed): the trace draws itself (`stroke-dashoffset`, `--ease`, .7s), then the node pops in on `--spring`. This is the one deliberate exception to "animate only transform and opacity": it is a 26px SVG.
+- Minimum size 16px. Clear space: at least the node's diameter on every side.
 
 ---
 
