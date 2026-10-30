@@ -180,7 +180,7 @@
        Each item maps scroll position to a 0..1 progress, eased toward its target every frame,
        and written to a --p custom property. CSS turns --p into motion (transform/opacity only). */
     const items = [];
-    let vh = innerHeight, wide = innerWidth >= 900, lastY = scrollY, vel = 0, raf = 0, lastT = 0;
+    let vh = innerHeight, wide = innerWidth >= 900, lastY = scrollY, vel = 0, raf = 0, lastT = 0, lastV = '';
     const view = it => y => (y + vh - it.top) / (vh + it.h);                 // enters bottom → leaves top
     const pin = it => y => (y - it.top) / Math.max(1, it.h - vh);           // through a tall pinned section
     const enter = it => y => (y + vh - it.top) / (vh * .7);                  // enters bottom → 70% up
@@ -244,7 +244,7 @@
         const inProj = wide && y > proj.offsetTop - vh && y < proj.offsetTop + proj.offsetHeight;
         vel += ((inProj ? clamp((y - lastY) / dt * -3, -5, 5) : 0) - vel) * k; lastY = y;
         if (Math.abs(vel) < .01) vel = 0; else busy = true;
-        track.style.setProperty('--vel', vel.toFixed(3));
+        const v = vel.toFixed(3); if (v !== lastV) track.style.setProperty('--vel', lastV = v);
         raf = busy ? requestAnimationFrame(frame) : 0;
         if (!busy) lastT = 0;
     }
