@@ -8,7 +8,7 @@ This is Purv Taparia's personal portfolio: a static site with no build system, p
 
 - `index.html` — the entire single-page site (hero, about, achievements, certifications, latest/changelog, projects, books, FAQ, contact), with all CSS inline (JS lives in `assets/site.js`). Large file (~3.9k lines); also holds six `<script type="application/ld+json">` blocks (Person, WebSite, WebPage, BreadcrumbList, software-projects ItemList, FAQPage).
 - `assets/site.js` — all page behaviour (loaded with `defer` and a `?v=` cache-busting query; bump it when the file changes). Only the tiny theme/crawler flag script stays inline at the top of `<head>`.
-- `assets/fonts/` — self-hosted WOFF2 fonts (Syne, DM Mono, Instrument Serif). Don't re-add Google Fonts links.
+- `assets/fonts/` — self-hosted WOFF2 fonts (Inter Tight + JetBrains Mono). Don't re-add Google Fonts links.
 - `404.html` — custom not-found page (noindex, not in the sitemap).
 - `privacy.html`, `terms.html` — standalone legal pages, same visual system as the main site.
 - `assets/Purv Taparia - Resume.pdf` — the resume, linked from the hero "Download Resume" button. It's a PDF edited outside this repo; flag bio changes to Purv rather than trying to edit it. (`Resume Old.pdf` is the previous version.)
@@ -80,14 +80,14 @@ Before calling any feature or content change done, confirm all of these. Each on
 - The site uses **Umami** (`cloud.umami.is` script in `<head>`) for analytics and a `google-site-verification` meta tag for Search Console. There is no Google Analytics. Never remove or duplicate either tag. If a feature adds an important CTA, consider a `data-umami-event="..."` attribute so clicks are tracked.
 
 **Design and QA (anything that touches the UI)**
-- Build from `.design-sync/design-principles.md` tokens and existing classes (`.slabel`, `.sec-title` + one `<em>` italic word, `.proj-tag t-live/t-wip/t-hw`, `--ease`/`--spring`). Keep section backgrounds alternating `--bg` / `--bg2`.
+- Build from the Paper & Pop tokens and existing classes (`.eb` eyebrow `NN · LABEL`, `.h2` + one `<em>` highlighted word, `.tag t-ai/t-live/t-wip/t-hw`, `.card`, `.btn`, `--ease`/`--back`). Sections alternate paper and `.ink`.
+- Scroll motion: `assets/site.js` maps scroll to a `--p` (0..1) custom property per registered element (`reg()`), and CSS turns it into transform/opacity. All motion CSS sits under `html.motion` (real visitors without reduced motion), so `.bot`/no-JS/reduced-motion get the flat page.
 - Playful hero toys (flingable stickers, the name magnet, cursor spotlight, card tilt, confetti) run only for mouse users wider than 960px (`toys` in the script). Phones get only a tap squish and a speech bubble, and the photo uses `touch-action: pan-y` so it never blocks scrolling. Purv wants the phone site kept light: put new interactive effects behind the same gate.
 - Look at it before shipping: screenshot desktop (~1300px) and phone (375px and 320px) in **both dark and light themes**. Headless Chrome won't go narrower than 500px, so wrap the page in a narrow `<iframe>` for phone widths. Check hover and focus states, long titles wrapping, missing links (non-link rows), and no horizontal overflow.
 
 ## Design system
 
-Full spec is in `.design-sync/design-principles.md`. Key tokens to reuse rather than re-derive:
-- Fonts: **Syne** (headings/body, weights 400–800), **DM Mono** (labels/metadata/nav), **Instrument Serif italic** (exactly one emphasized word per major heading).
-- Dark mode is default: bg `#080a0f`, surface `#141b27`, accent teal `#00e6be`, gold `#f5c842` (achievements only), coral `#ff6b6b` (hardware project tags only).
-- Cards use the `.tc` tilt-card pattern (mouse-tracked radial shine, 3D tilt on hover, spring easing `cubic-bezier(0.34, 1.56, 0.64, 1)`).
-- Section labels follow the `.slabel` pattern (small horizontal rule + DM Mono uppercase label).
+The `paper-pop` branch uses the **Paper & Pop** design system (claude.ai artifact `a0b8eb3d-5c92-4b4a-b3ca-b2334af9f3a2`). `.design-sync/design-principles.md` describes the older dark/teal look.
+- Fonts: **Inter Tight** 800 for headings (tight negative tracking, lowercase allowed, never italic), **JetBrains Mono** for eyebrows, tags, metadata and buttons.
+- Paper (default): canvas `#f2eee6`, surface `#ffffff`, ink `#141414`, muted `#5c5852`. Ink (dark / `.ink` sections): `#141414`, surface `#1e1e1e`, text `#f2eee6`, muted `#a39e95`.
+- Pops, one per section/card: yellow `#f6d43c`, blue `#5b7cfa`, green `#3ddc6a`, violet `#7b4dff`, orange `#f2601e`; text on a pop is always ink. No gradients, shadows or emoji; boxes are 1px ink rules with radius 0, badges and pills are 999px.

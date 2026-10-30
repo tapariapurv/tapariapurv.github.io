@@ -9,75 +9,34 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://tapariapurv.github.io/terms.html" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.ico" />
+    <meta name="theme-color" content="#f2eee6" />
+    <script>
+        (function () {
+            try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+        })();
+    </script>
     <style>
-        @font-face { font-family: 'Syne'; font-weight: 400 800; font-display: swap; src: url(assets/fonts/syne-latin.woff2) format('woff2'); }
-        @font-face { font-family: 'DM Mono'; font-weight: 400; font-display: swap; src: url(assets/fonts/dm-mono-400.woff2) format('woff2'); }
-        @font-face { font-family: 'DM Mono'; font-weight: 500; font-display: swap; src: url(assets/fonts/dm-mono-500.woff2) format('woff2'); }
+        @font-face { font-family: 'Inter Tight'; font-weight: 100 900; font-display: swap; src: url(assets/fonts/inter-tight.woff2) format('woff2'); }
+        @font-face { font-family: 'JetBrains Mono'; font-weight: 100 800; font-display: swap; src: url(assets/fonts/jetbrains-mono.woff2) format('woff2'); }
     </style>
     <style>
-        :root {
-            --bg: #080a0f;
-            --surface: #141b27;
-            --border: rgba(255, 255, 255, 0.07);
-            --text: #e8edf5;
-            --text2: #aab4c6;
-            --accent: #00e6be;
-            --ff: 'Syne', sans-serif;
-            --fm: 'DM Mono', monospace;
-        }
-
+        :root { --bg: #f2eee6; --surface: #ffffff; --border: #141414; --text: #141414; --text2: #5c5852; --pop: #f6d43c; --ff: 'Inter Tight', system-ui, sans-serif; --fm: 'JetBrains Mono', ui-monospace, monospace; color-scheme: light; }
+        html[data-theme="dark"] { --bg: #141414; --surface: #1e1e1e; --border: #f2eee6; --text: #f2eee6; --text2: #a39e95; color-scheme: dark; }
         * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text2);
-            font-family: var(--fm);
-            font-size: 14.5px;
-            line-height: 1.75;
-        }
-
-        .wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 100px;
-        }
-
-        a { color: var(--accent); }
-
-        .back {
-            display: inline-block;
-            font-size: 12px;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-        }
-
-        h1 {
-            font-family: var(--ff);
-            font-size: clamp(30px, 4vw, 42px);
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: -.02em;
-            margin: 0 0 8px;
-        }
-
-        .updated {
-            font-size: 11.5px;
-            color: #6b7d95;
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            font-family: var(--ff);
-            font-size: 19px;
-            font-weight: 700;
-            color: var(--text);
-            margin: 40px 0 12px;
-        }
-
+        body { margin: 0; background: var(--bg); color: var(--text2); font-family: var(--ff); font-size: 16px; line-height: 1.7; overflow-wrap: break-word; }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 56px 20px 88px; }
+        a { color: var(--text); text-decoration: underline; text-decoration-color: var(--pop); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+        a:hover { background: var(--pop); color: #141414; }
+        a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+        em { font-style: normal; }
+        .back { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; margin-bottom: 32px; background: #141414; color: #f2eee6; border: 1px solid var(--border); font-family: var(--fm); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; }
+        html[data-theme="dark"] .back { background: #f2eee6; color: #141414; }
+        .back:hover { background: var(--pop); color: #141414; }
+        h1 { font-family: var(--ff); font-size: clamp(38px, 9vw, 64px); font-weight: 800; color: var(--text); letter-spacing: -.04em; line-height: .95; margin: 0 0 16px; text-transform: lowercase; }
+        .updated { display: flex; align-items: center; gap: 10px; font-family: var(--fm); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--text2); margin-bottom: 40px; }
+        .updated::before { content: ''; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--pop); border: 1px solid var(--border); }
+        h2 { font-family: var(--ff); font-size: 22px; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--text); margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--border); }
         p, li { color: var(--text2); }
-
         ul { padding-left: 20px; }
     </style>
 </head>
