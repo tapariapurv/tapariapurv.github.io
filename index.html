@@ -32,6 +32,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preload" as="image" href="assets/purv.webp" fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-tight.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jetbrains-mono.woff2" crossorigin />
 
     <script type="application/ld+json">
     {
@@ -392,7 +393,6 @@
     <style>
         /* Fonts are self-hosted (SIL Open Font License) so the page needs no third-party requests to render */
         @font-face { font-family: 'Inter Tight'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(assets/fonts/inter-tight.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-        @font-face { font-family: 'Inter Tight'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(assets/fonts/inter-tight-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
         @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800; font-display: swap; src: url(assets/fonts/jetbrains-mono.woff2) format('woff2'); }
 
         /* ── Paper & Pop tokens ── */
@@ -539,13 +539,13 @@
         .motion .me { transform: translateY(calc(var(--p) * -6vh)) rotate(calc(var(--p) * -14deg)) scale(calc(1 - var(--p) * .3)); }
         .motion .stk { transform: translate(calc(var(--p) * var(--sx)), calc(var(--p) * var(--sy))) rotate(calc(var(--r) + var(--p) * var(--sr, 40deg))); }
         .motion .wipe { display: block; position: absolute; left: 50%; top: 55%; z-index: 5; width: 150vmax; height: 150vmax; margin: -75vmax; border-radius: 50%; background: var(--wipe); pointer-events: none; transform: scale(clamp(0, (var(--p) - .55) * 2.4, 1)); }
-        .motion .me .badge { animation: pop .5s var(--back) .5s both; }
+        .motion .me .badge { animation: pop .45s var(--back) .25s both; }
         .motion .stk { animation: pop .45s var(--back) both; }
-        .motion .stk:nth-of-type(2) { animation-delay: .7s; } .motion .stk:nth-of-type(3) { animation-delay: .8s; } .motion .stk:nth-of-type(4) { animation-delay: .9s; } .motion .stk:nth-of-type(5) { animation-delay: 1s; }
+        .motion .stk:nth-of-type(2) { animation-delay: .25s; } .motion .stk:nth-of-type(3) { animation-delay: .3s; } .motion .stk:nth-of-type(4) { animation-delay: .35s; } .motion .stk:nth-of-type(5) { animation-delay: .4s; }
         @keyframes pop { from { scale: 0; } 70% { scale: 1.08; } to { scale: 1; } }
-        .motion .hero-l .fade { animation: rise .6s var(--ease) both; }
+        .motion .hero-l .fade { animation: rise .45s var(--ease) both; }
         .motion .hero-l .fade:nth-child(3) { animation-delay: .08s; } .motion .hero-l .fade:nth-child(4) { animation-delay: .16s; } .motion .hero-l .fade:nth-child(5) { animation-delay: .24s; } .motion .hero-l .fade:nth-child(6) { animation-delay: .32s; }
-        .motion .name .l { animation: rise .7s var(--ease) both; animation-delay: calc(var(--i) * 35ms); }
+        .motion .name .l { animation: rise .5s var(--ease) both; animation-delay: calc(var(--i) * 18ms); }
         @keyframes rise { from { translate: 0 24px; opacity: 0; } }
 
         /* ── TICKER: two strips cross, each pulled a different way by the scrollbar ── */
