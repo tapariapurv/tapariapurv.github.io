@@ -138,7 +138,7 @@
     const nav = $('#nav'), btt = $('#btt');
     addEventListener('scroll', () => { nav.classList.toggle('solid', scrollY > 20); btt.classList.toggle('show', scrollY > innerHeight * 1.5); }, { passive: true });
 
-    if (!motion) return;   // crawlers and reduced-motion visitors stop here: flat, fully expanded page
+    if (!motion) return;   // crawlers and reduced-motion visitors stop here: flat page (bots also get every list expanded)
     $$('[data-count]').forEach(el => countIO.observe(el));
 
     /* ── Reveals (fade-up 16px, staggered 80ms) + timeline dots ── */

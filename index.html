@@ -484,6 +484,7 @@
         #btt.show { transform: scale(1); }
 
         /* ── HERO: pinned; the name splits apart, then an ink disc swallows the screen ── */
+        main { overflow-x: clip; }
         #hero { padding: 0; }
         .hero-pin { position: relative; display: flex; align-items: center; min-height: 100svh; padding: 104px 0 64px; overflow: hidden; }
         .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; width: 100%; }
@@ -518,7 +519,7 @@
         .motion .hero-l .fade { opacity: calc(1 - var(--p) * 3.2); transform: translateY(calc(var(--p) * -80px)); }
         .motion .me { transform: translateY(calc(var(--p) * -6vh)) rotate(calc(var(--p) * -14deg)) scale(calc(1 - var(--p) * .3)); }
         .motion .stk { transform: translate(calc(var(--p) * var(--sx)), calc(var(--p) * var(--sy))) rotate(calc(var(--r) + var(--p) * var(--sr, 40deg))); }
-        .motion .wipe { display: block; position: absolute; left: 50%; top: 55%; z-index: 5; width: 120px; height: 120px; margin: -60px; border-radius: 50%; background: var(--wipe); pointer-events: none; transform: scale(calc(clamp(0, (var(--p) - .52) * 2.3, 1) * 30)); }
+        .motion .wipe { display: block; position: absolute; left: 50%; top: 55%; z-index: 5; width: 150vmax; height: 150vmax; margin: -75vmax; border-radius: 50%; background: var(--wipe); pointer-events: none; transform: scale(clamp(0, (var(--p) - .55) * 2.4, 1)); }
         .motion .me .badge { animation: pop .5s var(--back) .5s both; }
         .motion .stk { animation: pop .45s var(--back) both; }
         .motion .stk:nth-of-type(2) { animation-delay: .7s; } .motion .stk:nth-of-type(3) { animation-delay: .8s; } .motion .stk:nth-of-type(4) { animation-delay: .9s; } .motion .stk:nth-of-type(5) { animation-delay: 1s; }
@@ -712,7 +713,7 @@
         .pick-opt[aria-selected="true"] { background: var(--pop); color: #141414; border-color: #141414; }
         .pick-opt[aria-selected="true"] i { background: currentColor; transform: scale(.8); }
         .pick-panel { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: start; }
-        .js .pick-panel:not(.on) { display: none; }
+        .js:not(.bot) .pick-panel:not(.on) { display: none; }
         .bot .pick-panel { display: grid; margin-bottom: 24px; }
         .pick-panel.on { animation: rise .45s var(--ease); }
         .pick-panel img { width: 100%; height: auto; border: 1px solid #141414; }
@@ -735,7 +736,7 @@
         .c-pop { position: absolute; right: -12vw; top: 8%; width: min(64vw, 760px); aspect-ratio: 1; border-radius: 50%; background: var(--pop); }
         .motion .c-pop { transform: translateY(calc((1 - var(--p)) * 40%)) scale(calc(.4 + var(--p) * .6)); }
         .contact { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 24px; }
-        .chl { margin: 0; font: 800 clamp(80px, 17vw, 260px)/.82 var(--ff); letter-spacing: -.065em; text-transform: lowercase; }
+        .chl { margin: 0 0 .12em; font: 800 clamp(80px, 17vw, 260px)/.82 var(--ff); letter-spacing: -.065em; text-transform: lowercase; }
         .motion .chl { transform-origin: 0 100%; transform: scale(calc(1.35 - var(--p) * .35)) translateY(calc((1 - var(--p)) * 10%)); }
         .contact .lead { max-width: 30ch; }
         .mail { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
@@ -761,8 +762,10 @@
             .js #where { display: none; }
             .hero-grid, .about, .ach-wrap, .pick { grid-template-columns: 1fr; }
             .hero-grid { gap: 8px; }
-            .me { order: -1; width: min(300px, 72vw); }
-            .hero-pin { padding-top: 88px; }
+            .me { order: -1; width: min(220px, 52vw); }
+            .hero-pin { padding: 76px 0 20px; }
+            .hero-l { gap: 12px; }
+            .motion .cue { display: none; }
             .stk { display: none; }
             .about-l, .ach-l { position: static; }
             .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -778,6 +781,11 @@
             .pick-panel { grid-template-columns: 1fr; }
             .pick-panel img { width: 120px; }
             .c-pop { right: -40vw; top: 20%; width: 100vw; }
+            .name { font-size: 56px; margin-bottom: 12px; }
+            .me { width: 44vw; }
+            .hero-pin { padding-top: 66px; }
+            .ctas .btn, .socs a { padding: 0 12px; font-size: 12px; }
+            .mail .box { font-size: 12px; }
         }
     </style>
 </head>
@@ -1632,7 +1640,7 @@
 
     <button id="btt" type="button" aria-label="Back to top">↑</button>
 
-    <script src="assets/site.js?v=pp1" defer></script>
+    <script src="assets/site.js?v=pp2" defer></script>
 </body>
 
 </html>
