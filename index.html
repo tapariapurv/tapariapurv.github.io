@@ -518,7 +518,14 @@
         .s-nl:hover { color: var(--o); border-color: var(--o); box-shadow: 0 0 18px color-mix(in srgb, var(--o) 40%, transparent); }
         .s-em:hover { color: var(--b); border-color: var(--b); box-shadow: 0 0 18px color-mix(in srgb, var(--b) 40%, transparent); }
         .me { position: relative; justify-self: center; width: min(440px, 100%); aspect-ratio: 1; margin: 0; touch-action: pan-y; cursor: grab; }
-        .me-c { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border-radius: 50%; background: var(--y); transition: transform .5s var(--back); }
+        .me-c { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; z-index: 1; border: 2px solid #141414; border-radius: var(--blob); background: var(--y); transition: transform .5s var(--back); }
+        /* hand-cut sticker: a lumpy blob, paper grain on top, and a second off-register outline left behind when you drag it */
+        .me { --blob: 64% 36% 55% 45% / 42% 58% 38% 62%; }
+        .me-c::after { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; opacity: .45; pointer-events: none; }
+        .me::before { content: ""; position: absolute; inset: -10px -6px -8px -12px; border: 1.5px solid var(--fg); border-radius: 42% 58% 38% 62% / 62% 38% 58% 42%; transform: rotate(-7deg); pointer-events: none; }
+        .motion .me-c, .motion .me::before { animation: morph 9s ease-in-out infinite alternate; }
+        .motion .me::before { animation-duration: 12s; animation-direction: alternate-reverse; }
+        @keyframes morph { 50% { border-radius: 40% 60% 66% 34% / 58% 40% 62% 42%; } 100% { border-radius: 58% 42% 36% 64% / 38% 64% 36% 60%; } }
         .me-c img { display: block; width: 80%; height: auto; -webkit-user-drag: none; user-select: none; }
         .confetti { position: absolute; left: 50%; top: 45%; z-index: 4; width: 9px; height: 9px; border: 1px solid #141414; pointer-events: none; }
         .confetti:nth-child(odd) { border-radius: 50%; }
