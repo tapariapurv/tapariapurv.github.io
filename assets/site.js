@@ -67,7 +67,7 @@
 
     /* ── Photo: tap to squish + say hi; on desktop, drag it and it springs back ── */
     (function () {
-        const me = $('#me'), card = $('.me-c', me), bub = $('#bubble');
+        const me = $('#me'), card = $('.me-c img', me), bub = $('#bubble');
         const lines = ["Hi, I'm Purv!", 'I build with Claude Code', 'Five books so far', 'Try scrolling slowly'];
         let n = 0, t;
         const say = () => { bub.textContent = lines[n++ % lines.length]; bub.classList.add('show'); clearTimeout(t); t = setTimeout(() => bub.classList.remove('show'), 1800); };
