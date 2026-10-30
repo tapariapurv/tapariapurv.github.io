@@ -495,7 +495,7 @@
         /* ── HERO: pinned; the name splits apart, then an ink disc swallows the screen ── */
         main { overflow-x: clip; }
         #hero { padding: 0; }
-        .hero-pin { position: relative; display: flex; align-items: center; min-height: 100svh; padding: 104px 0 64px; overflow: hidden; }
+        .hero-pin { position: relative; display: flex; align-items: center; min-height: 100svh; padding: 104px 0 120px; overflow: hidden; }
         .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; width: 100%; }
         .name { margin: 0 0 24px; font: 800 clamp(64px, 12.6vw, 196px)/.84 var(--ff); letter-spacing: -.06em; text-transform: lowercase; }
         .name > span { display: block; width: max-content; }
@@ -508,10 +508,20 @@
         .caret { display: inline-block; width: 8px; height: 1.1em; margin-left: 2px; vertical-align: -3px; background: var(--fg); animation: blink 1s steps(1) infinite; }
         @keyframes blink { 50% { opacity: 0; } }
         .ctas, .socs { display: flex; flex-wrap: wrap; gap: 8px; }
-        .socs a { min-height: 44px; padding: 0 14px; font-size: 12px; }
+        .soc { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--rule); border-radius: 999px; color: var(--fg); transition: transform .45s var(--back), color .25s, border-color .25s, box-shadow .35s var(--ease); }
+        .soc svg { width: 20px; height: 20px; }
+        .soc:hover, .soc:focus-visible { transform: translateY(-4px) rotate(-6deg); }
+        .soc:nth-child(even):hover, .soc:nth-child(even):focus-visible { transform: translateY(-4px) rotate(6deg); }
+        .s-gh:hover { box-shadow: 0 0 18px color-mix(in srgb, var(--fg) 30%, transparent); }
+        .s-li:hover { color: #0a66c2; border-color: #0a66c2; box-shadow: 0 0 18px rgba(10, 102, 194, .35); }
+        .s-yt:hover { color: #f00; border-color: #f00; box-shadow: 0 0 18px rgba(255, 0, 0, .3); }
+        .s-nl:hover { color: var(--o); border-color: var(--o); box-shadow: 0 0 18px color-mix(in srgb, var(--o) 40%, transparent); }
+        .s-em:hover { color: var(--b); border-color: var(--b); box-shadow: 0 0 18px color-mix(in srgb, var(--b) 40%, transparent); }
         .me { position: relative; justify-self: center; width: min(440px, 100%); aspect-ratio: 1; margin: 0; touch-action: pan-y; cursor: grab; }
         .me-c { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border-radius: 50%; background: var(--y); transition: transform .5s var(--back); }
         .me-c img { display: block; width: 80%; height: auto; -webkit-user-drag: none; user-select: none; }
+        .confetti { position: absolute; left: 50%; top: 45%; z-index: 4; width: 9px; height: 9px; border: 1px solid #141414; pointer-events: none; }
+        .confetti:nth-child(odd) { border-radius: 50%; }
         .me.squish .me-c { transform: scale(.92, .88); transition-duration: .12s; }
         .me .badge { position: absolute; top: 2%; right: 0; z-index: 2; --pop: var(--g); }
         .bubble { position: absolute; left: -4%; top: 6%; z-index: 3; padding: 10px 14px; border: 1px solid #141414; border-radius: 999px; background: #fff; color: #141414; font: 500 13px var(--fm); opacity: 0; transform: scale(.6) translateY(8px); transition: opacity .25s, transform .4s var(--back); pointer-events: none; }
@@ -793,13 +803,14 @@
             .name { font-size: 56px; margin-bottom: 12px; }
             .me { width: 44vw; }
             .hero-pin { padding-top: 66px; }
-            .ctas .btn, .socs a { padding: 0 12px; font-size: 12px; }
+            .ctas .btn { padding: 0 12px; font-size: 12px; }
             .mail .box { font-size: 12px; }
         }
     </style>
 </head>
 
 <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></symbol><symbol id="i-li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol><symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></g></symbol><symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></g></symbol><symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol></svg>
     <a class="skip" href="#main">Skip to content</a>
     <div id="prog" aria-hidden="true"></div>
     <div id="where" aria-hidden="true">01 / 09 · Hello</div>
@@ -846,11 +857,11 @@
                         <a href="assets/Purv Taparia - Resume.pdf" class="btn ghost" target="_blank" data-umami-event="hero-download-resume">Download resume ↗</a>
                     </div>
                     <div class="socs fade">
-                        <a href="https://github.com/tapariapurv" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
-                        <a href="https://www.linkedin.com/in/purv-taparia/" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
-                        <a href="https://tapariapurv.beehiiv.com" target="_blank" rel="noopener" class="btn ghost">Newsletter</a>
-                        <a href="https://youtube.com/@decodewithpurv" target="_blank" rel="noopener" class="btn ghost">YouTube</a>
-                        <a href="mailto:tapariapurv+portfolio@gmail.com" class="btn ghost">Email</a>
+                        <a href="https://github.com/tapariapurv" target="_blank" rel="noopener" aria-label="GitHub" class="soc s-gh"><svg><use href="#i-gh"/></svg></a>
+                        <a href="https://www.linkedin.com/in/purv-taparia/" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc s-li"><svg><use href="#i-li"/></svg></a>
+                        <a href="https://tapariapurv.beehiiv.com" target="_blank" rel="noopener" aria-label="Newsletter" class="soc s-nl"><svg><use href="#i-pen"/></svg></a>
+                        <a href="https://youtube.com/@decodewithpurv" target="_blank" rel="noopener" aria-label="YouTube" class="soc s-yt"><svg><use href="#i-yt"/></svg></a>
+                        <a href="mailto:tapariapurv+portfolio@gmail.com" aria-label="Email" class="soc s-em"><svg><use href="#i-mail"/></svg></a>
                     </div>
                 </div>
                 <figure class="me" id="me" tabindex="0" aria-label="Photo of Purv Taparia. Tap it to say hi.">
@@ -1633,10 +1644,10 @@
                 <button type="button" class="btn copy" id="copy" data-umami-event="contact-copy-email"><span class="go">Copy email</span><span class="ok" role="status">Copied!</span></button>
             </div>
             <div class="socs">
-                <a href="https://github.com/tapariapurv" class="btn ghost" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="https://www.linkedin.com/in/purv-taparia/" class="btn ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
-                <a href="https://youtube.com/@decodewithpurv" class="btn ghost" target="_blank" rel="noopener">YouTube ↗</a>
-                <a href="https://tapariapurv.beehiiv.com" class="btn ghost" target="_blank" rel="noopener">Newsletter ↗</a>
+                <a href="https://github.com/tapariapurv" target="_blank" rel="noopener" aria-label="GitHub" class="soc s-gh"><svg><use href="#i-gh"/></svg></a>
+                <a href="https://www.linkedin.com/in/purv-taparia/" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc s-li"><svg><use href="#i-li"/></svg></a>
+                <a href="https://youtube.com/@decodewithpurv" target="_blank" rel="noopener" aria-label="YouTube" class="soc s-yt"><svg><use href="#i-yt"/></svg></a>
+                <a href="https://tapariapurv.beehiiv.com" target="_blank" rel="noopener" aria-label="Newsletter" class="soc s-nl"><svg><use href="#i-pen"/></svg></a>
             </div>
         </div>
     </section>
@@ -1649,7 +1660,7 @@
 
     <button id="btt" type="button" aria-label="Back to top">↑</button>
 
-    <script src="assets/site.js?v=pp2" defer></script>
+    <script src="assets/site.js?v=pp3" defer></script>
 </body>
 
 </html>

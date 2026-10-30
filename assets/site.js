@@ -71,19 +71,47 @@
         const lines = ["Hi, I'm Purv!", 'I build with Claude Code', 'Five books so far', 'Try scrolling slowly'];
         let n = 0, t;
         const say = () => { bub.textContent = lines[n++ % lines.length]; bub.classList.add('show'); clearTimeout(t); t = setTimeout(() => bub.classList.remove('show'), 1800); };
-        me.addEventListener('click', () => { me.classList.add('squish'); setTimeout(() => me.classList.remove('squish'), 140); say(); });
+        let moved = 0;
+        me.addEventListener('click', () => { if (moved > 6) return; me.classList.add('squish'); setTimeout(() => me.classList.remove('squish'), 140); say(); if (toys) { confetti(16); vy -= 6; kick(); } });
         me.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); me.click(); } });
         if (!toys) return;
-        let drag = null, x = 0, y = 0, vx = 0, vy = 0, raf = 0;
-        const spring = () => {
-            if (!drag) { vx = (vx - x * .12) * .78; vy = (vy - y * .12) * .78; x += vx; y += vy; }
-            card.style.transform = `translate(${x}px,${y}px) rotate(${x * .06}deg)`;
-            raf = drag || Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) > .2 ? requestAnimationFrame(spring) : (card.style.transform = '', 0);
-        };
-        me.addEventListener('pointerdown', e => { drag = { x: e.clientX - x, y: e.clientY - y }; me.setPointerCapture(e.pointerId); card.style.transition = 'none'; if (!raf) raf = requestAnimationFrame(spring); });
-        me.addEventListener('pointermove', e => { if (drag) { x = (e.clientX - drag.x) * .5; y = (e.clientY - drag.y) * .5; } });
-        const up = () => { drag = null; card.style.transition = ''; };
+        // Live-site physics: drag pulls it with a lag, release springs back with a spin, hover tilts it in 3D
+        const cols = ['var(--y)', 'var(--b)', 'var(--g)', 'var(--v)', 'var(--o)'];
+        function confetti(n) {
+            for (let i = 0; i < n; i++) {
+                const p = document.createElement('i'), a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 120;
+                p.className = 'confetti'; p.style.background = cols[i % cols.length]; me.appendChild(p);
+                p.animate([{ transform: 'translate(-50%,-50%) rotate(0)', opacity: 1 },
+                    { transform: `translate(calc(-50% + ${Math.cos(a) * d | 0}px), calc(-50% + ${Math.sin(a) * d + 50 | 0}px)) rotate(${Math.random() * 720 - 360 | 0}deg)`, opacity: 0 }],
+                    { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(.16,1,.3,1)' }).onfinish = () => p.remove();
+            }
+        }
+        let x = 0, y = 0, vx = 0, vy = 0, rot = 0, vr = 0, tx = 0, ty = 0, sx = 0, sy = 0, drag = false, raf = 0;
+        const tilt = { x: 0, y: 0 };
+        function frame() {
+            const k = drag ? .35 : .12, d = drag ? .6 : .78;
+            vx = (vx + (tx - x) * k) * d; vy = (vy + (ty - y) * k) * d; x += vx; y += vy;
+            vr = (vr + (vx * 1.6 - rot) * .18) * .72; rot += vr;
+            card.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg) perspective(700px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`;
+            if (drag || Math.abs(vx) + Math.abs(vy) + Math.abs(vr) + Math.abs(x) + Math.abs(y) + Math.abs(rot) + Math.abs(tilt.x) + Math.abs(tilt.y) > .05) raf = requestAnimationFrame(frame);
+            else { raf = 0; card.style.transform = card.style.transition = ''; }
+        }
+        function kick() { card.style.transition = 'none'; if (!raf) raf = requestAnimationFrame(frame); }
+        me.addEventListener('pointerdown', e => { drag = true; sx = e.clientX; sy = e.clientY; moved = 0; me.setPointerCapture(e.pointerId); kick(); });
+        me.addEventListener('pointermove', e => {
+            if (drag) {
+                const dx = e.clientX - sx, dy = e.clientY - sy;
+                moved = Math.max(moved, Math.hypot(dx, dy));
+                tx = Math.max(-140, Math.min(140, dx * .8)); ty = Math.max(-100, Math.min(100, dy * .8));
+                if (moved > 30 && !bub.classList.contains('show')) { bub.textContent = 'Wheee!'; bub.classList.add('show'); clearTimeout(t); t = setTimeout(() => bub.classList.remove('show'), 1200); }
+            } else if (e.pointerType === 'mouse') {
+                const r = me.getBoundingClientRect();
+                tilt.x = ((e.clientX - r.left) / r.width - .5) * 16; tilt.y = -((e.clientY - r.top) / r.height - .5) * 16; kick();
+            }
+        });
+        const up = () => { if (!drag) return; drag = false; tx = ty = 0; vr += vx * 2.2; kick(); };
         me.addEventListener('pointerup', up); me.addEventListener('pointercancel', up);
+        me.addEventListener('pointerleave', () => { tilt.x = tilt.y = 0; kick(); });
     })();
 
     /* ── Magnetic buttons (desktop toys) ── */
