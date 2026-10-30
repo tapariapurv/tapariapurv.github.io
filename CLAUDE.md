@@ -12,6 +12,7 @@ This is Purv Taparia's personal portfolio: a static site with no build system, p
 - `404.html` — custom not-found page (noindex, not in the sitemap).
 - `privacy.html`, `terms.html` — standalone legal pages, same visual system as the main site.
 - `assets/Purv Taparia - Resume.pdf` — the resume, linked from the hero "Download Resume" button. It's a PDF edited outside this repo; flag bio changes to Purv rather than trying to edit it. (`Resume Old.pdf` is the previous version.)
+- `assets/favicon.svg`, `favicon.ico`, `apple-touch-icon.png` — the trace-P logo mark (spec in `.design-sync/design-principles.md` §11a). The nav logo is the same mark inlined as SVG in `index.html`; keep them identical.
 - `assets/og-image.png` — social preview image referenced by `og:image`, `twitter:image`, and the Person JSON-LD. Don't delete it.
 - `sitemap.xml` — referenced from `robots.txt`; add any new top-level page to it.
 - `llms.txt` — a plain-text bio summary for AI crawlers; kept separate from the HTML but must stay factually in sync with it.

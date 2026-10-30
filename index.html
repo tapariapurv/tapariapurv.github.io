@@ -27,7 +27,9 @@
     <meta name="twitter:description" content="Young AI builder, developer and 5x published author from Mumbai, India, shipping apps with Claude Code and building Arduino hardware." />
     <meta name="twitter:image" content="https://tapariapurv.github.io/assets/og-image.png" />
     <link rel="canonical" href="https://tapariapurv.github.io" />
-    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="icon" href="assets/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preload" as="image" href="assets/purv.webp" fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-tight.woff2" crossorigin />
 
@@ -461,6 +463,13 @@
         .logo { display: flex; align-items: center; gap: 10px; font: 800 18px/1 var(--ff); letter-spacing: -.03em; text-decoration: none; text-transform: lowercase; }
         .logo b { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--y); color: #141414; font-size: 13px; letter-spacing: 0; text-transform: uppercase; transition: transform .5s var(--back); }
         .logo:hover b { transform: rotate(-24deg) scale(1.1); }
+        .mk { width: 22px; height: 22px; overflow: visible; }
+        .mk path { stroke: #141414; stroke-dasharray: 100; }
+        .mk circle { fill: #141414; transform-origin: 34px 38px; }
+        .motion .logo:hover .mk path { animation: trace .7s var(--ease); }
+        .motion .logo:hover .mk circle { animation: node .5s .45s var(--back) backwards; }
+        @keyframes trace { from { stroke-dashoffset: 100; } }
+        @keyframes node { from { transform: scale(0); } }
         .nl { display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); }
         .nl a { position: relative; padding: 10px 0; font: 500 11px/1 var(--fm); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
         .nl a::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--fg); transform: scale(0); transition: transform .3s var(--back); }
@@ -796,7 +805,7 @@
     <div id="where" aria-hidden="true">01 / 09 · Hello</div>
 
     <nav id="nav" aria-label="Main">
-        <a href="#hero" class="logo"><b>PT</b>Purv Taparia</a>
+        <a href="#hero" class="logo"><b><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><path d="M19 53V12h17l10 10v6l-10 10h-2" pathLength="100" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="38" r="6"/></svg></b>Purv Taparia</a>
         <div class="right">
             <div class="nl">
                 <a href="#about">About</a>
