@@ -328,13 +328,14 @@
   });
 
   /* ── about: README scrub ──────────────────────────────── */
-  const rd = SplitText.create('#readme', { type: 'words', wordsClass: 'w' });
+  const rd = SplitText.create('#readme', { type: 'words', wordsClass: 'w', aria: 'none' });
   const marks = $$('#readme mark');
   G.set(marks, { '--m': 0 });
   mm.add({ d: '(min-width: 961px)', m: '(max-width: 960px)' }, ctx => {
     const tl = G.timeline({ scrollTrigger: { trigger: '.readme', start: ctx.conditions.d ? 'center center' : 'top 75%', end: ctx.conditions.d ? '+=140%' : 'bottom 40%', pin: ctx.conditions.d, scrub: .5 } });
-    tl.fromTo(rd.words, { opacity: .1 }, { opacity: 1, stagger: .1, ease: 'none', duration: .3 }, 0);
-    marks.forEach(m => tl.fromTo(m, { '--m': 0, color: getComputedStyle($('#readme')).color }, { '--m': 1, color: '#141414', duration: .4, ease: 'power2.out' }, rd.words.indexOf($('.w', m)) * .1));
+    // dim words stay at 3:1+ contrast (large text), lit words go to full cream; words inside a highlight end on ink
+    tl.fromTo(rd.words, { color: '#6b665f' }, { color: (i, w) => w.closest('mark') ? '#141414' : '#f2eee6', stagger: .1, ease: 'none', duration: .3 }, 0);
+    marks.forEach(m => tl.fromTo(m, { '--m': 0 }, { '--m': 1, duration: .4, ease: 'power2.out' }, rd.words.indexOf($('.w', m)) * .1));
   });
 
   // terminal: type the command, then print each folder
@@ -432,6 +433,21 @@
   /* ── projects: pinned horizontal app strip ────────────── */
   const track = $('#track');
   mm.add('(min-width: 961px)', () => {
+    // size the app windows so screenshot + text always fit between the header and the dock, at any screen size
+    const pin = $('.pj-pin'), rem = () => parseFloat(getComputedStyle(H).fontSize);
+    const sizeCards = () => {
+      const c = cards.find(x => !x.hidden) || cards[0], r = rem();
+      const fits = w => {
+        track.style.setProperty('--pcw', w + 'px');
+        const top = track.getBoundingClientRect().top - pin.getBoundingClientRect().top;
+        return top + c.offsetHeight <= innerHeight - 6.5 * r;
+      };
+      // widest window that fits between header and dock (text height depends on width, so test each step)
+      let w = Math.min(innerWidth * .3, 25 * r);
+      while (w > 14 * r && !fits(w)) w -= r;
+      if (w < 14 * r) fits(14 * r);
+    };
+    sizeCards(); ScrollTrigger.addEventListener('refreshInit', sizeCards);
     const dist = () => Math.max(0, track.scrollWidth - innerWidth);
     const skewP = G.quickTo(cards, 'skewX', { duration: .5, ease: 'power3' });
     const n = $('#pj-n'), bar = $('.pj-bar i');
@@ -450,8 +466,8 @@
       }
     });
     cards.forEach(c => {
-      G.from(c, { rotationY: -38, xPercent: 30, opacity: .2, transformPerspective: 1200, transformOrigin: '0% 50%', ease: 'power2.out',
-        scrollTrigger: { trigger: c, containerAnimation: tween, start: 'left 100%', end: 'left 62%', scrub: true } });
+      G.from(c, { rotationY: -38, xPercent: 30, opacity: .2, transformPerspective: () => c.offsetWidth * 3.2, transformOrigin: '0% 50%', ease: 'power2.out',
+        scrollTrigger: { trigger: c, containerAnimation: tween, start: 'left 100%', end: 'left 62%', scrub: true, invalidateOnRefresh: true } });
       const img = $('.pc-shot img', c);
       if (img) G.fromTo(img, { xPercent: -12, scale: 1.25 }, { xPercent: 12, scale: 1.25, ease: 'none',
         scrollTrigger: { trigger: c, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } });
@@ -461,7 +477,7 @@
       c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); rx(((e.clientY - r.top) / r.height - .5) * -9); lift(-10); });
       c.addEventListener('pointerleave', () => { rx(0); lift(0); });
     });
-    return () => { pjST = null; G.set([track, ...cards], { clearProps: 'all' }); };
+    return () => { pjST = null; ScrollTrigger.removeEventListener('refreshInit', sizeCards); track.style.removeProperty('--pcw'); G.set([track, ...cards], { clearProps: 'all' }); };
   });
   mm.add('(max-width: 960px)', () => {
     ScrollTrigger.batch('.pc', { start: 'top 90%', once: true, onEnter: els => G.from(els, { y: 70, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1 }) });
@@ -492,7 +508,7 @@
     return () => G.set([...books, ...txts], { clearProps: 'all' });
   });
   mm.add('(max-width: 960px)', () => {
-    bks.forEach(b => G.from($('.book', b), { rotationY: 90, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: b, start: 'top 85%', once: true } }));
+    bks.forEach(b => G.fromTo($('.book', b), { rotationY: 90, opacity: 0 }, { rotationY: -18, opacity: 1, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: b, start: 'top 85%', once: true } }));   // explicit angles: reading the CSS matrix back can flip the book
   });
 
   /* ── faq: a chat that types itself ────────────────────── */

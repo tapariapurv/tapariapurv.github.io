@@ -237,7 +237,8 @@ for i, p in enumerate(data["projects"]):
         im = f'<img src="{p["img"]}" alt="{e(p["alt"])}" width="800" height="500" loading="lazy" decoding="async">'
     else:
         im = f'<span class="noshot" aria-hidden="true"><b>{e(p["title"])}</b><span>{"no screenshot · hardware" if "t-hw" in cls else "no screenshot yet"}</span></span>'
-    shot = f'<a class="pc-shot" href="{href}" target="_blank" rel="noopener" data-cursor="Open">{im}</a>' if href else f'<div class="pc-shot" data-cursor="Open">{im}</div>'
+    lbl = '' if p["img"] else f' aria-label="{e(p["title"])} (opens in a new tab)"'
+    shot = f'<a class="pc-shot" href="{href}" target="_blank" rel="noopener" data-cursor="Open"{lbl}>{im}</a>' if href else f'<div class="pc-shot" data-cursor="Open">{im}</div>'
     links = "".join(f'<a href="{h}" class="lnk" target="_blank" rel="noopener">{e(l)}</a>' for h, l in p["links"])
     body = f'''{shot}<div class="pc-body"><div class="pc-meta">{tags}</div><h3 class="pc-title">{e(p["title"])}</h3>
 <p class="pc-desc">{e(p["desc"])}</p><ul class="pc-tech">{"".join(f"<li>{e(t)}</li>" for t in p["tech"])}</ul>
@@ -320,22 +321,23 @@ modal = '''<div id="modal" hidden><div class="m-scrim"></div><div class="m-win w
 <div class="win-bar"><span class="win-dots"><button type="button" class="m-x" aria-label="Close window"></button><i></i><i></i></span><span class="win-t" id="m-file"></span><span class="win-m">esc to close</span></div>
 <div class="win-body m-body"><div class="m-shot"></div><div class="m-info"></div></div></div></div>'''
 
+css = re.sub(r"\s*\n\s*", "\n", (D / "style.css").read_text())
 page = f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){{var h=document.documentElement,u=navigator.userAgent,b=/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(u),r=matchMedia('(prefers-reduced-motion: reduce)').matches;h.classList.add('js');if(b)h.classList.add('bot');if(!b&&!r)h.classList.add('motion');try{{var t=localStorage.getItem('pos-theme');if(t)h.dataset.theme=t;if(!sessionStorage.getItem('pos-booted')&&!b&&!r)h.classList.add('booting')}}catch(e){{}}}})();</script>
+<script>(function(){{var h=document.documentElement,u=navigator.userAgent,b=/bot|crawl|spider|slurp|headless|preview/i.test(u),r=matchMedia('(prefers-reduced-motion: reduce)').matches;h.classList.add('js');if(b)h.classList.add('bot');if(!b&&!r)h.classList.add('motion');try{{var t=localStorage.getItem('pos-theme');if(t)h.dataset.theme=t;if(!sessionStorage.getItem('pos-booted')&&!b&&!r&&matchMedia('(hover:hover) and (pointer:fine) and (min-width:961px)').matches)h.classList.add('booting')}}catch(e){{}}}})();</script>
 <title>Purv Taparia — Purv/OS</title>
 <meta name="description" content="Purv Taparia, a student from Mumbai who builds apps with AI and Claude Code, designs hardware and has published 5 books. A motion-design edition of his portfolio.">
-<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://tapariapurv.github.io/">
 <meta property="og:title" content="Purv Taparia — Purv/OS"><meta property="og:image" content="https://tapariapurv.github.io/assets/og-image.png">
 <meta name="theme-color" content="#141414">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/purv.webp" as="image">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="preload" href="assets/purv.webp" as="image" fetchpriority="high">
+<link rel="preload" href="vendor.js?v=1" as="script">
+<style>{css}</style>
 </head>
 <body>
 {sprite}
@@ -366,15 +368,8 @@ page = f'''<!doctype html>
 {modal}
 <div id="crt" aria-hidden="true"><p>Purv/OS has shut down.<br><button type="button" id="on">⏻ Power on</button></p></div>
 <div id="cursor" aria-hidden="true"><span class="c-ring"><span class="c-lbl"></span></span><span class="c-dot"></span></div>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
-<script src="app.js?v=4" defer></script>
+<script src="vendor.js?v=1" defer></script>
+<script src="app.js?v=10" defer></script>
 </body>
 </html>
 '''
