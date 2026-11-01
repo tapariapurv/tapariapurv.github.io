@@ -139,6 +139,8 @@
 
   if (!MOTION) return trackSections();
 
+  const yieldTask = () => new Promise(r => setTimeout(r, 0));   // yield between scenes: no long main-thread task on load
+
   /* ── smooth scroll ────────────────────────────────────── */
   if (window.Lenis) {
     lenis = new Lenis({ lerp: .11, anchors: { offset: 0 }, autoRaf: false });
@@ -148,6 +150,7 @@
     G.ticker.lagSmoothing(0);
   }
 
+  await yieldTask();
   /* ── cursor ───────────────────────────────────────────── */
   if (TOYS) {
     const cur = $('#cursor'), ring = $('.c-ring', cur), dot = $('.c-dot', cur), lbl = $('.c-lbl', cur);
@@ -177,6 +180,7 @@
     dock.addEventListener('pointerleave', () => G.to(dks, { scale: 1, y: 0, duration: .5, ease: 'elastic.out(1,.5)' }));
   }
 
+  await yieldTask();
   /* ── boot sequence ────────────────────────────────────── */
   const bootEl = $('#boot');
   function boot(done) {
@@ -246,6 +250,7 @@
     }));
     hero.addEventListener('pointerleave', () => wq.forEach(q => q(800)));
 
+    await yieldTask();
     // dot field
     const cv = $('#dots'), cx = cv.getContext('2d');
     let W, Hh, pts = [], mx = -999, my = -999, run = false, col = '20,20,20';
@@ -271,6 +276,7 @@
     G.ticker.add(draw);
     ScrollTrigger.create({ trigger: hero, start: 'top bottom', end: 'bottom top', onToggle: s => run = s.isActive });
 
+    await yieldTask();
     // windows + stickers
     let z = 10;
     wins.forEach(w => {
@@ -299,7 +305,6 @@
   }
 
   boot(intro);
-  const yieldTask = () => new Promise(r => setTimeout(r, 0));   // yield between scenes: no long main-thread task on load
 
   await yieldTask();
   /* ── generic reveals ──────────────────────────────────── */
