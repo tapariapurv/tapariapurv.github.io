@@ -1,5 +1,5 @@
 /* Purv/OS — motion engine. GSAP 3.13 (ScrollTrigger, SplitText, Flip, Draggable, Inertia, ScrambleText) + Lenis. */
-(() => {
+(async () => {
   const H = document.documentElement;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -208,6 +208,7 @@
   let heroBuilt = false;
   function intro() {
     G.set('.intro', { visibility: 'visible' });
+    if (!TOYS) return buildHeroScroll();   // phones and touch: render the hero at once, no entrance
     const tl = G.timeline({ onComplete: buildHeroScroll });
     tl.from(chars, { opacity: 0, yPercent: 50, rotationX: -100, transformOrigin: '50% 80% -40px', duration: 1.4, ease: 'expo.out', stagger: .045 }, 0)
       .from(wins, { opacity: 0, y: 90, scale: .85, rotationX: 25, transformPerspective: 900, duration: 1.1, ease: 'back.out(1.3)', stagger: .12 }, .25)
@@ -297,6 +298,10 @@
     ph.addEventListener('pointerdown', () => G.fromTo(ph, { scale: .95 }, { scale: 1, duration: .7, ease: 'elastic.out(1,.4)' }));
   }
 
+  boot(intro);
+  const yieldTask = () => new Promise(r => setTimeout(r, 0));   // yield between scenes: no long main-thread task on load
+
+  await yieldTask();
   /* ── generic reveals ──────────────────────────────────── */
   $$('.h2.split').forEach(h => {
     SplitText.create(h, {
@@ -327,6 +332,7 @@
     G.fromTo($('i', bg), { opacity: 1 }, { opacity: 0, ease: 'power2.in', scrollTrigger: st });
   });
 
+  await yieldTask();
   /* ── about: README scrub ──────────────────────────────── */
   const rd = SplitText.create('#readme', { type: 'words', wordsClass: 'w', aria: 'none' });
   const marks = $$('#readme mark');
@@ -347,6 +353,7 @@
   ScrollTrigger.create({ trigger: term, start: 'top 75%', once: true, onEnter: () => termTl.play() });
   G.from(term, { y: 120, rotationX: 20, transformPerspective: 1200, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: term, start: 'top 92%', once: true } });
 
+  await yieldTask();
   /* ── ticker: speed and skew follow scroll velocity ────── */
   const loops = $$('.strip-in').map((el, i) => G.fromTo(el, { xPercent: i ? -50 : 0 }, { xPercent: i ? 0 : -50, duration: 30, ease: 'none', repeat: -1 }));
   const skew = G.quickTo('.strip-in', 'skewX', { duration: .4, ease: 'power3' });
@@ -360,6 +367,7 @@
     }
   });
 
+  await yieldTask();
   /* ── achievements: odometer leaderboard ───────────────── */
   const achs = $$('.ach');
   mm.add('(min-width: 961px)', () => {
@@ -392,6 +400,7 @@
     achs.forEach(a => G.from(a, { y: 80, rotationX: -30, transformPerspective: 900, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: a, start: 'top 88%', once: true } }));
   });
 
+  await yieldTask();
   /* ── certificates: each seal stamps down ──────────────── */
   const finder = $('.w-finder');
   const certTl = G.timeline({ paused: true });
@@ -405,6 +414,7 @@
   });
   ScrollTrigger.create({ trigger: finder, start: 'top 80%', once: true, onEnter: () => certTl.play() });
 
+  await yieldTask();
   /* ── changelog: rail draws, big date flips ────────────── */
   G.fromTo('.rail i', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.log', start: 'top 55%', end: 'bottom 55%', scrub: true } });
   const bd = $('.bd-in');
@@ -430,6 +440,7 @@
   ScrollTrigger.create({ trigger: '#latest', start: 'top bottom', once: true, onEnter: () =>
     $$('#projects img, #books img').forEach(i => { i.loading = 'eager'; i.decode && i.decode().catch(() => {}); }) });
 
+  await yieldTask();
   /* ── projects: pinned horizontal app strip ────────────── */
   const track = $('#track');
   mm.add('(min-width: 961px)', () => {
@@ -483,6 +494,7 @@
     ScrollTrigger.batch('.pc', { start: 'top 90%', once: true, onEnter: els => G.from(els, { y: 70, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1 }) });
   });
 
+  await yieldTask();
   /* ── books: pulled off the shelf one by one ───────────── */
   const bks = $$('.bk'), books = bks.map(b => $('.book', b)), txts = bks.map(b => $('.bk-txt', b));
   mm.add('(min-width: 961px)', () => {
@@ -511,6 +523,7 @@
     bks.forEach(b => G.fromTo($('.book', b), { rotationY: 90, opacity: 0 }, { rotationY: -18, opacity: 1, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: b, start: 'top 85%', once: true } }));   // explicit angles: reading the CSS matrix back can flip the book
   });
 
+  await yieldTask();
   /* ── faq: a chat that types itself ────────────────────── */
   const chatTl = G.timeline({ paused: true });
   $$('.qa').forEach(qa => {
@@ -525,6 +538,7 @@
   ScrollTrigger.create({ trigger: '.w-chat', start: 'top 75%', once: true, onEnter: () => chatTl.play() });
   G.from('.w-chat', { y: 100, rotation: 3, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.w-chat', start: 'top 92%', once: true } });
 
+  await yieldTask();
   /* ── contact: jelly letters that lean toward you ──────── */
   const hi = SplitText.create('#chl', { type: 'chars', charsClass: 'ch' }).chars;
   G.from(hi, { yPercent: 120, rotation: () => G.utils.random(-30, 30), opacity: 0, duration: 1.3, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: '#chl', start: 'top 85%', once: true } });
@@ -563,6 +577,6 @@
   /* go */
   trackSections();
   ScrollTrigger.sort();
+  ScrollTrigger.refresh();
   document.fonts.ready.then(() => { ScrollTrigger.sort(); ScrollTrigger.refresh(); });
-  boot(intro);
 })();

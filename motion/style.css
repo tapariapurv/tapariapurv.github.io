@@ -168,7 +168,7 @@ html.toys .desk{background-image:none}
   .w-photo{max-width:20rem;transform:rotate(1.5deg)}
   .w-hello,.w-stats{max-width:32.5rem}
 }
-html.motion .intro{visibility:hidden}
+@media (hover:hover) and (pointer:fine) and (min-width:60.0625rem){html.motion .intro{visibility:hidden}}
 
 /* ── about ── */
 #about{padding:9.375rem 0 8.75rem;z-index:2}
