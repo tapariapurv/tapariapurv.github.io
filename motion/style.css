@@ -472,3 +472,33 @@ footer{padding-bottom:6.875rem}
 }
 @media (min-width:60.0625rem) and (max-height:50rem){html.motion .recog{display:none}html.motion .pj-pin .pc-shot{aspect-ratio:16/7}}
 @media (min-width:60.0625rem) and (max-height:42rem){html.motion .pj-pin .pc-desc{-webkit-line-clamp:1}html.motion .pj-pin .pc-meta{display:none}html.motion .pj-pin .h2{font-size:12vh}html.motion .pj-pin{padding-top:3rem}}
+
+/* ── v4: real logo mark (same rules as favicon.svg: ink + orange, cream + yellow in dark) ── */
+:root{--logo-dot:#f2601e}
+[data-dark]{--logo-dot:#f6d43c}
+.mb-logo .logo{width:1.5rem;height:1.5rem;overflow:visible}
+.logo-dot{fill:var(--logo-dot);transform-box:fill-box;transform-origin:50% 50%}
+@media (hover:hover){.mb-logo:hover .logo-dot{animation:dot-hop .6s var(--back)}}
+@keyframes dot-hop{40%{transform:translateY(-35%) scale(1.25)}}
+
+/* ── v4 desktop layer ── */
+.h2 .c{font-variation-settings:'wght' var(--w,800)}
+#switch{display:none;position:fixed;inset:0;z-index:150;background:var(--pop,var(--y));color:var(--ink);place-content:center;justify-items:center;gap:1rem;will-change:transform}
+.sw-k{font:500 .875rem var(--mono);text-transform:lowercase;letter-spacing:.06em}
+.sw-t{font:800 clamp(5rem,14vw,14rem)/.85 var(--sans);letter-spacing:-.06em}
+.minimap{position:fixed;right:1.1rem;top:50%;height:min(56vh,30rem);width:.75rem;transform:translateY(-50%);z-index:45}
+.minimap button{position:absolute;left:0;width:100%;padding:0;display:block}
+.minimap button i{position:absolute;left:50%;top:2px;bottom:2px;width:2px;margin-left:-1px;background:var(--fg);opacity:.25;transition:width .25s var(--ease),margin .25s var(--ease),opacity .25s,background .25s}
+.minimap button:hover i{width:6px;margin-left:-3px;opacity:1;background:var(--pop)}
+.minimap span{position:absolute;right:1.4rem;top:50%;transform:translate(.4rem,-50%);white-space:nowrap;font:500 .6875rem var(--mono);background:var(--fg);color:var(--bg);padding:.25rem .5rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s var(--ease)}
+.minimap button:hover span{opacity:1;transform:translate(0,-50%)}
+.mm-thumb{position:absolute;left:-2px;right:-2px;top:0;border:1.5px solid var(--o);background:color-mix(in srgb,var(--o) 18%,transparent);pointer-events:none}
+.b-inner{display:none}
+html.toys .b-inner{display:flex;position:absolute;inset:0;transform:translateZ(15px);background:var(--paper);color:var(--ink);border:1px solid var(--ink);flex-direction:column;justify-content:space-between;padding:1.4rem 1.2rem;background-image:repeating-linear-gradient(0deg,transparent 0 1.45rem,rgba(20,20,20,.07) 1.45rem calc(1.45rem + 1px))}
+.b-inner i{font:500 .6875rem var(--mono);font-style:normal;text-transform:uppercase;letter-spacing:.08em}
+.b-inner b{font:800 1.6rem/1 var(--sans);letter-spacing:-.04em}
+.b-inner em{font:600 .75rem var(--mono);font-style:normal;color:var(--o)}
+html.toys .b-front{backface-visibility:hidden}
+.odo{position:relative}
+.confetti{position:absolute;left:58%;top:45%;width:.9rem;height:.9rem;border:1px solid var(--ink);pointer-events:none}
+@media (prefers-reduced-motion:reduce){.minimap{display:none}}

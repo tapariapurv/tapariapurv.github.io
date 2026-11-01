@@ -210,12 +210,23 @@
   /* ── hero intro ───────────────────────────────────────── */
   const wins = $$('.desk .win'), stks = $$('.stk');
   let heroBuilt = false;
+  // each window starts as a speck at the dock's Desktop icon, so the dock reads as where windows live
+  function genie() {
+    const d = $('.dk[data-k=hero]').getBoundingClientRect(), dx = d.left + d.width / 2, dy = d.top + d.height / 2;
+    return {
+      x: (i, w) => { const r = w.getBoundingClientRect(); return dx - (r.left + r.width / 2); },
+      y: (i, w) => { const r = w.getBoundingClientRect(); return dy - (r.top + r.height / 2); },
+      scale: .06, opacity: 0, rotation: (i) => [-14, 10, -8][i] || 0
+    };
+  }
   function intro() {
     G.set('.intro', { visibility: 'visible' });
     if (!TOYS) return buildHeroScroll();   // phones and touch: render the hero at once, no entrance
     const tl = G.timeline({ onComplete: buildHeroScroll });
     tl.from(chars, { opacity: 0, yPercent: 50, rotationX: -100, transformOrigin: '50% 80% -40px', duration: 1.4, ease: 'expo.out', stagger: .045 }, 0)
-      .from(wins, { opacity: 0, y: 90, scale: .85, rotationX: 25, transformPerspective: 900, duration: 1.1, ease: 'back.out(1.3)', stagger: .12 }, .25)
+      .from(wins, { ...genie(), duration: 1.15, ease: 'expo.out', stagger: .14 }, .2)
+      .fromTo('.logo-p', { strokeDasharray: 100, strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, 0)
+      .from('.logo-dot', { scale: 0, duration: .6, ease: 'back.out(3)' }, 1)
       .from(stks, { opacity: 0, scale: .3, y: -80, rotation: () => G.utils.random(-60, 60), duration: .9, ease: 'back.out(2.2)', stagger: .07 }, .8)
       .to('.desk .eb', { duration: 1, scrambleText: { text: '01 · Hello, I\'m', chars: '01/#_', speed: .6 } }, .2)
       .from('.cue', { opacity: 0, y: 20, duration: .8, ease: 'expo.out' }, 1.2);
@@ -310,11 +321,12 @@
   /* ── generic reveals ──────────────────────────────────── */
   $$('.h2.split').forEach(h => {
     SplitText.create(h, {
-      type: 'lines,words,chars', linesClass: 'ln', mask: 'lines', autoSplit: true,
+      type: 'lines,words,chars', linesClass: 'ln', charsClass: 'c', mask: 'lines', autoSplit: true,
       onSplit(self) {
         const em = self.chars.filter(c => c.closest('em'));
         const tl = G.timeline({ scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
         tl.from(self.chars, { yPercent: 115, rotation: 8, duration: 1.1, ease: 'expo.out', stagger: .022 });
+        if (TOYS) tl.fromTo(self.chars, { '--w': 250 }, { '--w': 800, duration: .9, ease: 'power2.inOut', stagger: .03 }, .15);   // weight arrives with the letters
         if (em.length) tl.fromTo(em, { color: 'rgba(0,0,0,0)' }, { color: getComputedStyle(h).color, duration: .5, stagger: .04, ease: 'power2.out', yoyo: true, repeat: 1, repeatDelay: .2 }, .5);
         return tl;
       }
@@ -324,7 +336,11 @@
     const t = eb.textContent;
     ScrollTrigger.create({ trigger: eb, start: 'top 90%', once: true, onEnter: () => G.to(eb, { duration: 1.1, scrambleText: { text: t, chars: '01/#_<>', speed: .6 } }) });
   });
-  ScrollTrigger.batch('.rv', {
+  if (TOYS) $$('p.rv').forEach(p => SplitText.create(p, {
+    type: 'lines', mask: 'lines', aria: 'none', autoSplit: true,
+    onSplit: s => G.from(s.lines, { yPercent: 105, duration: 1.05, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: p, start: 'top 90%', once: true } })
+  }));
+  ScrollTrigger.batch(TOYS ? '.rv:not(p)' : '.rv', {
     start: 'top 90%', once: true, batchMax: 4,
     onEnter: els => G.from(els, { y: 50, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: .08 })
   });
@@ -452,16 +468,19 @@
     // size the app windows so screenshot + text always fit between the header and the dock, at any screen size
     const pin = $('.pj-pin'), rem = () => parseFloat(getComputedStyle(H).fontSize);
     const sizeCards = () => {
-      const c = cards.find(x => !x.hidden) || cards[0], r = rem();
-      const fits = w => {
-        track.style.setProperty('--pcw', w + 'px');
-        const top = track.getBoundingClientRect().top - pin.getBoundingClientRect().top;
-        return top + c.offsetHeight <= innerHeight - 6.5 * r;
-      };
-      // widest window that fits between header and dock (text height depends on width, so test each step)
-      let w = Math.min(innerWidth * .3, 25 * r);
-      while (w > 14 * r && !fits(w)) w -= r;
-      if (w < 14 * r) fits(14 * r);
+      // 2-3 layout reads instead of a stepwise search: card height = shot (w / 1.6) + text block,
+      // and the lean text block barely changes with width, so a couple of passes converge
+      const c = cards.find(x => !x.hidden) || cards[0], r = rem(), max = Math.min(innerWidth * .3, 25 * r);
+      const aspect = parseFloat(getComputedStyle($('.pc-shot', c)).aspectRatio.split('/').reduce((a, b) => a / b)) || 1.6;
+      let w = max;
+      track.style.setProperty('--pcw', w + 'px');
+      const top = track.getBoundingClientRect().top - pin.getBoundingClientRect().top;
+      for (let k = 0; k < 3; k++) {
+        const rest = c.offsetHeight - $('.pc-shot', c).offsetHeight;
+        const next = G.utils.clamp(14 * r, max, (innerHeight - 6.5 * r - top - rest) * aspect);
+        if (Math.abs(next - w) < 2) break;
+        w = next; track.style.setProperty('--pcw', w + 'px');
+      }
     };
     sizeCards(); ScrollTrigger.addEventListener('refreshInit', sizeCards);
     const dist = () => Math.max(0, track.scrollWidth - innerWidth);
@@ -558,6 +577,98 @@
     hi.forEach(c => c.addEventListener('pointerenter', () => G.fromTo(c, { scaleX: 1.3, scaleY: .7 }, { scaleX: 1, scaleY: 1, duration: 1, ease: 'elastic.out(1,.3)', overwrite: 'auto' })));
   }
 
+  /* ── desktop layer (mouse users ≥961px only; phones and tablets keep the lighter page) ── */
+  if (TOYS) {
+    await yieldTask();
+
+    // depth: windows float at different heights above the desk, and the desk tips toward the cursor
+    const desk = $('.desk-in'), hero = $('#hero');
+    G.set(desk, { transformPerspective: 1800, transformStyle: 'preserve-3d' });
+    G.set('.w-hello', { z: 40 }); G.set('.w-photo', { z: 80 }); G.set('.w-stats', { z: 110 }); G.set(stks, { z: 150 });
+    const tiltY = G.quickTo(desk, 'rotationY', { duration: 1, ease: 'power3' }), tiltX = G.quickTo(desk, 'rotationX', { duration: 1, ease: 'power3' });
+    hero.addEventListener('pointermove', e => { tiltY((e.clientX / innerWidth - .5) * 6); tiltX((e.clientY / innerHeight - .5) * -4); });
+    hero.addEventListener('pointerleave', () => { tiltY(0); tiltX(0); });
+
+    // headings answer the cursor with the same weight ripple as the hero name
+    $$('.h2.split').forEach(h => {
+      h.addEventListener('pointermove', e => $$('.c', h).forEach(c => {
+        const r = c.getBoundingClientRect(), d = Math.hypot(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2));
+        G.to(c, { '--w': 800 - 560 * Math.max(0, 1 - d / 170), duration: .45, ease: 'power3', overwrite: 'auto' });
+      }));
+      h.addEventListener('pointerleave', () => G.to($$('.c', h), { '--w': 800, duration: 1, ease: 'elastic.out(1,.45)', overwrite: 'auto' }));
+    });
+
+    // app switch: long jumps from the dock or minimap cover the scroll with a full-screen "opening" card
+    const sw = document.createElement('div');
+    sw.id = 'switch'; sw.setAttribute('aria-hidden', 'true');
+    sw.innerHTML = '<span class="sw-k"></span><b class="sw-t"></b>';
+    document.body.append(sw);
+    let switching = false;
+    const go = id => {
+      const t = document.getElementById(id); if (!t || switching) return;
+      const y = t.getBoundingClientRect().top + scrollY;
+      if (Math.abs(y - scrollY) < innerHeight * 1.5) return lenis.scrollTo(y, { duration: 1.1 });
+      switching = true;
+      const dk = $(`.dk[data-k=${id}]`);
+      sw.style.setProperty('--pop', getComputedStyle(dk).getPropertyValue('--pop'));
+      $('.sw-k', sw).textContent = `opening ~/${id}`;
+      $('.sw-t', sw).textContent = t.dataset.l;
+      G.timeline({ onComplete: () => { switching = false; } })
+        .set(sw, { display: 'grid', transformOrigin: '50% 100%' })
+        .fromTo(sw, { scaleY: 0 }, { scaleY: 1, duration: .42, ease: 'expo.inOut' })
+        .from('.sw-t', { yPercent: 60, opacity: 0, duration: .45, ease: 'expo.out' }, '-=.12')
+        .from('.sw-k', { opacity: 0, duration: .3 }, '<')
+        .add(() => { lenis.scrollTo(y, { immediate: true, force: true }); ScrollTrigger.update(); })
+        .set(sw, { transformOrigin: '50% 0%' }, '+=.18')
+        .to(sw, { scaleY: 0, duration: .5, ease: 'expo.inOut' })
+        .set(sw, { display: 'none' });
+    };
+    $('.dock').addEventListener('click', e => { const a = e.target.closest('.dk'); if (!a) return; e.preventDefault(); e.stopPropagation(); go(a.dataset.k); }, true);
+
+    // minimap: the page is long and full of pinned scenes, so the right edge shows where you are
+    const map = document.createElement('div');
+    map.className = 'minimap'; map.setAttribute('aria-hidden', 'true');
+    const secs = $$('main > section');
+    map.innerHTML = secs.map(s => `<button type="button" tabindex="-1" data-k="${s.id}" style="--pop:${getComputedStyle($(`.dk[data-k=${s.id}]`)).getPropertyValue('--pop')}"><i></i><span>${s.dataset.l}</span></button>`).join('') + '<b class="mm-thumb"></b>';
+    document.body.append(map);
+    const thumb = $('.mm-thumb', map), btns = $$('button', map);
+    let total = 1, trackH = 1;
+    const layoutMap = () => {
+      total = document.documentElement.scrollHeight; trackH = map.offsetHeight;
+      secs.forEach((s, i) => { const top = s.getBoundingClientRect().top + scrollY; btns[i].style.top = (top / total * 100) + '%'; btns[i].style.height = (s.offsetHeight / total * 100) + '%'; });
+      thumb.style.height = Math.max(10, innerHeight / total * trackH) + 'px';
+    };
+    btns.forEach(b => b.addEventListener('click', () => go(b.dataset.k)));
+    ScrollTrigger.addEventListener('refresh', layoutMap);
+    ScrollTrigger.create({ start: 0, end: 'max', onUpdate: () => G.set(thumb, { y: scrollY / total * trackH }) });
+    G.from(map, { x: 40, opacity: 0, duration: 1, ease: 'expo.out', delay: 1.6 });
+
+    // books: the front book's cover swings open to a title page, so it reads as something to open
+    books.forEach(b => {
+      const bk = b.closest('.bk'), front = $('.b-front', b), inner = document.createElement('span');
+      inner.className = 'b-inner';
+      inner.innerHTML = `<i>Purv Taparia</i><b>${$('.bk-title', bk).textContent}</b><em>${$('.bk .btn', bk) ? $('.btn', bk).textContent : 'Open ↗'}</em>`;
+      b.append(inner);
+      G.set(front, { z: 16, transformOrigin: '0% 50%' });
+      G.set(inner, { autoAlpha: 0 });   // only exists while the cover is open (edge-on it would clutter the shelf spines)
+      b.addEventListener('pointerenter', () => { if (G.getProperty(b, 'rotationY') < 45) { G.set(inner, { autoAlpha: 1 }); G.to(front, { rotationY: -132, duration: 1, ease: 'power3.out', overwrite: 'auto' }); } });
+      b.addEventListener('pointerleave', () => G.to(front, { rotationY: 0, duration: .8, ease: 'power3.inOut', overwrite: 'auto', onComplete: () => G.set(inner, { autoAlpha: 0 }) }));
+    });
+
+    // the #1 rank gets one celebratory burst the first time the leaderboard comes into view
+    const odo = $('.odo');
+    ScrollTrigger.create({ trigger: '.ach-pin', start: 'top 35%', once: true, onEnter: () => {
+      const pops = ['var(--y)', 'var(--b)', 'var(--g)', 'var(--v)', 'var(--o)'];
+      for (let i = 0; i < 22; i++) {
+        const p = document.createElement('i'); p.className = 'confetti'; p.style.background = pops[i % 5]; odo.append(p);
+        const x = G.utils.random(-320, 320), up = G.utils.random(-300, -90);
+        G.timeline({ onComplete: () => p.remove(), delay: .35 + i * .012 })
+          .fromTo(p, { x: 0, y: 0, scale: 0, rotation: 0 }, { x, y: up, scale: 1, rotation: G.utils.random(-260, 260), duration: .55, ease: 'power2.out' })
+          .to(p, { y: up + G.utils.random(260, 420), x: x * 1.15, rotation: '+=180', opacity: 0, duration: .9, ease: 'power2.in' });
+      }
+    } });
+  }
+
   /* ── shut down / power on ─────────────────────────────── */
   const crt = $('#crt');
   $('#off').addEventListener('click', () => {
@@ -582,6 +693,5 @@
   /* go */
   trackSections();
   ScrollTrigger.sort();
-  ScrollTrigger.refresh();
   document.fonts.ready.then(() => { ScrollTrigger.sort(); ScrollTrigger.refresh(); });
 })();

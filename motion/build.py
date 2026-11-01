@@ -344,7 +344,7 @@ page = f'''<!doctype html>
 {boot}
 <a class="skip" href="#about">Skip to content</a>
 <header class="menubar">
-  <a href="#hero" class="mb-logo" aria-label="Purv/OS home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--y)" stroke="currentColor" stroke-width="2"/><path d="M10 25V7h7a5.5 5.5 0 010 11h-7" fill="none" stroke="#141414" stroke-width="3.2"/></svg><b>Purv<span>/</span>OS</b></a>
+  <a href="#hero" class="mb-logo" aria-label="Purv/OS home"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path class="logo-p" d="M19 53V12h17l10 10v6l-10 10h-2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="100"/><circle class="logo-dot" cx="34" cy="38" r="6"/></svg><b>Purv<span>/</span>OS</b></a>
   <span class="mb-sec" aria-hidden="true"><span class="mb-sec-in">Desktop</span></span>
   <span class="mb-r"><span class="mb-clock" aria-label="Time in Mumbai"><span id="clock">--:--</span> IST</span>
   <button type="button" class="mb-theme" id="theme" aria-label="Toggle dark mode"><span class="sun">☀</span><span class="moon">☾</span></button>
