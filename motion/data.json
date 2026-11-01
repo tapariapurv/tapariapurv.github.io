@@ -1,0 +1,939 @@
+{
+ "projects": [
+  {
+   "img": "assets/projects/envoy.webp",
+   "alt": "Screenshot of Envoy's War Room: a task board, speaking-time timer and speakers list for a Model UN delegation",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Envoy",
+   "desc": "A private, local-first AI workspace for Model UN delegates: chat with your own research with citations, draft position papers, and simulate opposing delegations, all on your computer via Ollama. — September 2026",
+   "tech": [
+    "Next.js",
+    "FastAPI",
+    "ChromaDB",
+    "Ollama"
+   ],
+   "links": [
+    [
+     "https://github.com/tapariapurv/envoy",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/pomly.webp",
+   "alt": "Screenshot of the Pomly website hero: a focus timer app for iPhone, iPad, Mac and Apple Watch",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Pomly",
+   "desc": "A free, open-source Pomodoro timer in native SwiftUI for iPhone, iPad, Mac and Apple Watch, with Dynamic Island, widgets and a companion extension that blocks distracting sites. — October 2026",
+   "tech": [
+    "Swift",
+    "SwiftUI",
+    "WidgetKit",
+    "Firebase"
+   ],
+   "links": [
+    [
+     "https://tapariapurv.github.io/pomly/",
+     "Open Website ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/pomly",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/chip.webp",
+   "alt": "Chip app splash screen with its orange bull mascot and the tagline “The fun way to learn about money & stocks!”",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Chip",
+   "desc": "A Duolingo-style app that teaches kids how investing works, with 22 short lessons, streaks and leagues, and a virtual fund of 14 real companies at daily closing prices. — September 2026",
+   "tech": [
+    "JavaScript",
+    "Firebase",
+    "PWA",
+    "Vercel"
+   ],
+   "links": [
+    [
+     "https://chip-stock-coach.vercel.app",
+     "Open Live App ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/stock-coach-v2",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/wordtick.webp",
+   "alt": "Screenshot of the Wordtick website: a words to time calculator that estimates reading-aloud and silent reading time",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Wordtick",
+   "desc": "A free words-to-time calculator: paste text or enter a word count to see how long a speech, essay or script takes to read aloud or silently, at slow, average or fast pace. Also runs as a Google Docs add-on and a Microsoft Word add-in. — October 2026",
+   "tech": [
+    "JavaScript",
+    "Apps Script",
+    "Office Add-ins",
+    "Vercel"
+   ],
+   "links": [
+    [
+     "https://wordtick.vercel.app",
+     "Open Website ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/wordtick",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/logek.webp",
+   "alt": "Screenshot of Logek: a vocabulary card for the word “generic” with its pronunciation and Don't Know and I Know It buttons",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Logek",
+   "desc": "An adaptive vocabulary app that uses Bayesian skill estimation and spaced repetition to pick words that challenge without overwhelming. — August 2026",
+   "tech": [
+    "React",
+    "TypeScript",
+    "Firebase",
+    "Tailwind CSS"
+   ],
+   "links": [
+    [
+     "https://tapariapurv.github.io/Logek",
+     "View Project ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/parchly.webp",
+   "alt": "Screenshot of the Parchly website: a native Markdown editor for Mac with a document view and formatting bar",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Parchly",
+   "desc": "A calm, native Markdown editor for macOS that hides the syntax as you read and brings it back on the line you're editing, with a formatting bar, live preview and 10 themes. — October 2026",
+   "tech": [
+    "Swift",
+    "AppKit",
+    "SwiftUI",
+    "cmark-gfm"
+   ],
+   "links": [
+    [
+     "https://tapariapurv.github.io/parchly/",
+     "Open Website ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/parchly",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/indian-stock-data-hub.webp",
+   "alt": "Screenshot of Indian Stock Data Hub analysing TCS: run totals, an AI verdict of Cautious, and key ratios like market cap, P/E and ROCE",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Indian Stock Data Hub",
+   "desc": "An open-source research desk for Indian listed companies: key ratios, filings and news for any ticker, a plain-English verdict from a local Ollama model, and Excel and Word exports. — September 2026",
+   "tech": [
+    "Python",
+    "Streamlit",
+    "Ollama",
+    "pdfplumber"
+   ],
+   "links": [
+    [
+     "https://github.com/tapariapurv/indian-stock-data-hub",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/academix.webp",
+   "alt": "Screenshot of the Academix student portal: a study activity heatmap and an upcoming tasks panel",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Academix",
+   "desc": "A school performance dashboard with student, teacher, parent and admin portals, covering grades, assignments, charts, a points system and a study planner. — September 2026",
+   "tech": [
+    "React",
+    "Express",
+    "SQLite",
+    "Tailwind CSS"
+   ],
+   "links": [
+    [
+     "https://lumino-s.vercel.app",
+     "Open Live App ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/academix",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "",
+   "alt": "",
+   "tags": [
+    "⬡ Hardware"
+   ],
+   "tagcls": [
+    "t-hw"
+   ],
+   "title": "Market Alert Matrix",
+   "desc": "An ESP8266 device in a 3D-printed case that lights one NeoPixel per 0.2% market move from the previous close and sounds a piezo past 1%. — August 2026",
+   "tech": [
+    "ESP8266",
+    "C++",
+    "NeoPixels",
+    "APIs"
+   ],
+   "links": []
+  },
+  {
+   "img": "assets/projects/hueframe.webp",
+   "alt": "Screenshot of Hueframe generating a nebula wallpaper previewed on a MacBook and an iPhone",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Hueframe",
+   "desc": "A generator for 4K–8K wallpapers in any colour: 30 generative styles, live device previews, and lossless PNG export up to 8K. — October 2026",
+   "tech": [
+    "JavaScript",
+    "Canvas API",
+    "HTML",
+    "CSS"
+   ],
+   "links": [
+    [
+     "https://hueframe.vercel.app",
+     "Open Live App ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/hueframe",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/markitdown-gui.webp",
+   "alt": "Screenshot of the MarkItDown GUI: a drop zone for files, a URL box with a Convert button and a start at login switch",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "MarkItDown GUI",
+   "desc": "A tiny local app around Microsoft's MarkItDown that turns PDFs, Office files, images, audio and web pages into clean Markdown, via drag-and-drop or a local API. — September 2026",
+   "tech": [
+    "Python",
+    "MarkItDown",
+    "JavaScript",
+    "REST API"
+   ],
+   "links": [
+    [
+     "https://github.com/tapariapurv/markitdown-gui",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "",
+   "alt": "",
+   "tags": [
+    "◐ In Progress",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-wip",
+    "t-ai"
+   ],
+   "title": "LiteWarden",
+   "desc": "A Chrome extension hosted on Github to manage users' passwords seamlessly and\n                            locally on their browser — nothing goes to datacenters outside their computer. Free of cost. —\n                            January 2026",
+   "tech": [
+    "JavaScript",
+    "Chrome APIs",
+    "HTML/CSS"
+   ],
+   "links": [
+    [
+     "https://github.com/tapariapurv/chrome-extension",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/air-quality-monitor.webp",
+   "alt": "Video thumbnail: Purv holding his 3D-printed air quality monitor in his workshop",
+   "tags": [
+    "⬡ Hardware"
+   ],
+   "tagcls": [
+    "t-hw"
+   ],
+   "title": "Air Quality Monitor",
+   "desc": "A pocket-sized air quality monitor I built when Delhi's smog hit record highs: an\n                            MQ135 gas sensor feeds an Arduino Nano, and a 128×64 OLED shows the live reading with a verdict\n                            like “Hazardous”, all in a 3D-printed case. Watch it on YouTube. — November 2025",
+   "tech": [
+    "Arduino Nano",
+    "C++",
+    "MQ135",
+    "OLED"
+   ],
+   "links": [
+    [
+     "https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7",
+     "Watch on YouTube ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/radar-system.webp",
+   "alt": "Video thumbnail: Purv demonstrating his Arduino radar, with the sweep plotted on a monitor behind him",
+   "tags": [
+    "⬡ Hardware"
+   ],
+   "tagcls": [
+    "t-hw"
+   ],
+   "title": "Radar System",
+   "desc": "An ultrasonic sensor on a 180° servo sweeps the room while an Arduino UNO\n                            measures distances, and a radar screen I coded in Processing plots every object it detects in\n                            real time. — May 2026",
+   "tech": [
+    "Arduino UNO",
+    "C++",
+    "Ultrasonic",
+    "Servo",
+    "Processing"
+   ],
+   "links": [
+    [
+     "https://youtube.com/shorts/xNrgtW_awv8?feature=share",
+     "Watch on YouTube ↗"
+    ]
+   ]
+  },
+  {
+   "img": "assets/projects/velvet-pour.webp",
+   "alt": "Screenshot of the Velvet Pour landing page: the word MOJITO in large serif letters over a cocktail glass between monstera leaves",
+   "tags": [
+    "● Live"
+   ],
+   "tagcls": [
+    "t-live"
+   ],
+   "title": "Velvet Pour",
+   "desc": "A GSAP-animated cocktail brand landing page — scroll-triggered timelines and\n                            SplitText reveals built with React and Tailwind CSS, deployed on Vercel. — August 2026",
+   "tech": [
+    "React",
+    "GSAP",
+    "Tailwind CSS",
+    "Vite"
+   ],
+   "links": [
+    [
+     "https://cocktail-site-lac.vercel.app/",
+     "View Project ↗"
+    ]
+   ]
+  },
+  {
+   "img": "",
+   "alt": "",
+   "tags": [
+    "⬡ Hardware"
+   ],
+   "tagcls": [
+    "t-hw"
+   ],
+   "title": "Neo-Pixel Game",
+   "desc": "A 30-second arcade game on an 8×8 NeoPixel grid: slide a 3-LED paddle to catch falling apples as the speed ramps up, on an Arduino Uno in a 3D-printed case. — Jan 2026",
+   "tech": [
+    "Arduino",
+    "C++",
+    "NeoPixels",
+    "Piezo"
+   ],
+   "links": [
+    [
+     "https://github.com/tapariapurv/neopixel-game",
+     "View on GitHub ↗"
+    ]
+   ]
+  }
+ ],
+ "books": [
+  {
+   "img": "assets/books/stock.webp",
+   "genre": "Finance / Non-fiction · Amazon",
+   "title": "10-Year-Olds Decode the Stock Market",
+   "desc": "A beginner-friendly guide to the stock market written for young readers — covering investing fundamentals, how markets work, and financial literacy concepts in simple language.",
+   "link": "https://www.amazon.in/dp/B0H1YGCL2D",
+   "cta": "Buy on Amazon ↗"
+  },
+  {
+   "img": "assets/books/dubai.webp",
+   "genre": "Adventure / Sci-Fi · Bribooks",
+   "title": "Dubai and a Futuristic City",
+   "desc": "This book has 2 sections: the first is about when me and my friends get teleported to Dubai while the second section is about being teleported to a futuristic city alone.",
+   "link": "https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city",
+   "cta": "Read on Bribooks ↗"
+  },
+  {
+   "img": "assets/books/digidream.webp",
+   "genre": "Educational fiction · Bribooks",
+   "title": "The Tour to DigiDream",
+   "desc": "An educational book that teaches readers about devices such as air conditioners, smartphones, and more.",
+   "link": "https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia",
+   "cta": "Read on Bribooks ↗"
+  },
+  {
+   "img": "assets/books/five-stories.webp",
+   "genre": "Short story collection · Bribooks",
+   "title": "Five Stories by Purv Taparia",
+   "desc": "Includes five stories written by me. Some are about beaches, a picnic, a magical carpet, etc.",
+   "link": "https://www.bribooks.com/bookstore/5-stories-by-purv-taparia/",
+   "cta": "Read on Bribooks ↗"
+  },
+  {
+   "img": "assets/books/graduation-day.webp",
+   "genre": "School-life fiction · Bribooks",
+   "title": "Graduation Day",
+   "desc": "My first book. It is about a graduation day of a person who happens to win student of the year too.",
+   "link": "https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/",
+   "cta": "Read on Bribooks ↗"
+  }
+ ],
+ "log": [
+  {
+   "date": "Oct 2026",
+   "entries": [
+    {
+     "href": "https://wordtick.vercel.app",
+     "title": "Wordtick",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Launched a free words-to-time calculator for speeches, essays and scripts, with a Google Docs add-on and a Microsoft Word add-in."
+    },
+    {
+     "href": "https://tapariapurv.github.io/pomly/",
+     "title": "Pomly",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Released a free, open-source Pomodoro timer for iPhone, iPad, Mac and Apple Watch with Live Activities, widgets, a menu bar timer and device sync."
+    },
+    {
+     "href": "https://tapariapurv.github.io/parchly/",
+     "title": "Parchly",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Released a native Markdown editor for macOS with a live-styled Document mode, a formatting bar, 10 themes and a Finder Quick Look extension."
+    },
+    {
+     "href": "https://hueframe.vercel.app",
+     "title": "Hueframe",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Launched a 4K–8K wallpaper generator for desktop, iPad and iPhone with 30 generative styles and colour matching."
+    },
+    {
+     "href": "https://certifications.arduino.cc/certificate/4e02fdbf-d55f-4417-ac29-0e64b3ef22bb",
+     "title": "Arduino Senior Certification",
+     "tags": [
+      [
+       "t-cert",
+       "✦ Certified"
+      ]
+     ],
+     "desc": "Passed the official Arduino Certification exam in Electronics and Physical Computing with 91%."
+    }
+   ]
+  },
+  {
+   "date": "Sep 2026",
+   "entries": [
+    {
+     "href": "https://chip-stock-coach.vercel.app",
+     "title": "Chip",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Launched a Duolingo-style investing app for kids with 22 chapters, spaced repetition, a virtual stock fund and a parent/teacher dashboard."
+    },
+    {
+     "href": "https://github.com/tapariapurv/markitdown-gui",
+     "title": "MarkItDown GUI",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Open-sourced a local drag-and-drop GUI and API for Microsoft's MarkItDown that converts documents, web pages and YouTube links to Markdown."
+    },
+    {
+     "href": "https://verify.skilljar.com/c/hdh53pci5vhz",
+     "title": "Claude Code 101 Certification",
+     "tags": [
+      [
+       "t-cert",
+       "✦ Certified"
+      ]
+     ],
+     "desc": "Completed Anthropic Academy's Claude Code 101 course: Plan Mode, context management, CLAUDE.md, subagents, skills, MCP and hooks."
+    },
+    {
+     "href": "https://github.com/tapariapurv/envoy",
+     "title": "Envoy",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Open-sourced a private, local-first AI workspace for Model UN delegates: cited research chat, position-paper drafting and an opponent simulator."
+    },
+    {
+     "href": "https://github.com/tapariapurv/indian-stock-data-hub",
+     "title": "Indian Stock Data Hub",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Open-sourced a research desk for Indian listed companies, with a plain-English verdict from a local AI model and one-click Excel and Word reports."
+    },
+    {
+     "href": "https://lumino-s.vercel.app",
+     "title": "Academix",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Built a school performance dashboard with student, teacher, parent and admin portals, charts and a points system."
+    }
+   ]
+  },
+  {
+   "date": "Aug 2026",
+   "entries": [
+    {
+     "href": "https://verify.skilljar.com/c/ghgqrf8euxh7",
+     "title": "Claude Code in Action Certification",
+     "tags": [
+      [
+       "t-cert",
+       "✦ Certified"
+      ]
+     ],
+     "desc": "Completed Anthropic Academy's Claude Code in Action course with a perfect 8/8 quiz score."
+    },
+    {
+     "href": "",
+     "title": "Market Alert Matrix",
+     "tags": [
+      [
+       "t-hw",
+       "⬡ Hardware"
+      ]
+     ],
+     "desc": "Built an ESP8266 and NeoPixel ring in a 3D-printed case that lights up with the market's live move and sounds an alarm past 1%."
+    },
+    {
+     "href": "https://tapariapurv.github.io/Logek",
+     "title": "Logek",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Launched an adaptive vocabulary app with spaced repetition and gamification, built in React, TypeScript and Firebase."
+    },
+    {
+     "href": "https://cocktail-site-lac.vercel.app/",
+     "title": "Velvet Pour",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ]
+     ],
+     "desc": "Designed a GSAP-animated cocktail brand landing page with scroll-triggered timelines and text reveals."
+    }
+   ]
+  },
+  {
+   "date": "May 2026",
+   "entries": [
+    {
+     "href": "https://youtube.com/shorts/xNrgtW_awv8?feature=share",
+     "title": "Radar System",
+     "tags": [
+      [
+       "t-hw",
+       "⬡ Hardware"
+      ]
+     ],
+     "desc": "Built an Arduino UNO radar: an ultrasonic sensor on a sweeping servo, plotted live on a radar screen I coded in Processing."
+    },
+    {
+     "href": "https://www.amazon.in/dp/B0H1YGCL2D",
+     "title": "10-Year-Olds Decode the Stock Market",
+     "tags": [
+      [
+       "t-mile",
+       "✎ Book"
+      ]
+     ],
+     "desc": "Published a finance book on Amazon that explains the stock market for young readers."
+    }
+   ]
+  },
+  {
+   "date": "Mar 2026",
+   "entries": [
+    {
+     "href": "assets/Claude 101 Certificate.pdf",
+     "title": "Claude 101 Certification",
+     "tags": [
+      [
+       "t-cert",
+       "✦ Certified"
+      ]
+     ],
+     "desc": "Completed Anthropic Academy's Claude 101 course."
+    }
+   ]
+  },
+  {
+   "date": "Jan 2026",
+   "entries": [
+    {
+     "href": "https://github.com/tapariapurv/neopixel-game",
+     "title": "Neo-Pixel Game",
+     "tags": [
+      [
+       "t-hw",
+       "⬡ Hardware"
+      ]
+     ],
+     "desc": "Built a 30-second apple-catching game on an 8×8 NeoPixel grid, with push-button controls and piezo sound effects in a 3D-printed case."
+    },
+    {
+     "href": "https://github.com/tapariapurv/chrome-extension",
+     "title": "LiteWarden",
+     "tags": [
+      [
+       "t-wip",
+       "◐ In Progress"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Started a Chrome extension for managing passwords locally, without the cloud."
+    }
+   ]
+  },
+  {
+   "date": "Nov 2025",
+   "entries": [
+    {
+     "href": "assets/Arduino Junior Certification.pdf",
+     "title": "Arduino Junior Certification",
+     "tags": [
+      [
+       "t-cert",
+       "✦ Certified"
+      ]
+     ],
+     "desc": "Passed the official Arduino Junior Certification exam with 96%."
+    },
+    {
+     "href": "https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7",
+     "title": "Air Quality Monitor",
+     "tags": [
+      [
+       "t-hw",
+       "⬡ Hardware"
+      ]
+     ],
+     "desc": "Built a pocket-sized air quality monitor with an MQ135 sensor and OLED screen during Delhi's smog crisis."
+    }
+   ]
+  },
+  {
+   "date": "Jun 2025",
+   "entries": [
+    {
+     "href": "https://www.bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia",
+     "title": "The Tour to DigiDream",
+     "tags": [
+      [
+       "t-mile",
+       "✎ Book"
+      ]
+     ],
+     "desc": "Published a tech-themed story that teaches readers facts about everyday devices, my fifth book on Bribooks."
+    }
+   ]
+  },
+  {
+   "date": "Mar 2025",
+   "entries": [
+    {
+     "href": "",
+     "title": "This Portfolio",
+     "tags": [
+      [
+       "t-mile",
+       "◆ Milestone"
+      ]
+     ],
+     "desc": "Launched this site to bring my projects, books and achievements together in one place."
+    }
+   ]
+  },
+  {
+   "date": "2024–25 · Grade 3",
+   "entries": [
+    {
+     "href": "",
+     "title": "International Rank 1, IEO English Olympiad",
+     "tags": [
+      [
+       "t-cert",
+       "★ Award"
+      ]
+     ],
+     "desc": "Scored 40/40 at Level 1, then 40/40 again at Level 2 to win ₹50,000."
+    },
+    {
+     "href": "",
+     "title": "International Rank 2, ICSO Cyber Olympiad",
+     "tags": [
+      [
+       "t-cert",
+       "★ Award"
+      ]
+     ],
+     "desc": "Scored 39/40 and won ₹8,333."
+    }
+   ]
+  },
+  {
+   "date": "2023–24 · Grade 2",
+   "entries": [
+    {
+     "href": "",
+     "title": "School Rank 1, IEO English Olympiad",
+     "tags": [
+      [
+       "t-cert",
+       "★ Award"
+      ]
+     ],
+     "desc": "Topped my school with 39/40."
+    },
+    {
+     "href": "",
+     "title": "94th All-India Rank, IPM Mathematics",
+     "tags": [
+      [
+       "t-cert",
+       "★ Award"
+      ]
+     ],
+     "desc": "Reached the Mega-Final of the All-India Open Mathematics Scholarship Examination."
+    }
+   ]
+  },
+  {
+   "date": "Dec 2023",
+   "entries": [
+    {
+     "href": "https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city/",
+     "title": "Dubai and a Futuristic City",
+     "tags": [
+      [
+       "t-mile",
+       "✎ Book"
+      ]
+     ],
+     "desc": "Published an adventure and sci-fi story, my fourth book on Bribooks."
+    }
+   ]
+  },
+  {
+   "date": "Jun 2023",
+   "entries": [
+    {
+     "href": "https://www.bribooks.com/bookstore/5-stories-by-purv-taparia/",
+     "title": "Five Stories by Purv Taparia",
+     "tags": [
+      [
+       "t-mile",
+       "✎ Book"
+      ]
+     ],
+     "desc": "Published a collection of five short stories, written in Grade 2."
+    },
+    {
+     "href": "https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/",
+     "title": "Graduation Day",
+     "tags": [
+      [
+       "t-mile",
+       "✎ Book"
+      ]
+     ],
+     "desc": "Published my very first book, a school-life story, at age seven."
+    }
+   ]
+  },
+  {
+   "date": "2022–23 · Grade 1",
+   "entries": [
+    {
+     "href": "",
+     "title": "International Rank 1, IEO English Olympiad",
+     "tags": [
+      [
+       "t-cert",
+       "★ Award"
+      ]
+     ],
+     "desc": "Won International Rank 1 in the International English Olympiad in my first year of school."
+    }
+   ]
+  }
+ ]
+}
