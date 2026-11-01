@@ -43,20 +43,33 @@
 
   /* ── project filter (Flip when motion) + project window ─ */
   const cards = $$('.pc');
+  let pjST = null, filtering = false;
   $$('.filt button').forEach(btn => btn.addEventListener('click', () => {
+    if (filtering || btn.getAttribute('aria-pressed') === 'true') return;
     $$('.filt button').forEach(b => b.setAttribute('aria-pressed', b === btn));
     const f = btn.dataset.f;
-    const state = MOTION ? Flip.getState(cards) : null;
-    cards.forEach(c => c.hidden = f !== 'all' && !c.classList.contains(f));
-    $('#pj-t').textContent = String(cards.filter(c => !c.hidden).length).padStart(2, '0');
-    if (!MOTION) return;
-    G.set(cards, { skewX: 0 });
-    Flip.from(state, {
-      duration: .7, ease: 'expo.inOut', absolute: true, scale: true, stagger: .02,
-      onEnter: els => G.fromTo(els, { opacity: 0, scale: .7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: .6, ease: 'back.out(1.6)' }),
-      onLeave: els => G.to(els, { opacity: 0, scale: .7, rotation: 6, duration: .4, ease: 'power2.in' }),
-      onComplete: () => { ScrollTrigger.refresh(); }
-    });
+    const apply = () => {
+      cards.forEach(c => c.hidden = f !== 'all' && !c.classList.contains(f));
+      $('#pj-t').textContent = String(cards.filter(c => !c.hidden).length).padStart(2, '0');
+    };
+    if (!MOTION) return apply();
+    if (!pjST) {   // phone grid: Flip reflows the cards in place
+      const state = Flip.getState(cards); apply();
+      Flip.from(state, { duration: .6, ease: 'expo.inOut', absolute: true, scale: true,
+        onEnter: els => G.fromTo(els, { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .5, ease: 'back.out(1.5)' }),
+        onLeave: els => G.to(els, { opacity: 0, scale: .85, duration: .3 }),
+        onComplete: () => ScrollTrigger.refresh() });
+      return;
+    }
+    // pinned strip: Flip can't measure inside a moving, pinned track, so swap the set behind a quick strip transition
+    filtering = true;
+    const track = $('#track');
+    G.timeline({ onComplete: () => filtering = false })
+      .to(track, { opacity: 0, y: 50, duration: .32, ease: 'power2.in' })
+      .add(() => { apply(); ScrollTrigger.refresh(); lenis && lenis.scrollTo(pjST.start + 2, { immediate: true, force: true }); })
+      .set(track, { y: 0 })
+      .to(track, { opacity: 1, duration: .2 })
+      .add(() => G.from(cards.filter(c => !c.hidden).slice(0, 4), { yPercent: 35, rotation: i => 4 - i * 2, duration: .7, ease: 'back.out(1.4)', stagger: .06 }), '<');
   }));
 
   const modal = $('#modal'), mShot = $('.m-shot'), mInfo = $('.m-info'), mWin = $('.m-win');
@@ -66,26 +79,29 @@
     const srcImg = $('.pc-shot img, .pc-shot .noshot', card);
     $('#m-file').textContent = $('.win-t', card).textContent;
     mWin.style.setProperty('--pop', getComputedStyle(card).getPropertyValue('--pop'));
-    mShot.innerHTML = ''; const clone = srcImg.cloneNode(true); clone.removeAttribute('loading'); mShot.append(clone);
+    mShot.innerHTML = ''; const clone = srcImg.cloneNode(true); clone.removeAttribute('loading'); clone.removeAttribute('style'); mShot.append(clone);
     const b = $('.pc-body', card);
     mInfo.innerHTML = `<div class="pc-meta">${$('.pc-meta', b).innerHTML}</div><h3 id="m-title">${$('.pc-title', b).textContent}</h3>
       <p class="pc-desc">${$('.pc-desc', b).innerHTML}</p><ul class="pc-tech">${$('.pc-tech', b).innerHTML}</ul><div class="lnks">${$('.lnks', b).innerHTML}</div>`;
-    const state = MOTION ? Flip.getState(srcImg) : null;
-    srcImg.dataset.flipId = clone.dataset.flipId = 'shot';
     modal.hidden = false; lenis && lenis.stop();
     $('.m-x').focus({ preventScroll: true });
     if (!MOTION) return;
+    // the window zooms out of the card it came from (transforms only)
     G.fromTo('.m-scrim', { opacity: 0 }, { opacity: 1, duration: .4 });
-    G.fromTo(mWin, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: .6, ease: 'expo.inOut' });
-    Flip.from(state, { targets: clone, duration: .8, ease: 'expo.inOut', absolute: true, scale: true, zIndex: 130 });
-    G.from(mInfo.children, { y: 26, opacity: 0, duration: .6, ease: 'expo.out', stagger: .06, delay: .35 });
+    G.from(mWin, { ...fromCard(card), duration: .75, ease: 'expo.inOut', transformOrigin: '0 0', clearProps: 'transform' });
+    G.from(mInfo.children, { y: 26, opacity: 0, duration: .6, ease: 'expo.out', stagger: .06, delay: .4 });
+  }
+  function fromCard(card) {
+    const a = card.getBoundingClientRect(), b = mWin.getBoundingClientRect();
+    return { x: a.left - b.left, y: a.top - b.top, scaleX: a.width / b.width, scaleY: a.height / b.height };
   }
   function closeProject() {
     if (modal.hidden) return;
     const done = () => { modal.hidden = true; lenis && lenis.start(); lastFocus && lastFocus.focus({ preventScroll: true }); };
     if (!MOTION) return done();
-    G.to('.m-scrim', { opacity: 0, duration: .3 });
-    G.to(mWin, { clipPath: 'inset(100% 0 0% 0)', duration: .45, ease: 'expo.in', onComplete: () => { G.set(mWin, { clearProps: 'clipPath' }); done(); } });
+    G.to('.m-scrim', { opacity: 0, duration: .4 });
+    G.to(mInfo.children, { opacity: 0, duration: .15 });
+    G.to(mWin, { ...fromCard(lastCard), duration: .5, ease: 'expo.inOut', transformOrigin: '0 0', onComplete: () => { G.set(mWin, { clearProps: 'transform' }); done(); } });
   }
   cards.forEach(c => $('.pc-shot', c).addEventListener('click', e => {
     if (e.metaKey || e.ctrlKey || e.shiftKey) return;
@@ -116,9 +132,9 @@
   $('.dk[data-k=hero]').classList.add('on');
   const trackSections = () => {   // created last so pin spacers above are already measured
     $$('main > section').forEach(sec => ScrollTrigger.create({
-      trigger: sec, start: 'top 45%', end: 'bottom 45%', onToggle: s => s.isActive && setSection(sec)
+      trigger: sec, start: 'top 45%', end: 'bottom 45%', refreshPriority: -1, onToggle: s => s.isActive && setSection(sec)
     }));
-    G.to('.mb-prog i', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true } });
+    G.to('.mb-prog i', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true, refreshPriority: -1 } });
   };
 
   if (!MOTION) return trackSections();
@@ -127,6 +143,7 @@
   if (window.Lenis) {
     lenis = new Lenis({ lerp: .11, anchors: { offset: 0 }, autoRaf: false });
     lenis.on('scroll', ScrollTrigger.update);
+    window.__lenis = lenis;
     G.ticker.add(t => lenis.raf(t * 1000));
     G.ticker.lagSmoothing(0);
   }
@@ -283,7 +300,7 @@
   /* ── generic reveals ──────────────────────────────────── */
   $$('.h2.split').forEach(h => {
     SplitText.create(h, {
-      type: 'lines,chars', mask: 'lines', autoSplit: true,
+      type: 'lines,words,chars', linesClass: 'ln', mask: 'lines', autoSplit: true,
       onSplit(self) {
         const em = self.chars.filter(c => c.closest('em'));
         const tl = G.timeline({ scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
@@ -303,10 +320,12 @@
   });
 
   /* ink sections open like a maximising window */
-  $$('section.ink').forEach(s => G.fromTo(s, { clipPath: 'inset(7% 6% 0% 6%)' }, {
-    clipPath: 'inset(0% 0% 0% 0%)', ease: 'none',
-    scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true }
-  }));
+  // (transform + opacity only: an animated clip-path repainted whole sections and dropped frames)
+  $$('section.ink').forEach(s => {
+    const bg = $('.ink-bg', s), st = { trigger: s, start: 'top bottom', end: 'top 20%', scrub: true };
+    G.fromTo(bg, { scaleX: .86, y: 60 }, { scaleX: 1, y: 0, ease: 'none', scrollTrigger: st });
+    G.fromTo($('i', bg), { opacity: 1 }, { opacity: 0, ease: 'power2.in', scrollTrigger: st });
+  });
 
   /* ── about: README scrub ──────────────────────────────── */
   const rd = SplitText.create('#readme', { type: 'words', wordsClass: 'w' });
@@ -356,13 +375,13 @@
     const tl = G.timeline({
       scrollTrigger: {
         trigger: '.ach-pin', start: 'top top', end: '+=' + achs.length * 75 + '%', pin: true, scrub: .8,
-        onUpdate: s => roll(Math.min(achs.length - 1, Math.floor(s.progress * achs.length)))
+        onUpdate: s => roll(Math.min(achs.length - 1, Math.floor(s.progress * tl.duration() + .1)))   // flips as each card is half in
       }
     });
     achs.forEach((a, i) => {
       if (!i) return;
       const at = i - .6;
-      tl.to(a, { yPercent: 0, rotationX: 0, opacity: 1, duration: 1, ease: 'power3.out' }, at);
+      tl.to(a, { yPercent: 0, rotationX: 0, duration: 1, ease: 'power3.out' }, at).to(a, { opacity: 1, duration: .25, ease: 'none' }, at);
       achs.slice(0, i).forEach((p, k) => tl.to(p, { yPercent: -7 * (i - k), scale: 1 - .06 * (i - k), opacity: (i - k) > 2 ? 0 : 1 - .3 * (i - k), duration: 1, ease: 'power3.out' }, at));
     });
     tl.to({}, { duration: .5 });
@@ -392,17 +411,23 @@
   $$('.month').forEach(m => ScrollTrigger.create({
     trigger: m, start: 'top 55%', end: 'bottom 55%',
     toggleClass: 'on',
-    onToggle: s => {
-      if (!s.isActive) return;
-      bdTl && bdTl.kill();
-      bdTl = G.timeline().to(bd, { yPercent: -110, duration: .2, ease: 'power2.in' })
-        .add(() => bd.textContent = m.dataset.d).fromTo(bd, { yPercent: 110 }, { yPercent: 0, duration: .55, ease: 'expo.out' });
-    }
+    onLeaveBack: () => m === $('.month') && setDate(m, -1),
+    onToggle: s => s.isActive && setDate(m, s.direction)
   }));
+  function setDate(m, dir) {   // the date rolls the way you scroll
+    if (bd.textContent === m.dataset.d) return;
+    bdTl && bdTl.kill();
+    bdTl = G.timeline().to(bd, { yPercent: -110 * dir, duration: .2, ease: 'power2.in' })
+      .add(() => bd.textContent = m.dataset.d).fromTo(bd, { yPercent: 110 * dir }, { yPercent: 0, duration: .55, ease: 'expo.out' });
+  }
   ScrollTrigger.batch('.commit', {
     start: 'top 92%', once: true, batchMax: 5,
     onEnter: els => G.from(els, { x: 80, opacity: 0, rotation: 2, duration: .9, ease: 'expo.out', stagger: .07 })
   });
+
+  /* decode screenshots and covers well before they scroll in, so first sight never costs a frame */
+  ScrollTrigger.create({ trigger: '#latest', start: 'top bottom', once: true, onEnter: () =>
+    $$('#projects img, #books img').forEach(i => { i.loading = 'eager'; i.decode && i.decode().catch(() => {}); }) });
 
   /* ── projects: pinned horizontal app strip ────────────── */
   const track = $('#track');
@@ -414,6 +439,7 @@
       x: () => -dist(), ease: 'none',
       scrollTrigger: {
         trigger: '.pj-pin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .8, invalidateOnRefresh: true,
+        onRefresh: s => pjST = s,
         onUpdate: s => {
           const vis = cards.filter(c => !c.hidden);
           n.textContent = String(Math.min(vis.length, 1 + Math.round(s.progress * (vis.length - 1)))).padStart(2, '0');
@@ -430,7 +456,12 @@
       if (img) G.fromTo(img, { xPercent: -12, scale: 1.25 }, { xPercent: 12, scale: 1.25, ease: 'none',
         scrollTrigger: { trigger: c, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } });
     });
-    return () => G.set([track, ...cards], { clearProps: 'all' });
+    if (TOYS) cards.forEach(c => {   // windows tip toward the pointer
+      const rx = G.quickTo(c, 'rotationX', { duration: .6, ease: 'power3' }), lift = G.quickTo(c, 'y', { duration: .6, ease: 'power3' });
+      c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); rx(((e.clientY - r.top) / r.height - .5) * -9); lift(-10); });
+      c.addEventListener('pointerleave', () => { rx(0); lift(0); });
+    });
+    return () => { pjST = null; G.set([track, ...cards], { clearProps: 'all' }); };
   });
   mm.add('(max-width: 960px)', () => {
     ScrollTrigger.batch('.pc', { start: 'top 90%', once: true, onEnter: els => G.from(els, { y: 70, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1 }) });

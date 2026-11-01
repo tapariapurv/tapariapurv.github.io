@@ -335,7 +335,7 @@ page = f'''<!doctype html>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/purv.webp" as="image">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 {sprite}
@@ -374,9 +374,10 @@ page = f'''<!doctype html>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
-<script src="app.js?v=1" defer></script>
+<script src="app.js?v=4" defer></script>
 </body>
 </html>
 '''
+page = re.sub(r'(<section [^>]*class="ink"[^>]*>)', r'\1<div class="ink-bg" aria-hidden="true"><i><b></b><b></b><b></b></i></div>', page)
 (D / "index.html").write_text(page)
 print("wrote", D / "index.html", len(page), "bytes")
