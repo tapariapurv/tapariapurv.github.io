@@ -1,3 +1,4 @@
 build.py
 data.json
 sprite.svg
+.env.local
