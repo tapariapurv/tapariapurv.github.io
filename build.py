@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates motion/index.html from data.json. Run: python3 motion/build.py"""
+"""Generates index.html from data.json. Run: python3 build.py"""
 import json, html, pathlib, re
 
 D = pathlib.Path(__file__).parent
@@ -113,7 +113,7 @@ about = f'''<section id="about" class="ink" data-l="About">
       <p class="rv">I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold Anthropic's <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl">Claude 101</a>, <a href="assets/Claude Code 101 Certificate.pdf" target="_blank" class="hl">Claude Code 101</a> and <a href="assets/Claude Code in Action Certificate.pdf" target="_blank" class="hl">Claude Code in Action</a> certifications.</p>
       <p class="rv">I program in <strong>HTML, CSS, JavaScript, TypeScript, Python, C++ and Swift</strong>, build web apps with React and Next.js and native Apple apps with SwiftUI, and build <a href="#projects" class="hl">real hardware projects</a> with Arduino and ESP8266. I have <a href="#books" class="hl">published 5 books</a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl">newsletter on Beehiiv</a> sharing thoughts and updates.</p>
       <p class="rv">This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-      <p class="fresh rv">Last updated <time datetime="2026-10-30">30 October 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></p>
+      <p class="fresh rv">Last updated <time datetime="2026-11-02">2 November 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></p>
     </div>
   </div>
   {win("Terminal — skills", skills_body, "o", "w-term", "zsh · 80×24")}
@@ -282,7 +282,7 @@ books = f'''<section id="books" data-l="Books">
 
 # ── faq / contact ─────────────────────────────────────────
 FAQ = [("Who is Purv Taparia?", "Purv Taparia is a student from Grade 5 at Chatrabhuj Narsee School, Mumbai, India, who is a 5x published author, an International Rank 1 English Olympiad winner, a self-taught coder working with HTML, CSS, Python, C++ and Arduino, and the writer of a newsletter on Beehiiv."),
-       ("Is this portfolio actively maintained?", "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 30 October 2026.")]
+       ("Is this portfolio actively maintained?", "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 2 November 2026.")]
 chat = '<div class="chat">' + "".join(
     f'<div class="qa"><p class="msg q"><span class="who" aria-hidden="true">You</span>{e(q)}</p><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg a"><span class="who" aria-hidden="true">Purv</span>{e(a)}</p></div>'
     for q, a in FAQ) + "</div>"
@@ -321,6 +321,8 @@ modal = '''<div id="modal" hidden><div class="m-scrim"></div><div class="m-win w
 <div class="win-bar"><span class="win-dots"><button type="button" class="m-x" aria-label="Close window"></button><i></i><i></i></span><span class="win-t" id="m-file"></span><span class="win-m">esc to close</span></div>
 <div class="win-body m-body"><div class="m-shot"></div><div class="m-info"></div></div></div></div>'''
 
+faqld = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]},ensure_ascii=False)
+jsonld = (D / "jsonld.html").read_text() + '<script type="application/ld+json">' + faqld + '</script>'
 css = re.sub(r"\s*\n\s*", "\n", (D / "style.css").read_text())
 page = f'''<!doctype html>
 <html lang="en">
@@ -328,10 +330,16 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){{var h=document.documentElement,u=navigator.userAgent,b=/bot|crawl|spider|slurp|headless|preview/i.test(u),r=matchMedia('(prefers-reduced-motion: reduce)').matches;h.classList.add('js');if(b)h.classList.add('bot');if(!b&&!r)h.classList.add('motion');try{{var t=localStorage.getItem('pos-theme');if(t)h.dataset.theme=t;if(!sessionStorage.getItem('pos-booted')&&!b&&!r&&matchMedia('(hover:hover) and (pointer:fine) and (min-width:961px)').matches)h.classList.add('booting')}}catch(e){{}}}})();</script>
-<title>Purv Taparia — Purv/OS</title>
-<meta name="description" content="Purv Taparia, a student from Mumbai who builds apps with AI and Claude Code, designs hardware and has published 5 books. A motion-design edition of his portfolio.">
+<title>Purv Taparia | Young AI Builder, Developer &amp; Author from Mumbai</title>
+<meta name="description" content="Purv Taparia, a student from Mumbai who builds apps with AI and Claude Code, designs hardware and has published 5 books. 5x published author and International Rank 1 English Olympiad winner.">
 <link rel="canonical" href="https://tapariapurv.github.io/">
 <meta property="og:title" content="Purv Taparia — Purv/OS"><meta property="og:image" content="https://tapariapurv.github.io/assets/og-image.png">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="39ef453b-8389-43f8-96ca-81ca9109ed71"></script>
+<meta name="google-site-verification" content="xqLbD-xd9Cr2sTsCRxFxg-c19b-M6SnRkDD3pZVQEzs">
+<meta name="author" content="Purv Taparia"><meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="article:modified_time" content="2026-11-02">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://tapariapurv.github.io/assets/og-image.png">
+{jsonld}
 <meta name="theme-color" content="#141414">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
