@@ -113,7 +113,7 @@ about = f'''<section id="about" class="ink" data-l="About">
       <p class="rv">I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold Anthropic's <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl">Claude 101</a>, <a href="assets/Claude Code 101 Certificate.pdf" target="_blank" class="hl">Claude Code 101</a> and <a href="assets/Claude Code in Action Certificate.pdf" target="_blank" class="hl">Claude Code in Action</a> certifications.</p>
       <p class="rv">I program in <strong>HTML, CSS, JavaScript, TypeScript, Python, C++ and Swift</strong>, build web apps with React and Next.js and native Apple apps with SwiftUI, and build <a href="#projects" class="hl">real hardware projects</a> with Arduino and ESP8266. I have <a href="#books" class="hl">published 5 books</a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl">newsletter on Beehiiv</a> sharing thoughts and updates.</p>
       <p class="rv">This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-      <p class="fresh rv">Last updated <time datetime="2026-11-02">2 November 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></p>
+      <p class="fresh rv">Last updated <time datetime="2026-11-06">6 November 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></p>
     </div>
   </div>
   {win("Terminal — skills", skills_body, "o", "w-term", "zsh · 80×24")}
@@ -221,7 +221,7 @@ latest = f'''<section id="latest" data-l="Changelog">
   <div class="sec-hd"><div><p class="eb">05 · git log --all</p><h2 class="h2 split">Month by <em>month</em></h2></div>
   <p class="note rv">Everything I've shipped, published and won, newest first. {n_commits} commits since 2022.</p></div>
   <div class="log-grid">
-    <div class="log-side" aria-hidden="true"><div class="big-date"><span class="bd-in">Oct 2026</span></div><div class="bd-meta"><span class="bd-n">{n_commits:02d}</span> commits · HEAD → main</div></div>
+    <div class="log-side" aria-hidden="true"><div class="big-date"><span class="bd-in">Nov 2026</span></div><div class="bd-meta"><span class="bd-n">{n_commits:02d}</span> commits · HEAD → main</div></div>
     <ol class="log"><span class="rail" aria-hidden="true"><i></i></span>{"".join(rows)}</ol>
   </div>
 </div>
@@ -282,7 +282,7 @@ books = f'''<section id="books" data-l="Books">
 
 # ── faq / contact ─────────────────────────────────────────
 FAQ = [("Who is Purv Taparia?", "Purv Taparia is a student from Grade 5 at Chatrabhuj Narsee School, Mumbai, India, who is a 5x published author, an International Rank 1 English Olympiad winner, a self-taught coder working with HTML, CSS, Python, C++ and Arduino, and the writer of a newsletter on Beehiiv."),
-       ("Is this portfolio actively maintained?", "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 2 November 2026.")]
+       ("Is this portfolio actively maintained?", "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 6 November 2026.")]
 chat = '<div class="chat">' + "".join(
     f'<div class="qa"><p class="msg q"><span class="who" aria-hidden="true">You</span>{e(q)}</p><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg a"><span class="who" aria-hidden="true">Purv</span>{e(a)}</p></div>'
     for q, a in FAQ) + "</div>"
@@ -313,7 +313,7 @@ footer = '''<footer>
 </footer>'''
 
 BOOT = ["PURV/OS 5.0 — Mumbai build 2026.10", "checking memory ............ 10 years OK", "mounting /books ............ 5 found",
-        "mounting /apps ............. 16 found", "loading certificates ....... 5 verified", "linking claude-code ........ ✳ ready", "starting desktop"]
+        "mounting /apps ............. 17 found", "loading certificates ....... 5 verified", "linking claude-code ........ ✳ ready", "starting desktop"]
 boot = '<div id="boot" aria-hidden="true"><div class="boot-in"><div class="boot-logo">PURV<span>/</span>OS</div><ul>' + \
        "".join(f"<li>{l}</li>" for l in BOOT) + '</ul><div class="boot-bar"><i></i></div><p class="boot-skip">click or press any key to skip</p></div></div>'
 
@@ -337,7 +337,7 @@ page = f'''<!doctype html>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="39ef453b-8389-43f8-96ca-81ca9109ed71"></script>
 <meta name="google-site-verification" content="xqLbD-xd9Cr2sTsCRxFxg-c19b-M6SnRkDD3pZVQEzs">
 <meta name="author" content="Purv Taparia"><meta name="robots" content="index, follow, max-image-preview:large">
-<meta property="article:modified_time" content="2026-11-02">
+<meta property="article:modified_time" content="2026-11-06">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://tapariapurv.github.io/assets/og-image.png">
 {jsonld}
 <meta name="theme-color" content="#141414">

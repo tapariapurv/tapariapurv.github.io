@@ -167,6 +167,11 @@ EDU = [
 
 # badges: "live", "hw", "prog", "cc"
 PROJ = [
+    ("laptop", "Brim", ["live", "cc"], "November 2026",
+     "Free Mac menu bar app showing how close Claude, Codex, Cursor and nine more AI coding tools are "
+     "to their limits. Fork of OpenUsage with a Liquid Glass design, cost estimates and a Raycast extension.",
+     ["Swift", "SwiftUI", "Liquid Glass", "Raycast"],
+     ("globe", "tapariapurv.github.io/brim", "https://tapariapurv.github.io/brim/")),
     ("flag-fill", "Envoy", ["live", "cc"], "September 2026",
      "Private, local-first AI workspace for Model UN delegates: chats with research documents with "
      "citations, drafts position papers for Word or PDF, simulates an opposing delegation, and runs "

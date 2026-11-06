@@ -1,6 +1,36 @@
 {
  "projects": [
   {
+   "img": "assets/projects/brim.webp",
+   "alt": "Screenshot of the Brim website: a Mac menu bar app that shows AI coding usage limits",
+   "tags": [
+    "● Live",
+    "✳ Claude Code"
+   ],
+   "tagcls": [
+    "t-live",
+    "t-ai"
+   ],
+   "title": "Brim",
+   "desc": "A free, open-source Mac menu bar app that shows how close Claude, Codex, Cursor and nine more AI coding tools are to their limits. An unofficial fork of OpenUsage by Robin Ebers, to which I added a Liquid Glass design, cost estimates from local logs, tracking without sign-in and a Raycast extension. — November 2026",
+   "tech": [
+    "Swift",
+    "SwiftUI",
+    "Liquid Glass",
+    "Raycast"
+   ],
+   "links": [
+    [
+     "https://tapariapurv.github.io/brim/",
+     "Open Website ↗"
+    ],
+    [
+     "https://github.com/tapariapurv/brim",
+     "View on GitHub ↗"
+    ]
+   ]
+  },
+  {
    "img": "assets/projects/envoy.webp",
    "alt": "Screenshot of Envoy's War Room: a task board, speaking-time timer and speakers list for a Model UN delegation",
    "tags": [
@@ -469,6 +499,26 @@
   }
  ],
  "log": [
+  {
+   "date": "Nov 2026",
+   "entries": [
+    {
+     "href": "https://tapariapurv.github.io/brim/",
+     "title": "Brim",
+     "tags": [
+      [
+       "t-live",
+       "● Live"
+      ],
+      [
+       "t-ai",
+       "✳ Claude Code"
+      ]
+     ],
+     "desc": "Released a Liquid Glass fork of OpenUsage: a Mac menu bar app for AI coding usage limits, with cost estimates and a Raycast extension."
+    }
+   ]
+  },
   {
    "date": "Oct 2026",
    "entries": [

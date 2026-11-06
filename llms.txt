@@ -2,7 +2,7 @@
 
 > Purv Taparia is a student in Grade 5 at Chatrabhuj Narsee School, Mumbai, India. He is a young AI builder who ships apps with Claude Code, a 5× published author, two-time International Rank 1 English Olympiad winner, coder, newsletter blogger, Arduino-certified maker, and national-level roller skating competitor.
 
-Last updated: 30 October 2026 · Live since March 2025
+Last updated: 6 November 2026 · Live since March 2025
 
 ## About
 
@@ -56,6 +56,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Changelog (month by month, newest first)
 
+- **Nov 2026** — Released Brim, a Liquid Glass fork of OpenUsage: a Mac menu bar app for AI coding usage limits, with cost estimates and a Raycast extension (built with Claude Code) — https://tapariapurv.github.io/brim/ — https://github.com/tapariapurv/brim
 - **Oct 2026** — Launched Wordtick, a free words-to-time calculator for speeches, essays and scripts, with a Google Docs add-on and a Microsoft Word add-in (built with Claude Code) — https://wordtick.vercel.app — https://github.com/tapariapurv/wordtick
 - **Oct 2026** — Released Pomly, a free, open-source Pomodoro focus timer for iPhone, iPad, Mac and Apple Watch (built with Claude Code) — https://tapariapurv.github.io/pomly/ — https://github.com/tapariapurv/pomly
 - **Oct 2026** — Released Parchly, a native Markdown editor for macOS with a Quick Look extension (built with Claude Code) — https://tapariapurv.github.io/parchly/ — https://github.com/tapariapurv/parchly
@@ -82,6 +83,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 
 ## Projects
 
+- **Brim** — A free, open-source Mac menu bar app that shows how close Claude, Codex, Cursor and nine more AI coding tools are to their limits. An unofficial fork of OpenUsage by Robin Ebers, to which Purv added a Liquid Glass design, cost estimates from local logs, tracking without sign-in and a Raycast extension (Swift, SwiftUI, Liquid Glass, Raycast; built with Claude Code) [Nov 2026] — https://tapariapurv.github.io/brim/ — https://github.com/tapariapurv/brim
 - **Envoy** — Private, local-first AI workspace for Model UN delegates: research vault with cited chat, AI drafting studio with Word/PDF export, opponent simulator, committee timers, teleprompter and shareable per-conference workspaces, running locally via Ollama (Next.js, FastAPI, ChromaDB, Ollama; built with Claude Code) [Sep 2026] — https://github.com/tapariapurv/envoy
 - **Pomly** — A free, open-source native Pomodoro focus timer for iPhone, iPad, Mac and Apple Watch: a drag-to-set dial, Live Activity and Dynamic Island, Home and Lock Screen widgets, a Mac menu bar timer, Apple Watch complications, 6-character pairing-code sync between devices and a companion browser extension that blocks distracting sites during focus; no account, no tracking (Swift, SwiftUI, WidgetKit, Firebase; built with Claude Code) [Oct 2026] — https://tapariapurv.github.io/pomly/ — https://github.com/tapariapurv/pomly
 - **Chip** — A Duolingo-style app that teaches kids investing through 22 chapters of lessons, spaced-repetition practice, streaks and leagues, a virtual fund of 14 real companies, and a parent and teacher dashboard. (JavaScript, Firebase, PWA, Vercel; built with Claude Code) [Sep 2026] — https://chip-stock-coach.vercel.app — https://github.com/tapariapurv/stock-coach-v2
